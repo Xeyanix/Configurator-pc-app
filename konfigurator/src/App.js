@@ -17,7 +17,7 @@ function App() {
     <div className={styles.appWrapper}>
       <Filters />
       <AddProducts
- 
+
       />
       <div className={styles.columnsWrapper}>
         <ProductList
