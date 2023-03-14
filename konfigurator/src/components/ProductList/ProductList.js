@@ -45,17 +45,26 @@ function ProductList(props) {
         return totalPrice;
     }
 
-
+    const productsList = props.Motherboards.map((motherboard) => (
+        <li
+            onClick={() => props.dodawanie(motherboard)}
+            key={motherboard.name}>
+            {motherboard.name}
+        </li>
+    ));
 
     return (
         <div className={commonColumnsStyles.App}>
             <p>Total price: ${calculateTotalPrice()}</p>
+
             <header className={commonColumnsStyles.AppHeader}>
                 <div>
-                    <h1>PC Configurator</h1>
                     <form>
                         <p>Compatible Motherboards</p>
-                        {Motherboards.map((motherboard) => (
+
+
+
+                        {/* {Motherboards.map((motherboard) => (
                             <div
                                 key={Motherboards.id}
                             >
@@ -69,7 +78,9 @@ function ProductList(props) {
                                 />
                                 <label htmlFor={motherboard.name}>{motherboard.name} ${motherboard.price}</label>
                             </div>
-                        ))}
+                        ))} */}
+
+
 
                         {selectedMotherboard && (
                             <div>
@@ -112,7 +123,7 @@ function ProductList(props) {
                         )}
 
 
-
+                        <ul>{productsList}</ul>
 
                     </form >
                 </div>

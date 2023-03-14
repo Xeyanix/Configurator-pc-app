@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 
 function SelectedComponents(props) {
   const [productsToBuy, setProductsToBuy] = useState([]);
-  const [selectedMotherboard, setSelectedMotherboard] = useState(null);
-  const [selectedCPU, setSelectedCPU] = useState(null);
-  const [selectedRAM, setSelectedRAM] = useState(null);
+  // const [selectedMotherboard, setSelectedMotherboard] = useState(null);
+  // const [selectedCPU, setSelectedCPU] = useState(null);
+  // const [selectedRAM, setSelectedRAM] = useState(null);
 
   useEffect(() => {
     setProductsToBuy(props.SelectedItems);
@@ -29,9 +29,9 @@ function SelectedComponents(props) {
   const calculateTotalPrice = () => {
     let totalPrice = 0;
 
-    if (selectedMotherboard) totalPrice += selectedMotherboard.price;
-    if (selectedCPU) totalPrice += selectedCPU.price;
-    if (selectedRAM) totalPrice += selectedRAM.price;
+    // if (selectedMotherboard) totalPrice += selectedMotherboard.price;
+    // if (selectedCPU) totalPrice += selectedCPU.price;
+    // if (selectedRAM) totalPrice += selectedRAM.price;
 
 
     return totalPrice;

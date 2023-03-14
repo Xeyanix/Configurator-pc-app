@@ -5,7 +5,7 @@ import styles from '../../common/styles/Columns.module.scss';
 function AddProducts() {
   return (
     <div className={styles.Wrappper}>
-      <p> add Products </p>
+       <h1>PC Configurator</h1>
     </div>
   );
 }
