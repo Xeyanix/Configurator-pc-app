@@ -16,7 +16,6 @@ function App() {
     setSelectedMotherboard((prev) => [...prev, product])
   };
 
-
   const removeItem = (productId) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
   };
@@ -34,7 +33,9 @@ function App() {
           dodawanie={addToCart1}
         />
         <Cart
-          cart={cart} removeItem={removeItem}
+          cart={cart} 
+          remove1={setCart}
+          remove={removeItem}
         />
       </div>
     </div >

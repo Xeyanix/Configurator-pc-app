@@ -1,6 +1,6 @@
 import React from 'react';
 import commonColumnsStyles from '../../common/styles/Columns.module.scss';
-import Motherboards from '../../common/consts/motherboard';
+// import Motherboards from '../../common/consts/motherboard';
 
 function ProductList(props) {
 

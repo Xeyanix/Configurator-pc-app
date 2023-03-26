@@ -1,33 +1,42 @@
 import commonColumnsStyles from '../../common/styles/Columns.module.scss'
+import { useEffect, useState } from "react";
 
+function Cart(props) {
+  const [productsToBuy, setProductsToBuy] = useState([]);
 
-function Cart({ cart, removeItem }) {
+  useEffect(() => {
+    setProductsToBuy(props.cart);
+  }, [props.cart]);
 
-  const countByProduct = cart.reduce((acc, product) => {
+  const removeFromShoppingList = (event, id) => {
+    props.remove1(productsToBuy.filter((Motherboards) => Motherboards.id !== id));
+    event.preventDefault();
+  };
+
+  const countByProduct = props.cart.reduce((acc, product) => {
     acc[product.id] = (acc[product.id] || 0) + 1;
     return acc;
   }, {});
 
   const cartItems = Object.keys(countByProduct).map((productId) => {
-    const product = cart.find((p) => p.id === parseInt(productId));
+    const product = props.cart.find((p) => p.id === parseInt(productId));
+
     return {
       ...product,
       count: countByProduct[productId]
     };
+
   });
 
-  const totalPrice = cart.reduce((acc, product) => acc + product.price, 0);
+  const totalPrice = props.cart.reduce((acc, product) => acc + product.price, 0);
 
-  const ProductsLists = cartItems.map((item) => (
-
+  const DUPA = cartItems.map((Motherboards) => (
     <li
-      key={item.id} >
-      {item.name} - ${item.price} x{item.count}
-      {/* {Motherboards.name} ${Motherboards.price} */}
-      < button onClick={() => removeItem(item.id)
-      }> Remove</button >
+      onContextMenu={(event) => { removeFromShoppingList(event, Motherboards.id); }}
+      key={Motherboards.id} >
+      {Motherboards.name} - ${Motherboards.price} x{Motherboards.count}
+      <button onClick={() => props.remove(Motherboards.id)}> Remove</button >
     </li >
-
   ));
 
   return (
@@ -35,13 +44,10 @@ function Cart({ cart, removeItem }) {
       <header className={commonColumnsStyles.AppHeader}>
         <div>
           <h2>Cart</h2>
-          {cart.length === 0 ? (
+          {props.cart.length === 0 ? (
             <p>Your shopping cart is empty.</p>
           ) : (
-            <ul>
-
-              {ProductsLists}
-            </ul>
+            <ul>{DUPA}</ul>
           )}
           <p id="total"> Total Price: ${totalPrice}
           </p>
