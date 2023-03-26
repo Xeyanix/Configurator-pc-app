@@ -64,7 +64,7 @@ function ProductList(props) {
 
 
 
-                        {/* {Motherboards.map((motherboard) => (
+                       {Motherboards.map((motherboard) => (
                             <div
                                 key={Motherboards.id}
                             >
@@ -78,7 +78,7 @@ function ProductList(props) {
                                 />
                                 <label htmlFor={motherboard.name}>{motherboard.name} ${motherboard.price}</label>
                             </div>
-                        ))} */}
+                        ))} 
 
 
 
@@ -123,7 +123,7 @@ function ProductList(props) {
                         )}
 
 
-                        <ul>{productsList}</ul>
+                        {/* <ul>{productsList}</ul> */}
 
                     </form >
                 </div>
