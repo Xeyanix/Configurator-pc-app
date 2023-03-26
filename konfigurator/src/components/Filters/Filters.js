@@ -5,14 +5,19 @@ class Filters extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchName: '',
-      searchChipset: '',
+      searchPhrase: '',
       searchSocket: '',
+      searchChipset: '',
     };
   }
 
   handleSearchPhraseChange = (event) => {
-    this.setState({ searchName: event.target.value }
+    this.setState({ searchPhrase: event.target.value }
+    );
+  };
+
+  handleSelectCategory = (event) => {
+    this.setState({ searchSocket: event.target.value }
     );
   };
 
@@ -22,18 +27,15 @@ class Filters extends React.Component {
     );
   };
 
-  handleSelectCategory = (event) => {
-    this.setState({ searchSocket: event.target.value }
-    );
-  };
+
 
   filterProdukty = () => {
     const { Motherboards } = this.props;
-    const { searchName, searchChipset, searchSocket } = this.state;
+    const { searchPhrase, searchChipset, searchSocket } = this.state;
 
     // odfiltrowanie zgodnych wyników
     let filteredProducts = Motherboards.filter((Motherboards) =>
-      Motherboards.name.includes(searchName)
+      Motherboards.name.includes(searchPhrase)
     );
 
     if (searchSocket) {
@@ -43,8 +45,9 @@ class Filters extends React.Component {
     }
 
     if (searchChipset) {
-      filteredProducts = filteredProducts.filter(
-        (Motherboards) => Motherboards.chipset === searchChipset
+      filteredProducts = filteredProducts.filter((Motherboards) =>
+        Motherboards.name.includes(searchChipset)
+        // (Motherboards) => Motherboards.chipset === searchChipset
       );
 
     }
@@ -57,9 +60,9 @@ class Filters extends React.Component {
   handleResetFilters = () => {
     this.setState(
       {
-        searchName: '',
-        searchChipset: '',
+        searchPhrase: '',
         searchSocket: '',
+        searchChipset: '',
       },
       () => {
         this.filterProdukty();
@@ -77,25 +80,25 @@ class Filters extends React.Component {
 
   render() {
     const uniqueFoodCategory = this.getUniqueFoodCategory();
-    const { searchName, searchChipset, searchSocket } = this.state;
+    const { searchPhrase, searchChipset, searchSocket } = this.state;
 
 
     return (
       <div className={styles.ProductsFiltersWrapper}>
         Tylko produkty
         <input
-          value={searchName}
+          value={searchPhrase}
           onChange={this.handleSearchPhraseChange}
         ></input>
-        Produkt Spożywczy
+        Chipset
         <input
-          type="checkbox"
-          onChange={this.handleProductType}
           value={searchChipset}
+          onChange={this.handleProductType}
         ></input>
         <select
           value={searchSocket}
           onChange={this.handleSelectCategory}>
+
           <option key={'all'} value={''}>
             All Categories
           </option>{uniqueFoodCategory.map((socket) => (
