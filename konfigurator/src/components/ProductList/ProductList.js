@@ -9,7 +9,7 @@ function ProductList(props) {
       onClick={() => props.dodawanie(motherboard)}
       key={motherboard.id}>
       {motherboard.name},
-      {/* {motherboard.chipset} */}
+      {motherboard.chipset}
     </li>
   ));
 

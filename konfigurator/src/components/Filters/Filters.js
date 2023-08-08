@@ -23,10 +23,15 @@ class Filters extends React.Component {
 
   handleProductType = (event) => {
     this.setState({ searchChipset: event.target.value },
-      () => this.filterProdukty()
+      () => this.filterProdukty() //filtrowanie podczas wpisywania
     );
   };
 
+  handleSearchKeyUp = (event) => {
+    if (event.key === 'Enter') { //obsługa wcisniecia enter
+      this.filterProdukty();
+    }
+  };
 
 
   filterProdukty = () => {
@@ -35,18 +40,18 @@ class Filters extends React.Component {
 
     // odfiltrowanie zgodnych wyników
     let filteredProducts = Motherboards.filter((Motherboards) =>
-      Motherboards.name.includes(searchPhrase)
+      Motherboards.name.toLowerCase().includes(searchPhrase.toLowerCase())
     );
 
     if (searchSocket) {
-      filteredProducts = filteredProducts.filter(
-        (Motherboards) => Motherboards.socket === searchSocket
+      filteredProducts = filteredProducts.filter((Motherboards) => 
+      Motherboards.socket.toLowerCase() === searchSocket.toLowerCase()
       );
     }
 
     if (searchChipset) {
       filteredProducts = filteredProducts.filter((Motherboards) =>
-        Motherboards.name.includes(searchChipset)
+        Motherboards.name.toLowerCase().includes(searchChipset.toLowerCase())
         // (Motherboards) => Motherboards.chipset === searchChipset
       );
 
@@ -89,6 +94,7 @@ class Filters extends React.Component {
         <input
           value={searchPhrase}
           onChange={this.handleSearchPhraseChange}
+          onKeyUp={this.handleSearchKeyUp}  //obsługa wcisniecia enter
         ></input>
         Chipset
         <input
@@ -97,7 +103,7 @@ class Filters extends React.Component {
         ></input>
         <select
           value={searchSocket}
-          onChange={this.handleSelectCategory}>
+          onChange={this.handleSelectCategory} >
 
           <option key={'all'} value={''}>
             All Categories
