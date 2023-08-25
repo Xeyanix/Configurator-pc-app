@@ -6,12 +6,13 @@ import ProductList from './components/ProductList/ProductList';
 import Cart from './components/Cart/Cart';
 import Motherboards from './common/consts/motherboard';
 
+
 function App() {
   const [cart, setCart] = useState([]);
   const [selectedMotherboard, setSelectedMotherboard] = useState(Motherboards);
   const [MotherboardsToDisplay, setMotherboardsToDisplay] = useState(selectedMotherboard);
 
-  const addToCart1 = (product) => {
+  const addToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
     setSelectedMotherboard((prev) => [...prev, product])
   };
@@ -30,13 +31,14 @@ function App() {
       <div className={styles.columnsWrapper}>
         <ProductList
           Motherboards={MotherboardsToDisplay}
-          dodawanie={addToCart1}
+          dodawanie={addToCart}
         />
         <Cart
           cart={cart} 
-          remove1={setCart}
+          removeByRightClick={setCart}
           remove={removeItem}
         />
+        {/* <Cpus/> */}
       </div>
     </div >
 

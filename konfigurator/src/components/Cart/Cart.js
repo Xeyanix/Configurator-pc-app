@@ -9,7 +9,7 @@ function Cart(props) {
   }, [props.cart]);
 
   const removeFromShoppingList = (event, id) => {
-    props.remove1(productsToBuy.filter((Motherboards) => Motherboards.id !== id));
+    props.removeByRightClick(productsToBuy.filter((Motherboards) => Motherboards.id !== id));
     event.preventDefault();
   };
 
@@ -30,7 +30,7 @@ function Cart(props) {
 
   const totalPrice = props.cart.reduce((acc, product) => acc + product.price, 0);
 
-  const DUPA = cartItems.map((Motherboards) => (
+  const AddedItem = cartItems.map((Motherboards) => (
     <li
       onContextMenu={(event) => { removeFromShoppingList(event, Motherboards.id); }}
       key={Motherboards.id} >
@@ -47,7 +47,7 @@ function Cart(props) {
           {props.cart.length === 0 ? (
             <p>Your shopping cart is empty.</p>
           ) : (
-            <ul>{DUPA}</ul>
+            <ul>{AddedItem}</ul>
           )}
           <p id="total"> Total Price: ${totalPrice}
           </p>
