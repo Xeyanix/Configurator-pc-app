@@ -123,3 +123,5 @@ class Filters extends React.Component {
 }
 
 export default Filters;
+
+//nie dziala wyszukaj

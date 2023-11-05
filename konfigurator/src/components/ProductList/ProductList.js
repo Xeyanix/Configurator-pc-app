@@ -55,7 +55,7 @@ function ProductList(props) {
                                 ))}
                             </ul>
                         </div>
-                    )}
+                    )}``
                 </div>
             </header >
         </div >
@@ -65,3 +65,7 @@ function ProductList(props) {
 
 
 export default ProductList;
+
+//w momencie gdy dodam dwie płyty glowne i jedna usune 
+//to ma pokazywac kompatybilnosc do plyty ktora zostala w koszyku1  
+// ma sie zmieniać " kompatybilne procesory dla : "Nazwa aktualnej plyty w koszyku1 "
