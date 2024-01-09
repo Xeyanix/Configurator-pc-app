@@ -18,8 +18,9 @@ function ProductList(props) {
     const productsList = Motherboards.map((motherboard) => (
         <li
             onClick={() => {
-                handlePlytaClick(motherboard); }} //po kliknieciu pokazuje kompatybilne procesory 
-            key={motherboard.id}>  
+                handlePlytaClick(motherboard);
+            }} //po kliknieciu pokazuje kompatybilne procesory 
+            key={motherboard.id}>
             {motherboard.name} ,
             {motherboard.chipset} <br />
             <button className={commonColumnsStyles.myButton} onClick={() => {
@@ -60,6 +61,12 @@ function ProductList(props) {
                                             }}>Dodaj do koszyka
                                         </button>
                                     </li>
+                                ))}
+                            </ul>
+                            <h4>Ostatnio dodane do koszyka</h4>
+                            <ul>
+                                {koszyk.map(item => (
+                                    <li key={item.id}>{item.name}</li>
                                 ))}
                             </ul>
                         </div>
