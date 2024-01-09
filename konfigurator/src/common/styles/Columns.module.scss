@@ -28,9 +28,12 @@ $color-red: red;
 .myButton {
   background-color:  #4caf50;
   color: white;
-  padding: 20px;
+  padding: 10px;
   border-radius: 15px;
   cursor: pointer; 
+}
+.smallerFont {
+  font-size: 20px; /* Lub inny preferowany rozmiar czcionki */
 }
 
 .AppHeader {

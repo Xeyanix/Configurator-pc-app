@@ -42,7 +42,7 @@ function Cart(props) {
   return (
     <div className={commonColumnsStyles.App}>
       <header className={commonColumnsStyles.AppHeader}>
-        <div>
+        <div className={commonColumnsStyles.smallerFont}>
           <h2>Cart</h2>
           {props.cart.length === 0 ? (
             <p>Your shopping cart is empty.</p>

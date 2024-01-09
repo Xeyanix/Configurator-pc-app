@@ -17,10 +17,13 @@ function ProductList(props) {
 
     const productsList = Motherboards.map((motherboard) => (
         <li
+          
             onClick={() => {
-                handlePlytaClick(motherboard); //po kliknieciu pokazuje kompatybilen procesory
+                handlePlytaClick(motherboard); //po kliknieciu pokazuje kompatybilne procesory
             }}
-            key={motherboard.id}>
+            key={motherboard.id}
+
+        >
             {motherboard.name},
             {motherboard.chipset}
             <button className={commonColumnsStyles.myButton} onClick={() => {
@@ -39,7 +42,7 @@ function ProductList(props) {
     return (
         <div className={commonColumnsStyles.App}>
             <header className={commonColumnsStyles.AppHeader}>
-                <div >
+                <div className={commonColumnsStyles.smallerFont}> 
                     <h2>Wybierz płytę główną:</h2>
                     <ul>{productsList}</ul>
                     {wybranaPlyta && (
@@ -48,7 +51,10 @@ function ProductList(props) {
                             <ul>
                                 {kompatybilneProcesory.map(cpu => (
                                     <li
-                                        key={cpu.id}>
+                                      
+                                        key={cpu.id}
+
+                                    >
                                         {cpu.name}
                                         <button
                                             className={commonColumnsStyles.myButton}
@@ -68,10 +74,10 @@ function ProductList(props) {
     );
 }
 
-
-
 export default ProductList;
 
 //w momencie gdy dodam dwie płyty glowne i jedna usune
 //to ma pokazywac kompatybilnosc do plyty ktora zostala w koszyku1
 // ma sie zmieniać " kompatybilne procesory dla : "Nazwa aktualnej plyty w koszyku1 "
+
+

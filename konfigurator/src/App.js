@@ -5,7 +5,18 @@ import AddProducts from './components/AddProducts/AddProducts';
 import ProductList from './components/ProductList/ProductList';
 import Cart from './components/Cart/Cart';
 import Motherboards from './common/consts/motherboard';
+import { Typography} from '@mui/material';
+import { useMediaQuery } from '@mui/material';
 
+
+
+function MobileContent() {
+  return <Typography variant="h4">Zawartość dla małych ekranów</Typography>;
+}
+
+function DesktopContent() {
+  return <Typography variant="h4">Zawartość dla dużych ekranów</Typography>;
+}
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -25,32 +36,40 @@ function App() {
     {
       const updatedCart = [...cart];
       updatedCart.splice(productIndex, 1);
-      setCart(updatedCart); 
+      setCart(updatedCart);
     }
   };
-  
-//W tym kodzie, productIndex to indeks produktu w koszyku. 
-// Jeśli produkt jest już w koszyku (productIndex !== -1), kod tworzy kopię koszyka ([...cart]), 
-// używa splice do usunięcia jednej instancji produktu i aktualizuje stan koszyka za pomocą setCart(zaktualizowanyKoszyk).
+
+  const isMobile = useMediaQuery('(max-width:600px)');
+  // const isTablet = useMediaQuery('(min-width: 601px) and (max-width: 1024px)');
+
+
+  //W tym kodzie, productIndex to indeks produktu w koszyku. 
+  // Jeśli produkt jest już w koszyku (productIndex !== -1), kod tworzy kopię koszyka ([...cart]), 
+  // używa splice do usunięcia jednej instancji produktu i aktualizuje stan koszyka za pomocą setCart(zaktualizowanyKoszyk).
 
   return (
-    <div className={styles.appWrapper}>
-      <AddProducts />
-      <Filters
-        Motherboards={Motherboards}
-        sendfilteredProductsToAppComponent={setMotherboardsToDisplay} />
-      <div className={styles.columnsWrapper}>
-        <ProductList
-          Motherboards={MotherboardsToDisplay}
-          dodawanie={addToCart}
-        />
-        <Cart
-          cart={cart}
-          removeByRightClick={setCart}
-          remove={removeItem}
-        />
-        {/* <Cpus/> */}
-      </div>
+    <div>
+      {isMobile ? <MobileContent /> : <DesktopContent />}
+
+      <div className={styles.appWrapper}>
+        <AddProducts />
+        <Filters
+          Motherboards={Motherboards}
+          sendfilteredProductsToAppComponent={setMotherboardsToDisplay} />
+        <div className={styles.columnsWrapper}>
+          <ProductList
+            Motherboards={MotherboardsToDisplay}
+            dodawanie={addToCart}
+          />
+          <Cart
+            cart={cart}
+            removeByRightClick={setCart}
+            remove={removeItem}
+          />
+          {/* <Cpus/> */}
+        </div>
+      </div >
     </div >
 
   );
@@ -58,3 +77,5 @@ function App() {
 
 
 export default App;
+
+
