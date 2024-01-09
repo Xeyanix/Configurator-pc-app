@@ -67,7 +67,6 @@ function App() {
             removeByRightClick={setCart}
             remove={removeItem}
           />
-          {/* <Cpus/> */}
         </div>
       </div >
     </div >
