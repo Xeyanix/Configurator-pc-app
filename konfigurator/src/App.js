@@ -8,8 +8,6 @@ import Motherboards from './common/consts/motherboard';
 import { Typography} from '@mui/material';
 import { useMediaQuery } from '@mui/material';
 
-
-
 function MobileContent() {
   return <Typography variant="h4">Zawartość dla małych ekranów</Typography>;
 }
@@ -26,6 +24,7 @@ function App() {
   const addToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
     setSelectedMotherboard((prev) => [...prev, product])
+    
   };
 
   const removeItem = (productId) => {

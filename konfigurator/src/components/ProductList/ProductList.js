@@ -16,7 +16,7 @@ function ProductList(props) {
     };
 
     const productsList = Motherboards.map((motherboard) => (
-        <li
+        <div
             onClick={() => {
                 handlePlytaClick(motherboard);
             }} //po kliknieciu pokazuje kompatybilne procesory 
@@ -28,29 +28,26 @@ function ProductList(props) {
                 props.dodawanie(motherboard);
             }}> Dodaj do koszyka
             </button>
-        </li>
+        </div>
     ));
 
     const kompatybilneProcesory = wybranaPlyta
         ? CPUs.filter(cpu => cpu.compatibleMotherboards.includes(wybranaPlyta.id))
         : [];
 
-
     return (
         <div className={commonColumnsStyles.App}>
             <header className={commonColumnsStyles.AppHeader}>
                 <div className={commonColumnsStyles.smallerFont}>
                     <h2>Wybierz płytę główną:</h2>
-                    <ul>{productsList}</ul>
+                    <div>{productsList}</div>
                     {wybranaPlyta && (
                         <div>
                             <h3>Kompatybilne procesory dla: {wybranaPlyta.name}</h3>
-                            <ul>
+                            <div>
                                 {kompatybilneProcesory.map(cpu => (
                                     <li
-
                                         key={cpu.id}
-
                                     >
                                         {cpu.name}
                                         <button
@@ -62,13 +59,18 @@ function ProductList(props) {
                                         </button>
                                     </li>
                                 ))}
-                            </ul>
+                            </div>
                             <h4>Ostatnio dodane do koszyka</h4>
-                            <ul>
+                            <div>
                                 {koszyk.map(item => (
-                                    <li key={item.id}>{item.name}</li>
+                                    <div key={item.id} style={{ display: 'inline-block', margin: '10px' }}>
+                                        <div>{item.name}</div>
+                                        <div>{item.chipset}</div>
+                                        <hr />
+                                    </div>
                                 ))}
-                            </ul>
+
+                            </div>
                         </div>
                     )}
                 </div>

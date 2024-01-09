@@ -51,8 +51,6 @@ function Cart(props) {
           )}
           <p id="total"> Total Price: ${totalPrice}
           </p>
-
-
         </div>
       </header>
     </div>
