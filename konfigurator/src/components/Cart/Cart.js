@@ -59,8 +59,3 @@ function Cart(props) {
 export default Cart;
 
 
-// po kliknieciu w dana plyte glowna pokazuje mi sie nowe okno z komptybilnymi procesorami ktore moge dodac
-
-
-// 2 pomysl po klikneicu w dana plyte glowna zmienia sie kompoennt "porduct list" i
-// wyswietla "kompatybilen procesory" dla danej KLIKENITEJ plyty glownej  
