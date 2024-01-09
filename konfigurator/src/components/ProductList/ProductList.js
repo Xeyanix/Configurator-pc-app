@@ -60,17 +60,6 @@ function ProductList(props) {
                                     </li>
                                 ))}
                             </div>
-                            <h4>Ostatnio dodane do koszyka</h4>
-                            <div>
-                                {koszyk.map(item => (
-                                    <div key={item.id} style={{ display: 'inline-block', margin: '10px' }}>
-                                        <div>{item.name}</div>
-                                        <div>{item.chipset}</div>
-                                        <hr />
-                                    </div>
-                                ))}
-
-                            </div>
                         </div>
                     )}
                 </div>

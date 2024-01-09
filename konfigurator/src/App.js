@@ -5,8 +5,9 @@ import AddProducts from './components/AddProducts/AddProducts';
 import ProductList from './components/ProductList/ProductList';
 import Cart from './components/Cart/Cart';
 import Motherboards from './common/consts/motherboard';
-import { Typography} from '@mui/material';
+import { Typography } from '@mui/material';
 import { useMediaQuery } from '@mui/material';
+import LastViewed from './components/LastViewed/LastViewed';
 
 function MobileContent() {
   return <Typography variant="h4">Zawartość dla małych ekranów</Typography>;
@@ -24,7 +25,7 @@ function App() {
   const addToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
     setSelectedMotherboard((prev) => [...prev, product])
-    
+
   };
 
   const removeItem = (productId) => {
@@ -50,7 +51,6 @@ function App() {
   return (
     <div>
       {isMobile ? <MobileContent /> : <DesktopContent />}
-
       <div className={styles.appWrapper}>
         <AddProducts />
         <Filters
@@ -67,6 +67,7 @@ function App() {
             remove={removeItem}
           />
         </div>
+          <LastViewed />
       </div >
     </div >
 

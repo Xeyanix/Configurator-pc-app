@@ -7,3 +7,8 @@
   display: flex;
   height: calc(100vh - 100px);
 }
+
+.lastViewed {
+  display: flex;
+  flex-direction: column;
+}
