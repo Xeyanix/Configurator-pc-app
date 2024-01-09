@@ -20,15 +20,18 @@ function App() {
   const removeItem = (productId) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
     const productIndex = cart.findIndex((item) => item.id === productId);      // Find the index of the product in the cart
-    
+
     if (productIndex !== -1)        // If the product is in the cart, remove one instance
     {
       const updatedCart = [...cart];
       updatedCart.splice(productIndex, 1);
-      setCart(updatedCart);
+      setCart(updatedCart); 
     }
   };
-
+  
+//W tym kodzie, productIndex to indeks produktu w koszyku. 
+// Jeśli produkt jest już w koszyku (productIndex !== -1), kod tworzy kopię koszyka ([...cart]), 
+// używa splice do usunięcia jednej instancji produktu i aktualizuje stan koszyka za pomocą setCart(zaktualizowanyKoszyk).
 
   return (
     <div className={styles.appWrapper}>

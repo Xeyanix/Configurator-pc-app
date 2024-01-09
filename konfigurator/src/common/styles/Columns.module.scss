@@ -25,6 +25,14 @@ $color-red: red;
   align-items: center;
 }
 
+.myButton {
+  background-color:  #4caf50;
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  cursor: pointer; 
+}
+
 .AppHeader {
   background-color: #282c34;
   height: calc(100vh - 100px);

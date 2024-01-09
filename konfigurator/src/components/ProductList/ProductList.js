@@ -23,7 +23,7 @@ function ProductList(props) {
             key={motherboard.id}>
             {motherboard.name},
             {motherboard.chipset}
-            <button onClick={() => {
+            <button className={commonColumnsStyles.myButton} onClick={() => {
                 dodajDoKoszyka(motherboard);
                 props.dodawanie(motherboard);
             }}> Dodaj do koszyka
@@ -35,25 +35,27 @@ function ProductList(props) {
         ? CPUs.filter(cpu => cpu.compatibleMotherboards.includes(wybranaPlyta.id))
         : [];
 
+
     return (
         <div className={commonColumnsStyles.App}>
             <header className={commonColumnsStyles.AppHeader}>
-                <div>
+                <div >
                     <h2>Wybierz płytę główną:</h2>
                     <ul>{productsList}</ul>
                     {wybranaPlyta && (
                         <div>
                             <h3>Kompatybilne procesory dla: {wybranaPlyta.name}</h3>
-
                             <ul>
                                 {kompatybilneProcesory.map(cpu => (
                                     <li
                                         key={cpu.id}>
                                         {cpu.name}
-                                        <button onClick={() => {
-                                            dodajDoKoszyka(cpu)
-                                            props.dodawanie(cpu);
-                                        }}>Dodaj do koszyka
+                                        <button
+                                            className={commonColumnsStyles.myButton}
+                                            onClick={() => {
+                                                dodajDoKoszyka(cpu)
+                                                props.dodawanie(cpu);
+                                            }}>Dodaj do koszyka
                                         </button>
                                     </li>
                                 ))}

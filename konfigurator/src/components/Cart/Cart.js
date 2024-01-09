@@ -35,7 +35,7 @@ function Cart(props) {
       onContextMenu={(event) => { removeFromShoppingList(event, Motherboards.id); }}
       key={Motherboards.id} >
       {Motherboards.name} - ${Motherboards.price} x{Motherboards.count}
-      <button onClick={() => props.remove(Motherboards.id)}> Remove</button >
+      <button className={commonColumnsStyles.myButton} onClick={() => props.remove(Motherboards.id)}> Remove</button >
     </li >
   ));
 
