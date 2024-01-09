@@ -8,7 +8,7 @@ function LastViewed(props) {
     return (
         <div className={styles.LastViewed}>
             <header>
-                <div className={styles.smallerFont}>
+                <div className={styles.font}>
                     <h4>Ostatnio dodane do koszyka</h4>
                     <div>
                         {koszyk.map(item => (

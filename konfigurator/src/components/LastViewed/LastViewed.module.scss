@@ -4,10 +4,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color:green;
+    color: white;
+    background-color: darkcyan;
 }
 
-.smallerFont {
+.font {
     font-size: 14px;
+    padding: 5px;
+    border: 2px solid;
+    border-radius: 30px;
     /* Lub inny preferowany rozmiar czcionki */
-  }
+}
