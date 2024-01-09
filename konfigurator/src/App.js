@@ -19,6 +19,14 @@ function App() {
 
   const removeItem = (productId) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
+    const productIndex = cart.findIndex((item) => item.id === productId);      // Find the index of the product in the cart
+    
+    if (productIndex !== -1)        // If the product is in the cart, remove one instance
+    {
+      const updatedCart = [...cart];
+      updatedCart.splice(productIndex, 1);
+      setCart(updatedCart);
+    }
   };
 
 
@@ -34,7 +42,7 @@ function App() {
           dodawanie={addToCart}
         />
         <Cart
-          cart={cart} 
+          cart={cart}
           removeByRightClick={setCart}
           remove={removeItem}
         />
