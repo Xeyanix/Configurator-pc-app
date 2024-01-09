@@ -16,7 +16,8 @@ $color-red: red;
     animation: App-logo-spin infinite 20s linear;
   }
 }
-.Wrappper{
+
+.Wrappper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,14 +27,26 @@ $color-red: red;
 }
 
 .myButton {
-  background-color:  #4caf50;
+  background-color: #4caf50;
   color: white;
   padding: 10px;
   border-radius: 15px;
-  cursor: pointer; 
+  cursor: pointer;
 }
+
 .smallerFont {
-  font-size: 20px; /* Lub inny preferowany rozmiar czcionki */
+  font-size: 20px;
+  /* Lub inny preferowany rozmiar czcionki */
+}
+
+.LastViewed {
+  font-size: 20px;
+  /* Lub inny preferowany rozmiar czcionki */
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .AppHeader {
@@ -52,6 +65,7 @@ $color-red: red;
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

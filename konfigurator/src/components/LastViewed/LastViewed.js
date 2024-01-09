@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import commonColumnsStyles from '../../common/styles/Columns.module.scss';
 import styles from './LastViewed.module.scss';
 
 function LastViewed(props) {
@@ -8,8 +7,8 @@ function LastViewed(props) {
 
     return (
         <div className={styles.LastViewed}>
-            <header className={styles.AppHeader}>
-                <div className={commonColumnsStyles.smallerFont}>
+            <header>
+                <div className={styles.smallerFont}>
                     <h4>Ostatnio dodane do koszyka</h4>
                     <div>
                         {koszyk.map(item => (
@@ -19,7 +18,6 @@ function LastViewed(props) {
                                 <hr />
                             </div>
                         ))}
-
                     </div>
                 </div>
             </header >

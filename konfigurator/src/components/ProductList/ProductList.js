@@ -46,9 +46,7 @@ function ProductList(props) {
                             <h3>Kompatybilne procesory dla: {wybranaPlyta.name}</h3>
                             <div>
                                 {kompatybilneProcesory.map(cpu => (
-                                    <li
-                                        key={cpu.id}
-                                    >
+                                    <li  key={cpu.id}>
                                         {cpu.name}
                                         <button
                                             className={commonColumnsStyles.myButton}
@@ -73,5 +71,3 @@ export default ProductList;
 //w momencie gdy dodam dwie płyty glowne i jedna usune
 //to ma pokazywac kompatybilnosc do plyty ktora zostala w koszyku1
 // ma sie zmieniać " kompatybilne procesory dla : "Nazwa aktualnej plyty w koszyku1 "
-
-
