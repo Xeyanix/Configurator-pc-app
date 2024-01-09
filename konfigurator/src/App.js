@@ -32,7 +32,6 @@ function App() {
         <ProductList
           Motherboards={MotherboardsToDisplay}
           dodawanie={addToCart}
-          
         />
         <Cart
           cart={cart} 

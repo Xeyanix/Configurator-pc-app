@@ -14,17 +14,20 @@ function ProductList(props) {
     const dodajDoKoszyka = (procesor) => {
         setKoszyk(prevKoszyk => [...prevKoszyk, procesor]);
     };
-    
+
     const productsList = Motherboards.map((motherboard) => (
         <li
             onClick={() => {
-                props.dodawanie(motherboard);
-                handlePlytaClick(motherboard);
+                handlePlytaClick(motherboard); //po kliknieciu pokazuje kompatybilen procesory
             }}
             key={motherboard.id}>
             {motherboard.name},
             {motherboard.chipset}
-            <button onClick={() => dodajDoKoszyka(motherboard)}>Dodaj do koszyka</button>
+            <button onClick={() => {
+                dodajDoKoszyka(motherboard);
+                props.dodawanie(motherboard);
+            }}> Dodaj do koszyka
+            </button>
         </li>
     ));
 
@@ -37,25 +40,26 @@ function ProductList(props) {
             <header className={commonColumnsStyles.AppHeader}>
                 <div>
                     <h2>Wybierz płytę główną:</h2>
-
                     <ul>{productsList}</ul>
                     {wybranaPlyta && (
                         <div>
                             <h3>Kompatybilne procesory dla: {wybranaPlyta.name}</h3>
+
                             <ul>
                                 {kompatybilneProcesory.map(cpu => (
                                     <li
-                                        onClick={() => {
-                                            props.dodawanie(cpu);
-                                        }}
                                         key={cpu.id}>
                                         {cpu.name}
-                                        <button onClick={() => dodajDoKoszyka(cpu)}>Dodaj do koszyka</button>
+                                        <button onClick={() => {
+                                            dodajDoKoszyka(cpu)
+                                            props.dodawanie(cpu);
+                                        }}>Dodaj do koszyka
+                                        </button>
                                     </li>
                                 ))}
                             </ul>
                         </div>
-                    )}``
+                    )}
                 </div>
             </header >
         </div >
@@ -66,6 +70,6 @@ function ProductList(props) {
 
 export default ProductList;
 
-//w momencie gdy dodam dwie płyty glowne i jedna usune 
-//to ma pokazywac kompatybilnosc do plyty ktora zostala w koszyku1  
+//w momencie gdy dodam dwie płyty glowne i jedna usune
+//to ma pokazywac kompatybilnosc do plyty ktora zostala w koszyku1
 // ma sie zmieniać " kompatybilne procesory dla : "Nazwa aktualnej plyty w koszyku1 "
