@@ -2,18 +2,11 @@ import styles from './LastViewed.module.scss'
 import { useEffect, useState } from "react";
 
 function LastViewed(props) {
-    const [koszyk] = useState([]);
-
-    const [productsToBuy, setProductsToBuy] = useState([]);
+    const [LastViewedProducts, setLastViewedProducts] = useState([]);
 
     useEffect(() => {
-        setProductsToBuy(props.cart);
+        setLastViewedProducts(props.cart);
     }, [props.cart]);
-
-    const removeFromShoppingList = (event, id) => {
-        props.removeByRightClick(productsToBuy.filter((Motherboards) => Motherboards.id !== id));
-        event.preventDefault();
-    };
 
     const countByProduct = props.cart.reduce((acc, product) => {
         acc[product.id] = (acc[product.id] || 0) + 1;
@@ -27,14 +20,14 @@ function LastViewed(props) {
             ...product,
             count: countByProduct[productId]
         };
-
     });
 
-    const AddedItem = cartItems.map((Motherboards) => (
+    const lastViewedItems = cartItems.map((product) => (
         <li
-            onContextMenu={(event) => { removeFromShoppingList(event, Motherboards.id); }}
-            key={Motherboards.id} >
-            {Motherboards.name} 
+            key={product.id} style={{ display: 'inline-block', margin: '10px' }}>
+            <div>{product.name}</div>
+            <div>{product.chipset}</div>
+            <hr />
         </li >
     ));
 
@@ -44,23 +37,12 @@ function LastViewed(props) {
                 <div className={styles.font}>
                     <h4>Ostatnio dodane do koszyka</h4>
 
-                    {props.cart.length === 0 ? 
-                    (
-                        <p>Ostatnio dodane nic tu nie ma </p>
-                    ) 
-                    : (
-                        <ul>{AddedItem}</ul>
+                    {props.cart.length === 0 ? (
+                        <p>Ostatnio nic nie dodawałes do koszyka</p>
+                    ) : (
+                        <div>{lastViewedItems}</div>
                     )}
 
-                    <div>
-                        {koszyk.map(item => (
-                            <div key={item.id} style={{ display: 'inline-block', margin: '10px' }}>
-                                <div>{item.name}</div>
-                                <div>{item.chipset}</div>
-                                <hr />
-                            </div>
-                        ))}
-                    </div>
                 </div>
             </header >
         </div >
