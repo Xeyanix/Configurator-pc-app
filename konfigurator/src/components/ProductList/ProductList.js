@@ -46,7 +46,7 @@ function ProductList(props) {
                             <h3>Kompatybilne procesory dla: {wybranaPlyta.name}</h3>
                             <div>
                                 {kompatybilneProcesory.map(cpu => (
-                                    <li  key={cpu.id}>
+                                    <li key={cpu.id}>
                                         {cpu.name}
                                         <button
                                             className={commonColumnsStyles.myButton}

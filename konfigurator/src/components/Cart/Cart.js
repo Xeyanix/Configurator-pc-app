@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 function Cart(props) {
   const [productsToBuy, setProductsToBuy] = useState([]);
+  const [removeAllClicked, setRemoveAllClicked] = useState([]);
 
   useEffect(() => {
     setProductsToBuy(props.cart);
@@ -11,6 +12,11 @@ function Cart(props) {
   const removeFromShoppingList = (event, id) => {
     props.removeByRightClick(productsToBuy.filter((Motherboards) => Motherboards.id !== id));
     event.preventDefault();
+  };
+
+  const removeAllItems = () => {
+    props.removeAll();
+    setRemoveAllClicked(true);
   };
 
   const countByProduct = props.cart.reduce((acc, product) => {
@@ -25,7 +31,6 @@ function Cart(props) {
       ...product,
       count: countByProduct[productId]
     };
-
   });
 
   const totalPrice = props.cart.reduce((acc, product) => acc + product.price, 0);
@@ -47,10 +52,17 @@ function Cart(props) {
           {props.cart.length === 0 ? (
             <p>Your shopping cart is empty.</p>
           ) : (
-            <ul>{AddedItem}</ul>
+            <div>
+              <ul>{AddedItem}</ul>
+              <button
+                className={commonColumnsStyles.myButton}
+                onClick={removeAllItems}
+              >
+                Remove All
+              </button>
+            </div>
           )}
-          <p id="total"> Total Price: ${totalPrice}
-          </p>
+          <p id="total"> Total Price: ${totalPrice} </p>
         </div>
       </header>
     </div>

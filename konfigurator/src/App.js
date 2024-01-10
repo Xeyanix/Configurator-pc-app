@@ -41,6 +41,11 @@ function App() {
     }
   };
 
+  const removeAllItems = () => {
+    // implement logic to remove all items from the cart
+    setCart([]);
+  };
+
   const isMobile = useMediaQuery('(max-width:600px)');
   // const isTablet = useMediaQuery('(min-width: 601px) and (max-width: 1024px)');
 
@@ -65,6 +70,7 @@ function App() {
             cart={cart}
             removeByRightClick={setCart}
             remove={removeItem}
+            removeAll={removeAllItems} 
           />
         </div>
       </div >
