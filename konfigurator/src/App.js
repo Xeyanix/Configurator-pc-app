@@ -21,19 +21,20 @@ function App() {
   const [cart, setCart] = useState([]);
   const [selectedMotherboard, setSelectedMotherboard] = useState(Motherboards);
   const [MotherboardsToDisplay, setMotherboardsToDisplay] = useState(selectedMotherboard);
+  const [listViewed, setListViewed] = useState([]); // Użyj osobnego stanu dla listy ostatnio oglądanych
+
 
   const addToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
     setSelectedMotherboard((prev) => [...prev, product])
-
+    setListViewed((prev) => [...prev, product]);
   };
 
   const removeItem = (productId) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
     const productIndex = cart.findIndex((item) => item.id === productId);      // Find the index of the product in the cart
-
-    if (productIndex !== -1)        // If the product is in the cart, remove one instance
-    {
+    // If the product is in the cart, remove one instance
+    if (productIndex !== -1) {
       const updatedCart = [...cart];
       updatedCart.splice(productIndex, 1);
       setCart(updatedCart);
@@ -42,7 +43,6 @@ function App() {
 
   const isMobile = useMediaQuery('(max-width:600px)');
   // const isTablet = useMediaQuery('(min-width: 601px) and (max-width: 1024px)');
-
 
   //W tym kodzie, productIndex to indeks produktu w koszyku. 
   // Jeśli produkt jest już w koszyku (productIndex !== -1), kod tworzy kopię koszyka ([...cart]), 
@@ -67,13 +67,13 @@ function App() {
             remove={removeItem}
           />
         </div>
-          <LastViewed />
       </div >
+      <LastViewed
+        cart={listViewed}
+      />
     </div >
-
   );
 }
-
 
 export default App;
 
