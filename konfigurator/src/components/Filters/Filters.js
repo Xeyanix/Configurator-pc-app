@@ -76,16 +76,16 @@ class Filters extends React.Component {
     );
   };
 
-  getUniqueFoodCategory = () => {
+  getUniqueCategory = () => {
     const { Motherboards } = this.props;
-    const foodCategoryList = Motherboards.map((Motherboards) => Motherboards.socket);
-    const foodCategory = [...new Set(foodCategoryList)];
-    return foodCategory;
+    const CategoryList = Motherboards.map((Motherboards) => Motherboards.socket);
+    const motherboardCategory = [...new Set(CategoryList)];
+    return motherboardCategory;
   };
 
 
   render() {
-    const uniqueFoodCategory = this.getUniqueFoodCategory();
+    const uniqueCategory = this.getUniqueCategory();
     const { searchPhrase, searchChipset, searchSocket } = this.state;
 
 
@@ -108,7 +108,7 @@ class Filters extends React.Component {
 
           <option key={'all'} value={''}>
             All Categories
-          </option>{uniqueFoodCategory.map((socket) => (
+          </option>{uniqueCategory.map((socket) => (
             <option key={socket} value={socket}>
               {socket}
             </option>
