@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './Filters.module.scss';
+import styles from '../../common/styles/Headers.module.scss';
 
 class Filters extends React.Component {
   constructor(props) {
@@ -43,19 +43,20 @@ class Filters extends React.Component {
       Motherboards.name.toLowerCase().includes(searchPhrase.toLowerCase())
     );
 
-    if (searchSocket) {
-      filteredProducts = filteredProducts.filter((Motherboards) => 
-      Motherboards.socket.toLowerCase() === searchSocket.toLowerCase()
-      );
-    }
 
     if (searchChipset) {
       filteredProducts = filteredProducts.filter((Motherboards) =>
-        Motherboards.name.toLowerCase().includes(searchChipset.toLowerCase())
-        // (Motherboards) => Motherboards.chipset === searchChipset
+        Motherboards.name.toLowerCase().includes(searchChipset.toLowerCase()) ||
+        Motherboards.chipset.toLowerCase() === searchChipset.toLowerCase()
       );
-
     }
+
+    if (searchSocket) {
+      filteredProducts = filteredProducts.filter((Motherboards) =>
+        Motherboards.socket.toLowerCase() === searchSocket.toLowerCase()
+      );
+    }
+
     console.log('sprawdzam aktualne filtry', filteredProducts);
     // przekazanie wyfiltrowanego jedzenia do komponentu rodzica (App)
 
@@ -90,11 +91,11 @@ class Filters extends React.Component {
 
     return (
       <div className={styles.ProductsFiltersWrapper}>
-        Tylko produkty
+        Płyta Główna
         <input
           value={searchPhrase}
           onChange={this.handleSearchPhraseChange}
-          onKeyUp={this.handleSearchKeyUp}  //obsługa wcisniecia enter
+        onKeyUp={this.handleSearchKeyUp}  //obsługa wcisniecia enter
         ></input>
         Chipset
         <input
@@ -113,7 +114,6 @@ class Filters extends React.Component {
             </option>
           ))}
         </select>
-
         <button onClick={this.filterProdukty}>Wyszukaj</button>
         <button onClick={this.handleResetFilters}>Zresetuj filtry</button>
 
@@ -123,5 +123,3 @@ class Filters extends React.Component {
 }
 
 export default Filters;
-
-//nie dziala wyszukaj

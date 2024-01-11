@@ -60,7 +60,8 @@ function App() {
         <AddProducts />
         <Filters
           Motherboards={Motherboards}
-          sendfilteredProductsToAppComponent={setMotherboardsToDisplay} />
+          sendfilteredProductsToAppComponent={setMotherboardsToDisplay}
+        />
         <div className={styles.columnsWrapper}>
           <ProductList
             Motherboards={MotherboardsToDisplay}
@@ -70,7 +71,7 @@ function App() {
             cart={cart}
             removeByRightClick={setCart}
             remove={removeItem}
-            removeAll={removeAllItems} 
+            removeAll={removeAllItems}
           />
         </div>
       </div >

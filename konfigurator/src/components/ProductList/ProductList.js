@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import commonColumnsStyles from '../../common/styles/Columns.module.scss';
-import Motherboards from '../../common/consts/motherboard';
+// import Motherboards from '../../common/consts/motherboard';
 import CPUs from '../../common/consts/cpu';
 
 function ProductList(props) {
@@ -15,7 +15,7 @@ function ProductList(props) {
         setKoszyk(prevKoszyk => [...prevKoszyk, procesor]);
     };
 
-    const productsList = Motherboards.map((motherboard) => (
+    const productsList = props.Motherboards.map((motherboard) => (
         <div
             onClick={() => {
                 handlePlytaClick(motherboard);

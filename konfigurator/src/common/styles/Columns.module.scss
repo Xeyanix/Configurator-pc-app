@@ -3,7 +3,7 @@ $color-red: red;
 .App {
   text-align: center;
   display: flex;
-  width: 50vw;
+  width: 100vw;
 }
 
 .AppLogo {
@@ -49,6 +49,7 @@ $color-red: red;
   font-size: calc(10px + 2vmin);
   color: $color-red;
   width: 100%;
+  border: 1px solid black;
 }
 
 @keyframes App-logo-spin {
