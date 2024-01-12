@@ -17,7 +17,6 @@ $color-red: red;
   }
 }
 
-
 .Wrappper {
   display: flex;
   flex-direction: column;
@@ -25,6 +24,7 @@ $color-red: red;
   justify-content: center;
   width: 100%;
   align-items: center;
+  overflow-x: hidden; 
 }
 
 .myButton {
@@ -43,7 +43,8 @@ $color-red: red;
 
 .AppHeader {
   background-color: #282c34;
-  height: calc(100vh - 100px);
+  // height: calc(100vh - 100px);
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,6 +53,7 @@ $color-red: red;
   color: $color-red;
   width: 100%;
   border: 1px solid black;
+  overflow-x: hidden; /* lub overflow: auto; */
 }
 
 @keyframes App-logo-spin {

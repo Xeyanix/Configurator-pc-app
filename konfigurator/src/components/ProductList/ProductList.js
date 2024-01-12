@@ -3,7 +3,7 @@ import commonColumnsStyles from '../../common/styles/Columns.module.scss';
 // import Motherboards from '../../common/consts/motherboard';
 import CPUs from '../../common/consts/cpu';
 
-function ProductList(props) {
+const ProductList = (props) => {
     const [wybranaPlyta, setWybranaPlyta] = useState(null);
     const [koszyk, setKoszyk] = useState([]);
 
@@ -11,16 +11,18 @@ function ProductList(props) {
         setWybranaPlyta(motherboard);
     };
 
-    const dodajDoKoszyka = (procesor) => {
-        setKoszyk(prevKoszyk => [...prevKoszyk, procesor]);
+    const dodajDoKoszyka = (item) => {
+        setKoszyk(prevKoszyk => [...prevKoszyk, item]);
+        props.dodawanie(item);
     };
 
     const productsList = props.Motherboards.map((motherboard) => (
         <div
             onClick={() => {
-                handlePlytaClick(motherboard);
-            }} //po kliknieciu pokazuje kompatybilne procesory 
-            key={motherboard.id}>
+                handlePlytaClick(motherboard)
+            }}
+            key={motherboard.id}
+        >
             {motherboard.name} ,
             {motherboard.chipset} <br />
             <button className={commonColumnsStyles.myButton} onClick={() => {
@@ -29,7 +31,9 @@ function ProductList(props) {
             }}> Dodaj do koszyka
             </button>
         </div>
+
     ));
+
 
     const kompatybilneProcesory = wybranaPlyta
         ? CPUs.filter(cpu => cpu.compatibleMotherboards.includes(wybranaPlyta.id))
@@ -68,6 +72,8 @@ function ProductList(props) {
 
 export default ProductList;
 
-//w momencie gdy dodam dwie płyty glowne i jedna usune
-//to ma pokazywac kompatybilnosc do plyty ktora zostala w koszyku1
-// ma sie zmieniać " kompatybilne procesory dla : "Nazwa aktualnej plyty w koszyku1 "
+// //w momencie gdy dodam dwie płyty glowne i jedna usune
+// //to ma pokazywac kompatybilnosc do plyty ktora zostala w koszyku1
+// // ma sie zmieniać " kompatybilne procesory dla : "Nazwa aktualnej plyty w koszyku1 "
+
+// // ...
