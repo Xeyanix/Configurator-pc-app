@@ -1,79 +1,102 @@
 import React, { useState } from 'react';
 import commonColumnsStyles from '../../common/styles/Columns.module.scss';
-// import Motherboards from '../../common/consts/motherboard';
 import CPUs from '../../common/consts/cpu';
 
 const ProductList = (props) => {
     const [wybranaPlyta, setWybranaPlyta] = useState(null);
     const [koszyk, setKoszyk] = useState([]);
+    const [showMotherboardList, setShowMotherboardList] = useState(true);
 
     const handlePlytaClick = (motherboard) => {
         setWybranaPlyta(motherboard);
+        setShowMotherboardList(false);
     };
 
     const dodajDoKoszyka = (item) => {
-        setKoszyk(prevKoszyk => [...prevKoszyk, item]);
+        setKoszyk((prevKoszyk) => [...prevKoszyk, item]);
         props.dodawanie(item);
     };
 
-    const productsList = props.Motherboards.map((motherboard) => (
-        <div
-            onClick={() => {
-                handlePlytaClick(motherboard)
-            }}
-            key={motherboard.id}
-        >
-            {motherboard.name} ,
-            {motherboard.chipset} <br />
-            <button className={commonColumnsStyles.myButton} onClick={() => {
-                dodajDoKoszyka(motherboard);
-                props.dodawanie(motherboard);
-            }}> Dodaj do koszyka
-            </button>
-        </div>
+    const renderMotherboardOptions = () => {
+        return props.Motherboards.map((motherboard) => (
+            <div
+                onClick={() => {
+                    handlePlytaClick(motherboard);
+                }}
+                key={motherboard.id}
+            >
+                {motherboard.name}, {motherboard.chipset} <br />
+                <button
+                    className={commonColumnsStyles.myButton}
+                    onClick={() => {
+                        dodajDoKoszyka(motherboard);
+                    }}
+                >
+                    Dodaj do koszyka
+                </button>
+            </div>
+        ));
+    };
 
-    ));
-
-
-    const kompatybilneProcesory = wybranaPlyta
-        ? CPUs.filter(cpu => cpu.compatibleMotherboards.includes(wybranaPlyta.id))
+    const compatibleCPU = wybranaPlyta
+        ? CPUs.filter((cpu) => cpu.compatibleMotherboards.includes(wybranaPlyta.id))
         : [];
+
+    const handleShowMotherboardList = () => {
+        setWybranaPlyta(null);
+        setShowMotherboardList(true);
+    };
 
     return (
         <div className={commonColumnsStyles.App}>
             <header className={commonColumnsStyles.AppHeader}>
                 <div className={commonColumnsStyles.smallerFont}>
-                    <h2>Wybierz płytę główną:</h2>
-                    <div>{productsList}</div>
-                    {wybranaPlyta && (
+                    {!wybranaPlyta && showMotherboardList ? (
+                        <>
+                            <h2>Wybierz płytę główną:</h2>
+                            <div>{renderMotherboardOptions()}</div>
+                        </>
+                    ) : (
                         <div>
-                            <h3>Kompatybilne procesory dla: {wybranaPlyta.name}</h3>
+                            <h3>Wybrana płyta główna: {wybranaPlyta?.name}</h3>
+                            {!showMotherboardList && (
+                                <button
+                                    className={commonColumnsStyles.myButton}
+                                    onClick={handleShowMotherboardList}
+                                >
+                                    Wyświetl listę płyt głównych
+                                </button>
+                            )}
+
+                            <h4>Kompatybilne procesory dla: {wybranaPlyta?.name}</h4>
                             <div>
-                                {kompatybilneProcesory.map(cpu => (
+                                {compatibleCPU.map((cpu) => (
                                     <li key={cpu.id}>
                                         {cpu.name}
                                         <button
                                             className={commonColumnsStyles.myButton}
                                             onClick={() => {
-                                                dodajDoKoszyka(cpu)
-                                                props.dodawanie(cpu);
-                                            }}>Dodaj do koszyka
+                                                dodajDoKoszyka(cpu);
+                                            }}
+                                        >
+                                            Dodaj do koszyka
                                         </button>
                                     </li>
                                 ))}
                             </div>
+                            {!wybranaPlyta && (
+                                <button
+                                    className={commonColumnsStyles.myButton}
+                                    onClick={handleShowMotherboardList}
+                                >
+                                    Wybierz inną płytę główną
+                                </button>
+                            )}
                         </div>
                     )}
                 </div>
-            </header >
-        </div >
+            </header>
+        </div>
     );
-}
-
+};
 export default ProductList;
-
-// //w momencie gdy dodam dwie płyty glowne i jedna usune
-// //to ma pokazywac kompatybilnosc do plyty ktora zostala w koszyku1
-// // ma sie zmieniać " kompatybilne procesory dla : "Nazwa aktualnej plyty w koszyku1 "
-
-// // ...

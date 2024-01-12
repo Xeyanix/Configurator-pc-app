@@ -53,7 +53,7 @@ $color-red: red;
   color: $color-red;
   width: 100%;
   border: 1px solid black;
-  overflow-x: hidden; /* lub overflow: auto; */
+  overflow-x: auto; /* lub overflow: auto; */
 }
 
 @keyframes App-logo-spin {
