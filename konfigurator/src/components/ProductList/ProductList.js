@@ -4,25 +4,25 @@ import CPUs from '../../common/consts/cpu';
 import RAMs from '../../common/consts/ram';
 
 const ProductList = (props) => {
-  const [wybranaPlyta, setWybranaPlyta] = useState(null);
+  const [selectedMotherboard, setSelectedMotherboard] = useState(null);
   const [koszyk, setKoszyk] = useState([]);
   const [showMotherboardList, setShowMotherboardList] = useState(true);
   const [showCpuList, setShowCpuList] = useState(false);
-  const [wybranyProcesor, setWybranyProcesor] = useState(null);
+  const [selectedCpu, setSelectedCpu] = useState(null);
   const [showRamList, setShowRamList] = useState(false);
 
   const handlePlytaClick = (motherboard) => {
-    setWybranaPlyta(motherboard);
+    setSelectedMotherboard(motherboard);
     setShowMotherboardList(false);
   };
 
   const handleShowMotherboardList = () => {
-    setWybranaPlyta(null);
+    setSelectedMotherboard(null);
     setShowMotherboardList(true);
   };
 
   const handleShowCpuList = () => {
-    setWybranyProcesor(null);
+    setSelectedCpu(null);
     setShowRamList(false); //znika lista ramu jak klikniemy wyswietl liste procesorow
   };
 
@@ -30,7 +30,7 @@ const ProductList = (props) => {
     setKoszyk((prevKoszyk) => [...prevKoszyk, item]);
     props.dodawanie(item);
     if (item.compatibleMotherboards) {
-      setWybranyProcesor(item);
+      setSelectedCpu(item);
       setShowRamList(true);
       setShowCpuList(false);
 
@@ -55,17 +55,17 @@ const ProductList = (props) => {
 
   const RenderCPUsOptions = () => (
     <>
-      <h4>Kompatybilne procesory dla: {wybranaPlyta?.name}</h4>
+      <h4>Kompatybilne procesory dla: {selectedMotherboard?.name}</h4>
       <h4>Wybierz Procesor:</h4>
       <div>
-        {wybranaPlyta &&
-          CPUs.filter((cpu) => cpu.compatibleMotherboards.includes(wybranaPlyta.id)).map((cpu) => (
-            <li key={cpu.id}>
+        {selectedMotherboard &&
+          CPUs.filter((cpu) => cpu.compatibleMotherboards.includes(selectedMotherboard.id)).map((cpu) => (
+            <div key={cpu.id}>
               {cpu.name}
               <button className={commonColumnsStyles.myButton} onClick={() => handleDodajDoKoszyka(cpu)}>
                 Dodaj do koszyka
               </button>
-            </li>
+            </div>
           ))}
       </div>
     </>
@@ -73,7 +73,7 @@ const ProductList = (props) => {
 
   const RenderRAMOptions = () => (
     <>
-      <h3>Pamięci RAM dla: {wybranyProcesor?.name}</h3>
+      <h3>Pamięci RAM dla: {selectedCpu?.name}</h3>
       <div>
         {RAMs.map((ram) => (
           <li key={ram.id}>
@@ -91,23 +91,23 @@ const ProductList = (props) => {
     <div className={commonColumnsStyles.App}>
       <header className={commonColumnsStyles.AppHeader}>
         <div className={commonColumnsStyles.smallerFont}>
-          {!wybranaPlyta && showMotherboardList ? (
+          {!selectedMotherboard && showMotherboardList ? (
             <RenderMotherboardOptions />
           ) : (
             <div>
-              <h3>Wybrana płyta główna: {wybranaPlyta?.name}</h3>
+              <h3>Wybrana płyta główna: {selectedMotherboard?.name}</h3>
               {!showMotherboardList && (
                 <button className={commonColumnsStyles.myButton} onClick={handleShowMotherboardList}>
                   Wyświetl listę płyt głównych
                 </button>
               )}
 
-              {wybranaPlyta && !wybranyProcesor && <RenderCPUsOptions />}
+              {selectedMotherboard && !selectedCpu && <RenderCPUsOptions />}
 
 
-              {wybranyProcesor && (
+              {selectedCpu && (
                 <>
-                  <h3>Wybrany Procesor: {wybranyProcesor?.name}</h3>
+                  <h3>Wybrany Procesor: {selectedCpu?.name}</h3>
                   {!showCpuList && (
                     <button className={commonColumnsStyles.myButton} onClick={handleShowCpuList}>
                       Wyświetl listę Procesorów
