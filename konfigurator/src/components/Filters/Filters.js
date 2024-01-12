@@ -102,6 +102,7 @@ class Filters extends React.Component {
           value={searchChipset}
           onChange={this.handleProductType}
         ></input>
+        Socket 
         <select
           value={searchSocket}
           onChange={this.handleSelectCategory} >
