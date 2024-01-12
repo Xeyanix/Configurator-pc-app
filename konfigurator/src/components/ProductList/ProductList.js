@@ -68,6 +68,7 @@ const ProductList = (props) => {
                                 </button>
                             )}
 
+
                             <h4>Kompatybilne procesory dla: {wybranaPlyta?.name}</h4>
                             <div>
                                 {compatibleCPU.map((cpu) => (
@@ -84,16 +85,39 @@ const ProductList = (props) => {
                                     </li>
                                 ))}
                             </div>
-                            {!wybranaPlyta && (
-                                <button
-                                    className={commonColumnsStyles.myButton}
-                                    onClick={handleShowMotherboardList}
-                                >
-                                    Wybierz inną płytę główną
-                                </button>
-                            )}
+
+
+
+
                         </div>
                     )}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </div>
             </header>
         </div>
