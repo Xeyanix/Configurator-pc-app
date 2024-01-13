@@ -93,20 +93,22 @@ class Filters extends React.Component {
       <div className={styles.productsFiltersWrapper}>
         Płyta Główna
         <input
+          id="searchPhraseInput"
           value={searchPhrase}
           onChange={this.handleSearchPhraseChange}
-        onKeyUp={this.handleSearchKeyUp}  //obsługa wcisniecia enter
+          onKeyUp={this.handleSearchKeyUp}  //obsługa wcisniecia enter
         ></input>
         Chipset
         <input
+          id="searchChipsetInput"
           value={searchChipset}
           onChange={this.handleProductType}
         ></input>
-        Socket 
+        Socket
         <select
+          id="searchSocketSelect"
           value={searchSocket}
           onChange={this.handleSelectCategory} >
-
           <option key={'all'} value={''}>
             All Categories
           </option>{uniqueCategory.map((socket) => (
