@@ -14,10 +14,9 @@
 }
 
 .productsFiltersWrapper:hover {
-  background-color: #2980b9 ;
+  background-color: #2980b9;
 }
 
-//inne
 .headerWrapper {
   height: 100px;
   width: 100%;
@@ -39,20 +38,16 @@
   margin-left: 16px;
   display: flex;
   flex-direction: row;
-
-  &>* {
-    margin-left: 16px;
-  }
+}
+.filtersForm > * {
+  margin-left: 16px;
 }
 
 .signedUserInfo {
   display: flex;
   align-items: center;
   margin-right: 24px;
-
-  &>* {
-    margin-left: 16px;
-  }
-
-
 }
+.signedUserInfo > * {
+  margin-left: 16px;
+}/*# sourceMappingURL=Headers.module.css.map */

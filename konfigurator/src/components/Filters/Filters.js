@@ -90,7 +90,7 @@ class Filters extends React.Component {
 
 
     return (
-      <div className={styles.ProductsFiltersWrapper}>
+      <div className={styles.productsFiltersWrapper}>
         Płyta Główna
         <input
           value={searchPhrase}

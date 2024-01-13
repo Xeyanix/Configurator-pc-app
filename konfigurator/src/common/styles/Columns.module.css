@@ -1,5 +1,3 @@
-$color-red: red;
-
 .App {
   text-align: center;
   display: flex;
@@ -16,7 +14,6 @@ $color-red: red;
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
 .wrappper {
   height: 100px;
   width: 90%;
@@ -47,14 +44,13 @@ $color-red: red;
 
 .AppHeader {
   background-color: #282c34;
-  // height: calc(100vh - 100px);
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: calc(10px + 2vmin);
   justify-content: space-between;
-  color: $color-red;
+  color: red;
   width: 100%;
   border: 1px solid black;
   overflow-x: auto;
@@ -65,8 +61,7 @@ $color-red: red;
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
-}
+}/*# sourceMappingURL=Columns.module.css.map */
