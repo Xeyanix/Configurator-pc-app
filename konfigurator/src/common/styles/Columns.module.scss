@@ -19,7 +19,7 @@ $color-red: red;
 
 .Wrappper {
   height: 100px;
-  width: 50%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,8 +27,8 @@ $color-red: red;
   overflow-x: hidden; 
   color: gray; 
   border:1px solid black;
-  border-radius: 20px;
-  margin:auto;
+  border-radius: 15px;
+  margin: auto;
 }
 
 .myButton {
