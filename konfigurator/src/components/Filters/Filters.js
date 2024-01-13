@@ -93,20 +93,17 @@ class Filters extends React.Component {
       <div className={styles.productsFiltersWrapper}>
         Płyta Główna
         <input
-          id="searchPhraseInput"
           value={searchPhrase}
           onChange={this.handleSearchPhraseChange}
           onKeyUp={this.handleSearchKeyUp}  //obsługa wcisniecia enter
         ></input>
         Chipset
         <input
-          id="searchChipsetInput"
           value={searchChipset}
           onChange={this.handleProductType}
         ></input>
         Socket
         <select
-          id="searchSocketSelect"
           value={searchSocket}
           onChange={this.handleSelectCategory} >
           <option key={'all'} value={''}>
@@ -119,7 +116,6 @@ class Filters extends React.Component {
         </select>
         <button onClick={this.filterProdukty}>Wyszukaj</button>
         <button onClick={this.handleResetFilters}>Zresetuj filtry</button>
-
       </div>
     );
   }
