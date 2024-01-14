@@ -9,21 +9,24 @@
   border-radius: 15px;
   background-color: grey;
   margin: auto;
-  transition: background-color 0.3s ease;
   font-size: 20px;
   font-weight: bold;
-  letter-spacing: 0, 5px;
+  letter-spacing: 0, 5cap;
+  transition: background-color 0.3s ease;
 }
 .productsFiltersWrapper #searchPhraseInput,
 .productsFiltersWrapper #searchChipsetInput {
-  border: 2px solid blue;
   border-radius: 10px;
   padding: 7px 12px;
   margin: 5px;
   transition: background-color 0.3s ease;
 }
+.productsFiltersWrapper input {
+  border-color: grey;
+}
 .productsFiltersWrapper input:focus {
   outline: none;
+  border: 2px solid black;
 }
 .productsFiltersWrapper input:hover {
   background-color: lightgrey;
@@ -54,39 +57,4 @@
 }
 .productsFiltersWrapper button:hover {
   background-color: lightgrey;
-}
-
-.headerWrapper {
-  height: 100px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.filtersHeaderWrapper {
-  margin-left: 16px;
-  height: 100px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.filtersForm {
-  margin-left: 16px;
-  display: flex;
-  flex-direction: row;
-}
-.filtersForm > * {
-  margin-left: 16px;
-}
-
-.signedUserInfo {
-  display: flex;
-  align-items: center;
-  margin-right: 24px;
-}
-.signedUserInfo > * {
-  margin-left: 16px;
 }/*# sourceMappingURL=Headers.module.css.map */
