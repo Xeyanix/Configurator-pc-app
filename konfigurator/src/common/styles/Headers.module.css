@@ -11,17 +11,27 @@
   margin: auto;
   font-size: 20px;
   font-weight: bold;
-  letter-spacing: 0, 5cap;
+  letter-spacing: 0.5px;
   transition: background-color 0.3s ease;
 }
 .productsFiltersWrapper #searchPhraseInput,
 .productsFiltersWrapper #searchChipsetInput {
+  border: none;
   border-radius: 10px;
   padding: 7px 12px;
   margin: 5px;
   transition: background-color 0.3s ease;
 }
+.productsFiltersWrapper #searchPhraseInput:focus,
+.productsFiltersWrapper #searchChipsetInput:focus {
+  border: 2px solid black;
+}
+.productsFiltersWrapper #searchPhraseInput:hover,
+.productsFiltersWrapper #searchChipsetInput:hover {
+  background-color: lightgrey;
+}
 .productsFiltersWrapper input {
+  border: none;
   border-color: grey;
 }
 .productsFiltersWrapper input:focus {
