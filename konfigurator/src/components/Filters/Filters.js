@@ -93,12 +93,14 @@ class Filters extends React.Component {
       <div className={styles.productsFiltersWrapper}>
         Płyta Główna
         <input
+          id={styles.searchPhraseInput}
           value={searchPhrase}
           onChange={this.handleSearchPhraseChange}
           onKeyUp={this.handleSearchKeyUp}  //obsługa wcisniecia enter
         ></input>
         Chipset
         <input
+         id={styles.searchChipsetInput}
           value={searchChipset}
           onChange={this.handleProductType}
         ></input>
