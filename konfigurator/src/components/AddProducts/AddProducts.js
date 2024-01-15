@@ -8,13 +8,12 @@ function AddProducts() {
   return (
     <div className={styles.wrapper}>
       <h1>PC Configurator</h1>
-     
+    
       <Link to="/">
         <Button variant="contained" color="error">
           Wyloguj
         </Button>
       </Link>
-
     </div>
   );
 }
