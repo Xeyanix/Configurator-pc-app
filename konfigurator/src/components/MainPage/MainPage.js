@@ -38,69 +38,77 @@ function MainPage() {
         <div className={styles.section}>
           <h2 className={styles.sectionHeading}>Płyta Główna</h2>
           <p className={styles.sectionParagraph}>
-
+            Płyta główna to centralny element komputera, na którym montowane są pozostałe podzespoły. Wybór odpowiedniej płyty zależy od rodzaju procesora, ilości slotów pamięci RAM i innych funkcji, takich jak obsługa karty graficznej czy liczba portów USB.
           </p>
         </div>
+
         <div className={styles.section}>
           <h2 className={styles.sectionHeading}>Procesor</h2>
           <p className={styles.sectionParagraph}>
-
+            Procesor pełni rolę mózgu komputera, odpowiadając za wykonywanie operacji. Wybór odpowiedniego procesora zależy od rodzaju zastosowań komputera - od prostych zadań biurowych po zaawansowane gry czy prace graficzne.
           </p>
         </div>
+
         <div className={styles.section}>
           <h2 className={styles.sectionHeading}>Pamięć RAM</h2>
           <p className={styles.sectionParagraph}>
-
+            Pamięć RAM wpływa na ogólną wydajność systemu, umożliwiając równoczesne wykonywanie wielu zadań. Ważne jest dostosowanie ilości i szybkości pamięci RAM do potrzeb użytkownika i wymagań programów.
           </p>
         </div>
+
         <div className={styles.section}>
           <h2 className={styles.sectionHeading}>Chłodzenie procesora</h2>
           <p className={styles.sectionParagraph}>
-
+            Chłodzenie procesora jest istotne dla utrzymania odpowiedniej temperatury podczas intensywnego użytkowania. Istnieje wiele rodzajów chłodzeń, w tym powietrzne i ciekłe, a wybór zależy od mocy procesora i preferencji użytkownika.
           </p>
-          <div className={styles.section}>
-            <h2 className={styles.sectionHeading}>Karta graficzna</h2>
-            <p className={styles.sectionParagraph}>
+        </div>
 
-            </p>
-          </div>
-          <div className={styles.section}>
-            <h2 className={styles.sectionHeading}>Dysk twardy</h2>
-            <p className={styles.sectionParagraph}>
+        <div className={styles.section}>
+          <h2 className={styles.sectionHeading}>Karta graficzna</h2>
+          <p className={styles.sectionParagraph}>
+            Karta graficzna odpowiada za renderowanie grafiki. Dla graczy i profesjonalistów graficznych ważne jest wybranie karty o odpowiedniej mocy obliczeniowej, obsługującej najnowsze technologie graficzne.
+          </p>
+        </div>
 
-            </p>
-          </div>
-          <div className={styles.section}>
-            <h2 className={styles.sectionHeading}>Zasilacz</h2>
-            <p className={styles.sectionParagraph}>
+        <div className={styles.section}>
+          <h2 className={styles.sectionHeading}>Dysk twardy</h2>
+          <p className={styles.sectionParagraph}>
+            Dysk twardy przechowuje system operacyjny, programy i dane. Dobór odpowiedniego dysku zależy od potrzeb użytkownika, a SSD może znacznie przyspieszyć czas ładowania systemu i programów.
+          </p>
+        </div>
 
-            </p>
-          </div>
-          <div className={styles.section}>
-            <h2 className={styles.sectionHeading}>Obudowa</h2>
-            <p className={styles.sectionParagraph}>
+        <div className={styles.section}>
+          <h2 className={styles.sectionHeading}>Zasilacz</h2>
+          <p className={styles.sectionParagraph}>
+            Zasilacz dostarcza energię do wszystkich komponentów komputera. Ważne jest, aby jego moc była wystarczająca dla wszystkich podzespołów, a także zwrócenie uwagi na efektywność energetyczną.
+          </p>
+        </div>
 
-            </p>
-          </div>
-          <form className={styles.mainPageWrapper} onSubmit={redirectToConfigurator}>
-            <Box sx={{ m: 2 }}>
-              <Button
-                variant="contained"
-                type="submit"
-              >
-                Skonfiguruj
-              </Button>
-            </Box>
-          </form>
-          <div className={styles.contactSection}>
-            <h2 className={styles.sectionHeading}>Kontakt</h2>
-            <p className={styles.sectionParagraph}>
-              Skontaktuj się z nami pod adresem email: kontakt@example.com
-            </p>
-          </div>
+        <div className={styles.section}>
+          <h2 className={styles.sectionHeading}>Obudowa</h2>
+          <p className={styles.sectionParagraph}>
+            Obudowa nie tylko chroni podzespoły, ale także wpływa na wentylację i estetykę. Wybór zależy od preferencji użytkownika, liczby dostępnych miejsc na chłodzenie oraz wielkości planowanego zestawu.
+          </p>
+        </div>
+        <form className={styles.mainPageWrapper} onSubmit={redirectToConfigurator}>
+          <Box sx={{ m: 2 }}>
+            <Button
+              variant="contained"
+              type="submit"
+            >
+              Skonfiguruj
+            </Button>
+          </Box>
+        </form>
+        <div className={styles.contactSection}>
+          <h2 className={styles.sectionHeading}>Kontakt</h2>
+          <p className={styles.sectionParagraph}>
+            Skontaktuj się z nami pod adresem email: kontakt@example.com
+          </p>
         </div>
       </div>
     </div>
+
   );
 }
 
