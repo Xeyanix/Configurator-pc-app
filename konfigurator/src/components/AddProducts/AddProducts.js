@@ -14,6 +14,9 @@ function AddProducts() {
           Wyloguj
         </Button>
       </Link>
+      <Button color="error">
+          Zaloguj się
+        </Button>
     </div>
   );
 }

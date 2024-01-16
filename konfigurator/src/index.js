@@ -3,7 +3,8 @@ import ReactDOM from "react-dom";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import LoginPage from "./components/LoginPage/LoginPage";
+// import LoginPage from "./components/LoginPage/LoginPage";
+import MainPage from "./components/MainPage/MainPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
@@ -11,7 +12,8 @@ import store from "./redux/store";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LoginPage />,
+    element: <MainPage />,
+    // element: <LoginPage />,
     // errorElement: <Page404 />,
   },
   {
