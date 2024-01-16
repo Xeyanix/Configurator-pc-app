@@ -18,10 +18,10 @@ $color-red: red;
 }
 
 .wrapper {
-  height: 150px;
+  height: 170px;
   width: 90%;
   display: flex;
-  flex-direction: column;
+  flex-direction: auto;
   align-items: center;
   justify-content: center;
   overflow-x: hidden;
@@ -34,8 +34,21 @@ $color-red: red;
   cursor: pointer;
 }
 
+.mainPageButton {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 40px;
+  flex-direction: flex;
+  align-items: center;
+  background-color: lightblue;
+  border: 1px solid black;
+  border-radius: 15px;
+  height: 70px;
+  width: 30%;
+}
+
 .wrapper:hover {
-  background-color: #2980b9 ;
+  background-color: #2980b9;
 }
 
 .myButton {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import commonColumnsStyles from '../../common/styles/Columns.module.scss';
+import styles from '../../common/styles/Columns.module.scss';
 import CPUs from '../../common/consts/cpu';
 import RAMs from '../../common/consts/ram';
 
@@ -44,7 +44,7 @@ const ProductList = (props) => {
         {props.Motherboards.map((motherboard) => (
           <div key={motherboard.id} onClick={() => handlePlytaClick(motherboard)}>
             {motherboard.name}, {motherboard.chipset} <br />
-            <button className={commonColumnsStyles.myButton} onClick={() => handleDodajDoKoszyka(motherboard)}>
+            <button className={styles.myButton} onClick={() => handleDodajDoKoszyka(motherboard)}>
               Dodaj do koszyka
             </button>
           </div>
@@ -62,7 +62,7 @@ const ProductList = (props) => {
           CPUs.filter((cpu) => cpu.compatibleMotherboards.includes(selectedMotherboard.id)).map((cpu) => (
             <div key={cpu.id}>
               {cpu.name}
-              <button className={commonColumnsStyles.myButton} onClick={() => handleDodajDoKoszyka(cpu)}>
+              <button className={styles.myButton} onClick={() => handleDodajDoKoszyka(cpu)}>
                 Dodaj do koszyka
               </button>
             </div>
@@ -78,7 +78,7 @@ const ProductList = (props) => {
         {RAMs.map((ram) => (
           <li key={ram.id}>
             {ram.name}
-            <button className={commonColumnsStyles.myButton} onClick={() => handleDodajDoKoszyka(ram)}>
+            <button className={styles.myButton} onClick={() => handleDodajDoKoszyka(ram)}>
               Dodaj do koszyka
             </button>
           </li>
@@ -88,16 +88,16 @@ const ProductList = (props) => {
   );
 
   return (
-    <div className={commonColumnsStyles.App}>
-      <header className={commonColumnsStyles.AppHeader}>
-        <div className={commonColumnsStyles.smallerFont}>
+    <div className={styles.App}>
+      <header className={styles.AppHeader}>
+        <div className={styles.smallerFont}>
           {!selectedMotherboard && showMotherboardList ? (
             <RenderMotherboardOptions />
           ) : (
             <div>
               <h3>Wybrana płyta główna: {selectedMotherboard?.name}</h3>
               {!showMotherboardList && (
-                <button className={commonColumnsStyles.myButton} onClick={handleShowMotherboardList}>
+                <button className={styles.myButton} onClick={handleShowMotherboardList}>
                   Wyświetl listę płyt głównych
                 </button>
               )}
@@ -109,7 +109,7 @@ const ProductList = (props) => {
                 <>
                   <h3>Wybrany Procesor: {selectedCpu?.name}</h3>
                   {!showCpuList && (
-                    <button className={commonColumnsStyles.myButton} onClick={handleShowCpuList}>
+                    <button className={styles.myButton} onClick={handleShowCpuList}>
                       Wyświetl listę Procesorów
                     </button>
                   )}

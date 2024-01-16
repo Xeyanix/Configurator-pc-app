@@ -4,19 +4,20 @@ import { Link } from 'react-router-dom';
 import { Button } from "@mui/material";
 
 function AddProducts() {
-  
+
   return (
     <div className={styles.wrapper}>
       <h1>PC Configurator</h1>
-    
-      <Link to="/">
-        <Button variant="contained" color="error">
-          Wyloguj
+      <div className={styles.mainPageButton}>
+        <Link to="/">
+          <Button variant="contained" color="success">
+            Strona Główna
+          </Button>
+        </Link>
+        <Button variant="contained">
+          Zaloguj
         </Button>
-      </Link>
-      <Button color="error">
-          Zaloguj się
-        </Button>
+      </div>
     </div>
   );
 }
