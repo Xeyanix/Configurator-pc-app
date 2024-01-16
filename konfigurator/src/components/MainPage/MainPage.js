@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 // import TextField from "@mui/material/TextField";
 import styles from "./MainPage.module.scss";
@@ -8,33 +8,17 @@ import Button from "@mui/material/Button";
 function MainPage() {
   let navigate = useNavigate();
 
-  const [userfirstName] = useState("");
-  const [userLastName] = useState("");
-
   const redirectToConfigurator = (e) => {
     e.preventDefault();
-    window.localStorage.setItem(
-      "user",
-      JSON.stringify({ userfirstName, userLastName })
-    );
+  
     navigate("/configurator");
   };
 
   return (
     <div>
-      <form className={styles.mainPageWrapper} onSubmit={redirectToConfigurator}>
-        <Box sx={{ m: 2 }}>
-          <Button
-            // disabled={userfirstName || !userLastName}
-            variant="contained"
-            type="submit"
-          >
-            Skonfiguruj
-          </Button>
-        </Box>
-      </form>
+
       <div>
-        <h1>Witaj w Kofiguratorze Swojego komputera - PC</h1>
+        <h1>Witaj w Konfiguratorze Swojego komputera - PC</h1>
         <p>
           Alternatywą dla kupowania gotowego zestawu PC jest samodzielne zbudowanie go od podstaw. Takie rozwiązanie ma sporo zalet, wśród których największą jest pełna kontrola nad doborem podzespołów i dopasowaniem ich do własnych potrzeb oraz budżetu, którym dysponujemy. W przyszłości można też łatwo modernizować nasz komputer, bez obawy o naruszenie gwarancji na cały zestaw. Każdy zakupiony przez nas komponent będzie mieć bowiem własną gwarancję. Samodzielne składanie komputera PC może wydawać się skomplikowane, ale w rzeczywistości każdy powinien sobie z tym zadaniem poradzić. Wszystkie podzespoły dostarczane są ze szczegółową instrukcją montażu, aby uniknąć wszelkich problemów. Aby maksymalnie ułatwić cały proces doboru sprzętu komputerowego stworzyliśmy Konfigurator Komputera PC, który krok po kroku pomoże Ci wybrać optymalne elementy zestawu, dbając, aby były ze sobą kompatybilne. Jeśli wybrany przez Ciebie komponent okaże się niezgodny z pozostałymi, zostaną zaproponowane alternatywy o zbliżonych parametrach.
         </p>
@@ -103,6 +87,16 @@ function MainPage() {
 
             </p>
           </div>
+          <form className={styles.mainPageWrapper} onSubmit={redirectToConfigurator}>
+            <Box sx={{ m: 2 }}>
+              <Button
+                variant="contained"
+                type="submit"
+              >
+                Skonfiguruj
+              </Button>
+            </Box>
+          </form>
           <div>
             <h2>Kontakt</h2>
             <p>
