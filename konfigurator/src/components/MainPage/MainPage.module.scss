@@ -1,4 +1,57 @@
+.mainContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
 .mainPageWrapper {
   display: flex;
   align-items: center;
+  margin-top: 20px;
+}
+
+.maintext {
+  color: black;
+  border-color: black;
+
+}
+
+.mainHeading {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.mainParagraph {
+  color: #555;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.additionalText {
+  margin-top: 15px;
+  color: #666;
+}
+
+.section {
+  margin-top: 30px;
+}
+
+.sectionHeading {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.sectionParagraph {
+  color: #555;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.contactSection {
+  margin-top: 30px;
 }
