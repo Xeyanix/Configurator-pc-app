@@ -21,7 +21,7 @@ $color-red: red;
   height: 170px;
   width: 90%;
   display: flex;
-  flex-direction: auto;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow-x: hidden;
@@ -37,15 +37,15 @@ $color-red: red;
 .mainPageButton {
   display: flex;
   justify-content: space-around;
-  margin: 10px;
+  // margin: 10px;
   flex-direction: flex;
   align-items: center;
-  background-color: lightblue;
   border: 1px solid black;
   border-radius: 8px;
   height: 40px;
   width: 28%;
 }
+
 
 .wrapper:hover {
   background-color: #2980b9;
