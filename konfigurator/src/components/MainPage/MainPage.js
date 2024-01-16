@@ -17,7 +17,7 @@ function MainPage() {
       "user",
       JSON.stringify({ userfirstName, userLastName })
     );
-    navigate("/configuratorPc");
+    navigate("/configurator");
   };
 
   return (

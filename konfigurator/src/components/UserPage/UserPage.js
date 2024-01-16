@@ -7,7 +7,7 @@ function UserPage() {
   return (
     <div>
       Zostałes zalogowany
-      <Link to="/configuratorPc">
+      <Link to="/configurator">
         <Button variant="contained" color="success">
           Wyloguj
         </Button>
