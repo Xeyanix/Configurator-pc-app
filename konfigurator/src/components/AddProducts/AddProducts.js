@@ -14,9 +14,11 @@ function AddProducts() {
             Strona Główna
           </Button>
         </Link>
+        <Link to="/LoginPage">
         <Button variant="contained">
           Zaloguj
         </Button>
+        </Link>
       </div>
     </div>
   );

@@ -3,8 +3,9 @@ import ReactDOM from "react-dom";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import LoginPage from "./components/LoginPage/LoginPage";
+import LoginPage from "./components/LoginPage/LoginPage";
 import MainPage from "./components/MainPage/MainPage";
+import UserPage from "./components/UserPage/UserPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
@@ -17,7 +18,17 @@ const router = createBrowserRouter([
     // errorElement: <Page404 />,
   },
   {
-    path: "/configuratorPC",
+    path: "/loginPage",
+    element: <LoginPage />,
+    // errorElement: <Page404 />,
+  },
+  {
+    path: "/UserPage",
+    element: <UserPage />,
+    // errorElement: <Page404 />,
+  },
+  {
+    path: "/configuratorPc",
     element: <App />,
     children: [
 

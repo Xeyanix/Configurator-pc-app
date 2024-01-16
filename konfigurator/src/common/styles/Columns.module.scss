@@ -37,14 +37,14 @@ $color-red: red;
 .mainPageButton {
   display: flex;
   justify-content: space-around;
-  margin-left: 40px;
+  margin: 10px;
   flex-direction: flex;
   align-items: center;
   background-color: lightblue;
   border: 1px solid black;
-  border-radius: 15px;
-  height: 70px;
-  width: 30%;
+  border-radius: 8px;
+  height: 40px;
+  width: 28%;
 }
 
 .wrapper:hover {
