@@ -18,13 +18,16 @@ function App() {
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
     })
   }, [scrollPosition]);
 
-  // const scrollToTop = () => {
-  //   setScrollPosition(0);
-  // };
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+    setScrollPosition(0);
+  };
 
   const addToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
@@ -74,7 +77,7 @@ function App() {
           />
         </div>
       </div >
-      {/* <button onClick={scrollToTop}>Scroll to Top</button> */}
+      <button onClick={scrollToTop}>Scroll to Top</button>
     </div >
   );
 }
