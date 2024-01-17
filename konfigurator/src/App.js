@@ -3,6 +3,7 @@ import styles from './App.module.scss';
 import Filters from './components/Filters/Filters';
 import AddProducts from './components/AddProducts/AddProducts';
 import ProductList from './components/ProductList/ProductList';
+import Scroll from './components/Scroll/Scroll';
 import Cart from './components/Cart/Cart';
 import Motherboards from './common/consts/motherboard';
 import LastViewed from './components/LastViewed/LastViewed';
@@ -21,13 +22,7 @@ function App() {
     })
   }, [scrollPosition]);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-    setScrollPosition(0);
-  };
+ 
 
   const addToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
@@ -75,9 +70,9 @@ function App() {
           <LastViewed
             cart={listViewed}
           />
+          <Scroll/>
         </div>
       </div >
-      <button onClick={scrollToTop}>Scroll to Top</button>
     </div >
   );
 }
