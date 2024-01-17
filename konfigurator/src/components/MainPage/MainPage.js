@@ -1,18 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 // import TextField from "@mui/material/TextField";
-import styles from "./MainPage.module.scss";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import { Link } from 'react-router-dom';
+import Box from "@mui/material/Box";
+import styles from "./MainPage.module.scss";
 
 function MainPage() {
-  let navigate = useNavigate();
-
-  const redirectToConfigurator = (e) => {
-    e.preventDefault();
-    navigate("/configurator");
-  };
-
   return (
     <div className={styles.mainContainer}>
       <div className={styles.maintext}>
@@ -28,6 +21,8 @@ function MainPage() {
           Budżet i przeznaczenie komputera
           zacząć powinniśmy od określenia, jaką kwotę jesteśmy w stanie przeznaczyć na zakup nowego komputera. Istotne jest także jego przeznaczenie. Inne parametry powinien mieć komputer do biura, a inne wydajny komputer dla graczy.
         </div>
+
+      
         <div className={styles.section}>
           <h2 className={styles.sectionHeading}>O Nas</h2>
           <p className={styles.sectionParagraph}>
@@ -89,15 +84,16 @@ function MainPage() {
           <p className={styles.sectionParagraph}>
             Obudowa nie tylko chroni podzespoły, ale także wpływa na wentylację i estetykę. Wybór zależy od preferencji użytkownika, liczby dostępnych miejsc na chłodzenie oraz wielkości planowanego zestawu.
           </p>
-        </div>
-        <form className={styles.mainPageWrapper} onSubmit={redirectToConfigurator}>
+        </div> 
+
+
+        <form className={styles.mainPageWrapper} >
           <Box sx={{ m: 2 }}>
-            <Button
-              variant="contained"
-              type="submit"
-            >
+          <Link to="/configurator">
+            <Button variant="contained">
               Skonfiguruj
             </Button>
+            </Link>
           </Box>
         </form>
         <div className={styles.contactSection}>
@@ -108,7 +104,6 @@ function MainPage() {
         </div>
       </div>
     </div>
-
   );
 }
 

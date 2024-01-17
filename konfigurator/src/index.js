@@ -14,11 +14,14 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainPage />,
-    // element: <LoginPage />,
     // errorElement: <Page404 />,
   },
   {
-    path: "/loginPage",
+    path: "/configurator",
+    element: <App />,
+  },
+  {
+    path: "/LoginPage",
     element: <LoginPage />,
     // errorElement: <Page404 />,
   },
@@ -26,13 +29,6 @@ const router = createBrowserRouter([
     path: "/UserPage",
     element: <UserPage />,
     // errorElement: <Page404 />,
-  },
-  {
-    path: "/configurator",
-    element: <App />,
-    children: [
-
-    ],
   },
 ]);
 

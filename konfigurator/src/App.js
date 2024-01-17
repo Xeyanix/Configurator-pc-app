@@ -1,21 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './App.module.scss';
 import Filters from './components/Filters/Filters';
 import AddProducts from './components/AddProducts/AddProducts';
 import ProductList from './components/ProductList/ProductList';
 import Cart from './components/Cart/Cart';
 import Motherboards from './common/consts/motherboard';
-import { Typography } from '@mui/material';
-import { useMediaQuery } from '@mui/material';
 import LastViewed from './components/LastViewed/LastViewed';
-
-function MobileContent() {
-  return <Typography variant="h4">Zawartość dla małych ekranów</Typography>;
-}
-
-function DesktopContent() {
-  return <Typography variant="h4">Zawartość dla dużych ekranów</Typography>;
-}
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -23,6 +13,18 @@ function App() {
   const [MotherboardsToDisplay, setMotherboardsToDisplay] = useState(selectedMotherboard);
   const [listViewed, setListViewed] = useState([]); // Użyj osobnego stanu dla listy ostatnio oglądanych
 
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+  }, [scrollPosition]);
+
+  // const scrollToTop = () => {
+  //   setScrollPosition(0);
+  // };
 
   const addToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
@@ -46,16 +48,8 @@ function App() {
     setCart([]);
   };
 
-  const isMobile = useMediaQuery('(max-width:600px)');
-  // const isTablet = useMediaQuery('(min-width: 601px) and (max-width: 1024px)');
-
-  //W tym kodzie, productIndex to indeks produktu w koszyku. 
-  // Jeśli produkt jest już w koszyku (productIndex !== -1), kod tworzy kopię koszyka ([...cart]), 
-  // używa splice do usunięcia jednej instancji produktu i aktualizuje stan koszyka za pomocą setCart(zaktualizowanyKoszyk).
-
   return (
     <div>
-      {isMobile ? <MobileContent /> : <DesktopContent />}
       <div className={styles.appWrapper}>
         <AddProducts />
         <Filters
@@ -80,8 +74,8 @@ function App() {
           />
         </div>
       </div >
+      {/* <button onClick={scrollToTop}>Scroll to Top</button> */}
     </div >
-
   );
 }
 
