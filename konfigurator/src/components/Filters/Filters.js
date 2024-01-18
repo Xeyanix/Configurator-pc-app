@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from '../../common/styles/Headers.module.scss';
 
-const Filters = ({ Motherboards, sendfilteredProductsToAppComponent }) => {
+  function Filters(props) {
   const [searchPhrase, setSearchPhrase] = useState('');
   const [searchSocket, setSearchSocket] = useState('');
   const [searchChipset, setSearchChipset] = useState('');
@@ -26,7 +26,7 @@ const Filters = ({ Motherboards, sendfilteredProductsToAppComponent }) => {
   };
 
   const filterProdukty = () => {
-    const filteredProducts = Motherboards.filter((Motherboard) =>
+    const filteredProducts = props.Motherboards.filter((Motherboard) =>
       Motherboard.name.toLowerCase().includes(searchPhrase.toLowerCase())
     );
 
@@ -35,14 +35,14 @@ const Filters = ({ Motherboards, sendfilteredProductsToAppComponent }) => {
         Motherboard.name.toLowerCase().includes(searchChipset.toLowerCase()) ||
         Motherboard.chipset.toLowerCase() === searchChipset.toLowerCase()
       );
-      filteredProducts.length > 0 && sendfilteredProductsToAppComponent(chipsetFilter);
+      filteredProducts.length > 0 && props.sendfilteredProductsToAppComponent(chipsetFilter);
     } else if (searchSocket) {
       const socketFilter = filteredProducts.filter((Motherboard) =>
         Motherboard.socket.toLowerCase() === searchSocket.toLowerCase()
       );
-      filteredProducts.length > 0 && sendfilteredProductsToAppComponent(socketFilter);
+      filteredProducts.length > 0 && props.sendfilteredProductsToAppComponent(socketFilter);
     } else {
-      sendfilteredProductsToAppComponent(filteredProducts);
+      props.sendfilteredProductsToAppComponent(filteredProducts);
     }
   };
 
@@ -54,7 +54,7 @@ const Filters = ({ Motherboards, sendfilteredProductsToAppComponent }) => {
   };
 
   const getUniqueCategory = () => {
-    const CategoryList = Motherboards.map((Motherboard) => Motherboard.socket);
+    const CategoryList = props.Motherboards.map((Motherboard) => Motherboard.socket);
     return [...new Set(CategoryList)];
   };
 
