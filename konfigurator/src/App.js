@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './App.module.scss';
 import Filters from './components/Filters/Filters';
-import AddProducts from './components/AddProducts/AddProducts';
+import AppBar from './components/AppBar/AppBar';
 import ProductList from './components/ProductList/ProductList';
 import Scroll from './components/Scroll/Scroll';
 import Cart from './components/Cart/Cart';
@@ -49,7 +49,7 @@ function App() {
   return (
     <div>
       <div className={styles.appWrapper}>
-        <AddProducts />
+        <AppBar />
         <Filters
           Motherboards={Motherboards}
           sendfilteredProductsToAppComponent={setMotherboardsToDisplay}

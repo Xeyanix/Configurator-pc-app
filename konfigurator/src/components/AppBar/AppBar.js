@@ -3,7 +3,7 @@ import styles from '../../common/styles/Columns.module.scss';
 import { Link } from 'react-router-dom';
 import { Button } from "@mui/material";
 
-function AddProducts() {
+function AppBar() {
 
   return (
     <div className={styles.wrapper}>
@@ -24,4 +24,4 @@ function AddProducts() {
   );
 }
 
-export default AddProducts;
+export default AppBar;

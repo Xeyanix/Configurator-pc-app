@@ -22,31 +22,40 @@ function LastViewed(props) {
         };
     });
 
-    const lastViewedItems = cartItems.map((product) => (
+    const renderProduct = cartItems.map((product) =>
+
         <li
-            key={product.id} style={{ display: 'inline-block', margin: '10px' }}>
+            key={product.id}
+            className={styles.productList}
+        >
             <div>{product.name}</div>
             <div>{product.chipset}</div>
+            {/* <div>Count: {product.count}</div> */}
             <hr />
         </li >
-    ));
+    );
 
     return (
         <div className={styles.LastViewed}>
-            <header>
-                <div className={styles.font}>
-                    <h4>Ostatnio dodane do koszyka</h4>
-
+            <div className={styles.font}>
+                <header >
+                    <h1>Ostatnio oglądane</h1>
                     {props.cart.length === 0 ? (
                         <p>Ostatnio nic nie dodawałes do koszyka</p>
                     ) : (
-                        <div>{lastViewedItems}</div>
-                    )}
+                        <div>{renderProduct}</div>
 
-                </div>
-            </header >
+                    )}
+                </header >
+            </div>
+
         </div >
     );
 }
 
 export default LastViewed;
+
+
+
+
+
