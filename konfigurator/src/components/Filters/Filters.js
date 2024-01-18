@@ -1,126 +1,101 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from '../../common/styles/Headers.module.scss';
 
-class Filters extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchPhrase: '',
-      searchSocket: '',
-      searchChipset: '',
-    };
-  }
+const Filters = ({ Motherboards, sendfilteredProductsToAppComponent }) => {
+  const [searchPhrase, setSearchPhrase] = useState('');
+  const [searchSocket, setSearchSocket] = useState('');
+  const [searchChipset, setSearchChipset] = useState('');
 
-  handleSearchPhraseChange = (event) => {
-    this.setState({ searchPhrase: event.target.value }
-    );
+  const handleSearchPhraseChange = (event) => {
+    setSearchPhrase(event.target.value);
   };
 
-  handleSelectCategory = (event) => {
-    this.setState({ searchSocket: event.target.value }
-    );
+  const handleSelectCategory = (event) => {
+    setSearchSocket(event.target.value);
   };
 
-  handleProductType = (event) => {
-    this.setState({ searchChipset: event.target.value },
-      () => this.filterProdukty() //filtrowanie podczas wpisywania
-    );
+  const handleProductType = (event) => {
+    setSearchChipset(event.target.value);
+    filterProdukty();
   };
 
-  handleSearchKeyUp = (event) => {
-    if (event.key === 'Enter') { //obsługa wcisniecia enter
-      this.filterProdukty();
+  const handleSearchKeyUp = (event) => {
+    if (event.key === 'Enter') {
+      filterProdukty();
     }
   };
 
-
-  filterProdukty = () => {
-    const { Motherboards } = this.props;
-    const { searchPhrase, searchChipset, searchSocket } = this.state;
-
-    // odfiltrowanie zgodnych wyników
-    let filteredProducts = Motherboards.filter((Motherboards) =>
-      Motherboards.name.toLowerCase().includes(searchPhrase.toLowerCase())
+  const filterProdukty = () => {
+    const filteredProducts = Motherboards.filter((Motherboard) =>
+      Motherboard.name.toLowerCase().includes(searchPhrase.toLowerCase())
     );
-
 
     if (searchChipset) {
-      filteredProducts = filteredProducts.filter((Motherboards) =>
-        Motherboards.name.toLowerCase().includes(searchChipset.toLowerCase()) ||
-        Motherboards.chipset.toLowerCase() === searchChipset.toLowerCase()
+      const chipsetFilter = filteredProducts.filter((Motherboard) =>
+        Motherboard.name.toLowerCase().includes(searchChipset.toLowerCase()) ||
+        Motherboard.chipset.toLowerCase() === searchChipset.toLowerCase()
       );
-    }
-
-    if (searchSocket) {
-      filteredProducts = filteredProducts.filter((Motherboards) =>
-        Motherboards.socket.toLowerCase() === searchSocket.toLowerCase()
+      filteredProducts.length > 0 && sendfilteredProductsToAppComponent(chipsetFilter);
+    } else if (searchSocket) {
+      const socketFilter = filteredProducts.filter((Motherboard) =>
+        Motherboard.socket.toLowerCase() === searchSocket.toLowerCase()
       );
+      filteredProducts.length > 0 && sendfilteredProductsToAppComponent(socketFilter);
+    } else {
+      sendfilteredProductsToAppComponent(filteredProducts);
     }
-
-    console.log('sprawdzam aktualne filtry', filteredProducts);
-    // przekazanie wyfiltrowanego jedzenia do komponentu rodzica (App)
-
-    this.props.sendfilteredProductsToAppComponent(filteredProducts);
   };
 
-  handleResetFilters = () => {
-    this.setState(
-      {
-        searchPhrase: '',
-        searchSocket: '',
-        searchChipset: '',
-      },
-      () => {
-        this.filterProdukty();
-      }
-    );
+  const handleResetFilters = () => {
+    setSearchPhrase('');
+    setSearchSocket('');
+    setSearchChipset('');
+    filterProdukty();
   };
 
-  getUniqueCategory = () => {
-    const { Motherboards } = this.props;
-    const CategoryList = Motherboards.map((Motherboards) => Motherboards.socket);
-    const motherboardCategory = [...new Set(CategoryList)];
-    return motherboardCategory;
+  const getUniqueCategory = () => {
+    const CategoryList = Motherboards.map((Motherboard) => Motherboard.socket);
+    return [...new Set(CategoryList)];
   };
 
+  const uniqueCategory = getUniqueCategory();
 
-  render() {
-    const uniqueCategory = this.getUniqueCategory();
-    const { searchPhrase, searchChipset, searchSocket } = this.state;
-
-
-    return (
-      <div className={styles.productsFiltersWrapper}>
-        Płyta Główna
-        <input
-          id={styles.searchPhraseInput}
-          value={searchPhrase}
-          onChange={this.handleSearchPhraseChange}
-          onKeyUp={this.handleSearchKeyUp}  //obsługa wcisniecia enter
-        ></input>
-        Chipset
-        <input
-         id={styles.searchChipsetInput}
-          value={searchChipset}
-          onChange={this.handleProductType}
-        ></input>
-        Socket
-        <select
-          value={searchSocket}
-          onChange={this.handleSelectCategory} >
-          <option key={'all'} value={''}>
-            All Categories
-          </option>{uniqueCategory.map((socket) => (
-            <option key={socket} value={socket}>
-              {socket}
-            </option>
-          ))}
-        </select>
-        <button onClick={this.filterProdukty}>Wyszukaj</button>
-        <button onClick={this.handleResetFilters}>Zresetuj filtry</button>
-      </div>
-    );
-  }
-}
+  return (
+    <div className={styles.productsFiltersWrapper}>
+      Płyta Główna
+      <input
+        id={styles.searchPhraseInput}
+        value={searchPhrase}
+        onChange={handleSearchPhraseChange}
+        onKeyUp={handleSearchKeyUp}
+      ></input>
+      Chipset
+      <input
+        pattern="[0-9]+"
+        type="text"
+        required
+        placeholder="X570,b450, etc"
+        id={styles.searchChipsetInput}
+        value={searchChipset}
+        onChange={handleProductType}
+        title="Wprowadź tylko cyfry i litery"
+      ></input>
+      Socket
+      <select
+        value={searchSocket}
+        onChange={handleSelectCategory}>
+        <option key={'all'} value={''}>
+          All Categories
+        </option>{uniqueCategory.map((socket) => (
+          <option key={socket} value={socket}>
+            {socket}
+          </option>
+        ))}
+      </select>
+      <button onClick={filterProdukty}>Wyszukaj</button>
+      <button onClick={handleResetFilters}>Zresetuj filtry</button>
+    </div>
+  );
+};
 
 export default Filters;

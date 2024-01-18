@@ -3,7 +3,7 @@ import styles from '../../common/styles/Columns.module.scss';
 import CPUs from '../../common/consts/cpu';
 import RAMs from '../../common/consts/ram';
 
-const ProductList = (props) => {
+function ProductList (props) {
   const [selectedMotherboard, setSelectedMotherboard] = useState(null);
   const [koszyk, setKoszyk] = useState([]);
   const [showMotherboardList, setShowMotherboardList] = useState(true);
