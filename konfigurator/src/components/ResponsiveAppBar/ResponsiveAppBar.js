@@ -15,8 +15,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Strona Główna', 'Pricing', 'Zaloguj', 'Kontakt'];
+const settings = ['Profile', 'Account', 'Dashboard','Settings', 'Logout'];
 
 
 function ResponsiveAppBar() {
