@@ -15,8 +15,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = ['Strona Główna', 'Pricing', 'Zaloguj', 'Kontakt'];
-const settings = ['Profile', 'Account', 'Dashboard','Settings', 'Logout'];
+const pages = ['Strona Główna', 'Pricing', 'Zaloguj',];
+const settings = ['Profile', 'Account', 'Dashboard', 'Settings', 'Logout'];
 
 
 function ResponsiveAppBar() {
@@ -53,11 +53,11 @@ function ResponsiveAppBar() {
   };
 
 
-
   return (
     <div className={styles.wrapper}>
       <h1>PC Configurator</h1>
       <div className={styles.otherPageButtons}>
+
         <Link to="/">
           <Button variant="contained" color="success">
             Strona Główna
@@ -71,6 +71,8 @@ function ResponsiveAppBar() {
         <Button onClick={scrollToContactSection} variant="contained" color="secondary" >
           Kontakt
         </Button>
+
+
       </div>
       <AppBar position="static">
         <Container maxWidth="xl">
@@ -93,6 +95,21 @@ function ResponsiveAppBar() {
             >
               LOGO
             </Typography>
+
+            <Link to="/">
+              <Button variant="contained" color="success">
+                Strona Główna
+              </Button>
+            </Link>
+            <Link to="/LoginPage">
+              <Button variant="contained">
+                Zaloguj
+              </Button>
+            </Link>
+            <Button onClick={scrollToContactSection} variant="contained" color="secondary" >
+              Kontakt
+            </Button>
+
 
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
@@ -190,6 +207,8 @@ function ResponsiveAppBar() {
                 ))}
               </Menu>
             </Box>
+
+
           </Toolbar>
         </Container>
       </AppBar>
