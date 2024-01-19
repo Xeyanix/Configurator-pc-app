@@ -28,7 +28,7 @@ $color-red: red;
   cursor: pointer;
 }
 
-.mainPageButton {
+.otherPageButtons {
   display: flex;
   justify-content: space-around;
   margin: 10px;
@@ -37,7 +37,7 @@ $color-red: red;
   border: 1px solid black;
   border-radius: 8px;
   height: 40px;
-  width: 28%;
+  width: 50%;
 }
 
 

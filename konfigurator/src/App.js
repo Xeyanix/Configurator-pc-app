@@ -7,6 +7,7 @@ import Scroll from './components/Scroll/Scroll';
 import Cart from './components/Cart/Cart';
 import Motherboards from './common/consts/motherboard';
 import LastViewed from './components/LastViewed/LastViewed';
+import Contact from './components/Contact/Contact';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -69,6 +70,9 @@ function App() {
         <div>
           <LastViewed
             cart={listViewed}
+          />
+          <Contact
+          id="kontakt"
           />
           <Scroll/>
         </div>
