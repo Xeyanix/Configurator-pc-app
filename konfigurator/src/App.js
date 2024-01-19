@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './App.module.scss';
 import Filters from './components/Filters/Filters';
-import AppBar from './components/AppBar/AppBar';
+import ResponsiveAppBar from './components/ResponsiveAppBar/ResponsiveAppBar';
 import ProductList from './components/ProductList/ProductList';
 import Scroll from './components/Scroll/Scroll';
 import Cart from './components/Cart/Cart';
@@ -23,7 +23,7 @@ function App() {
     })
   }, [scrollPosition]);
 
- 
+
 
   const addToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
@@ -50,7 +50,7 @@ function App() {
   return (
     <div>
       <div className={styles.appWrapper}>
-        <AppBar />
+        <ResponsiveAppBar />
         <Filters
           Motherboards={Motherboards}
           sendfilteredProductsToAppComponent={setMotherboardsToDisplay}
@@ -72,9 +72,9 @@ function App() {
             cart={listViewed}
           />
           <Contact
-          id="kontakt"
+            id="kontakt"
           />
-          <Scroll/>
+          <Scroll />
         </div>
       </div >
     </div >

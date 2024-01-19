@@ -6,7 +6,7 @@ function Contact() {
 
 
     return (
-        <div id="contactSection" className={styles.contact}>
+        <div id="contactSection" className={styles.contactSection}>
             MEDIA SPOLECZNOSCIOWE
             <div>
 
