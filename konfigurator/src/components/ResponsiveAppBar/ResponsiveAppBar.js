@@ -15,7 +15,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = ['Strona Główna', 'Pricing', 'Zaloguj',];
+const pages = ['Main Page', 'Pricing', 'Zaloguj',];
 const settings = ['Profile', 'Account', 'Dashboard', 'Settings', 'Logout'];
 
 
@@ -71,8 +71,6 @@ function ResponsiveAppBar() {
         <Button onClick={scrollToContactSection} variant="contained" color="secondary" >
           Kontakt
         </Button>
-
-
       </div>
       <AppBar position="static">
         <Container maxWidth="xl">
@@ -93,24 +91,8 @@ function ResponsiveAppBar() {
                 textDecoration: 'none',
               }}
             >
-              LOGO
+              LOGO XD
             </Typography>
-
-            <Link to="/">
-              <Button variant="contained" color="success">
-                Strona Główna
-              </Button>
-            </Link>
-            <Link to="/LoginPage">
-              <Button variant="contained">
-                Zaloguj
-              </Button>
-            </Link>
-            <Button onClick={scrollToContactSection} variant="contained" color="secondary" >
-              Kontakt
-            </Button>
-
-
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
                 size="large"
@@ -122,6 +104,7 @@ function ResponsiveAppBar() {
               >
                 <MenuIcon />
               </IconButton>
+
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorElNav}
@@ -140,6 +123,8 @@ function ResponsiveAppBar() {
                   display: { xs: 'block', md: 'none' },
                 }}
               >
+
+
                 {pages.map((page) => (
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{page}</Typography>
@@ -167,7 +152,9 @@ function ResponsiveAppBar() {
               LOGO
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+              {/* PRZYCISKI APPBAR */}
               {pages.map((page) => (
+
                 <Button
                   key={page}
                   onClick={handleCloseNavMenu}
@@ -175,9 +162,23 @@ function ResponsiveAppBar() {
                 >
                   {page}
                 </Button>
+
               ))}
             </Box>
-
+            {/* ?MOJE PRZYCISKI */}
+            <Link to="/">
+              <Button variant="contained" color="success">
+                Strona Główna
+              </Button>
+            </Link>
+            <Link to="/LoginPage">
+              <Button variant="contained">
+                Zaloguj
+              </Button>
+            </Link>
+            <Button onClick={scrollToContactSection} variant="contained" color="secondary" >
+              Kontakt
+            </Button>
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -207,8 +208,6 @@ function ResponsiveAppBar() {
                 ))}
               </Menu>
             </Box>
-
-
           </Toolbar>
         </Container>
       </AppBar>
