@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import styles from '../../common/styles/Columns.module.scss';
 import { Link } from 'react-router-dom';
-import { Button, AppBar, Toolbar, IconButton, Typography, Drawer, List, ListItem, ListItemText } from "@mui/material";
+import { Box, Button, AppBar, Toolbar, IconButton, Typography, Drawer, List, ListItem, ListItemText } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
 function ResponsiveAppBar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -31,25 +32,62 @@ function ResponsiveAppBar() {
     { label: "Kontakt", onClick: scrollToContactSection },
   ];
 
+  const BarItems = [
+    { label: "Strona Główna", path: "/" },
+    { label: "Zaloguj", path: "/LoginPage" },
+    { label: "Kontakt", onClick: scrollToContactSection },
+  ];
+
   return (
     <div>
       <AppBar position="static">
         <Toolbar className={styles.wrapper}>
-         
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography
+            variant="h4"
+            noWrap
+            component="a"
+            href="#app-bar-with-responsive-menu"
+            sx={{
+              mr: 0,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
             PC Configurator
           </Typography>
+
+
           <div className={styles.otherPageButtons}>
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-            onClick={toggleDrawer(true)}
-          >
-            <MenuIcon />
-          </IconButton>
-            <Link to="/">
+
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+              onClick={toggleDrawer(true)}
+            >
+              <MenuIcon />
+            </IconButton>
+
+      
+              {BarItems.map((item, index) => (
+                <MenuItem
+                  button
+                  key={index}
+                  component={item.path ? Link : "button"}
+                  to={item.path}
+                  onClick={item.onClick}
+                >
+                  <ListItemText primary={item.label} />
+                </MenuItem>
+              ))}
+          
+            
+            {/* <Link to="/">
               <Button variant="contained" color="success">
                 Strona Główna
               </Button>
@@ -61,9 +99,12 @@ function ResponsiveAppBar() {
             </Link>
             <Button onClick={scrollToContactSection} variant="contained" color="secondary">
               Kontakt
-            </Button>
+            </Button> */}
+
           </div>
+
         </Toolbar>
+
       </AppBar>
 
       <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
