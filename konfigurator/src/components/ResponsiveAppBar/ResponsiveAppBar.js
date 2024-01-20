@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from '../../common/styles/Columns.module.scss';
 import { Link } from 'react-router-dom';
-import { Box, Button, AppBar, Toolbar, IconButton, Typography, Drawer, List, ListItem, ListItemText } from "@mui/material";
+import { Button, AppBar, Toolbar, IconButton, Typography, Drawer, List, ListItem, ListItemText } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
@@ -59,10 +59,7 @@ function ResponsiveAppBar() {
           >
             PC Configurator
           </Typography>
-
-
           <div className={styles.otherPageButtons}>
-
             <IconButton
               edge="start"
               color="inherit"
@@ -72,41 +69,35 @@ function ResponsiveAppBar() {
             >
               <MenuIcon />
             </IconButton>
-
-      
-              {BarItems.map((item, index) => (
-                <MenuItem
-                  button
-                  key={index}
-                  component={item.path ? Link : "button"}
-                  to={item.path}
-                  onClick={item.onClick}
-                >
-                  <ListItemText primary={item.label} />
-                </MenuItem>
-              ))}
-          
-            
-            {/* <Link to="/">
-              <Button variant="contained" color="success">
-                Strona Główna
-              </Button>
-            </Link>
-            <Link to="/LoginPage">
-              <Button variant="contained">
-                Zaloguj
-              </Button>
-            </Link>
-            <Button onClick={scrollToContactSection} variant="contained" color="secondary">
-              Kontakt
-            </Button> */}
-
+            {BarItems.map((item, index) => (
+              <MenuItem
+                button
+                key={index}
+                component={item.path ? Link : "button"}
+                to={item.path}
+                onClick={item.onClick}
+              >
+                <ListItemText primary={item.label} />
+              </MenuItem>
+            ))}
           </div>
-
         </Toolbar>
-
+        <div>
+          <Link to="/">
+            <Button variant="contained" color="success">
+              Strona Główna
+            </Button>
+          </Link>
+          <Link to="/LoginPage">
+            <Button variant="contained">
+              Zaloguj
+            </Button>
+          </Link>
+          <Button onClick={scrollToContactSection} variant="contained" color="secondary">
+            Kontakt
+          </Button>
+        </div>
       </AppBar>
-
       <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
         <List>
           {menuItems.map((item, index) => (

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from "@mui/material/Button";
 import styles from "./Scroll.module.scss";
 
-function Scroll() {
+function Scroll(props) {
     const [setScrollPosition] = useState(0);
 
     const scrollToTop = () => {
