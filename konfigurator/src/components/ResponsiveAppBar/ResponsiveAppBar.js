@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from '../../common/styles/Columns.module.scss';
 import { Link } from 'react-router-dom';
-import { Button, AppBar, Toolbar, IconButton, Typography, Drawer, List, ListItem, ListItemText } from "@mui/material";
+import { AppBar, Toolbar, IconButton, Typography, Drawer, List, ListItem, ListItemText } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
@@ -82,21 +82,7 @@ function ResponsiveAppBar() {
             ))}
           </div>
         </Toolbar>
-        <div>
-          <Link to="/">
-            <Button variant="contained" color="success">
-              Strona Główna
-            </Button>
-          </Link>
-          <Link to="/LoginPage">
-            <Button variant="contained">
-              Zaloguj
-            </Button>
-          </Link>
-          <Button onClick={scrollToContactSection} variant="contained" color="secondary">
-            Kontakt
-          </Button>
-        </div>
+       
       </AppBar>
       <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
         <List>
