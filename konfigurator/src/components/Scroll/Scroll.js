@@ -13,25 +13,23 @@ function Scroll(props) {
         });
         setScrollPosition(0);
     };
-    
+
     const scrollToContactSection = () => {
         const contactSection = document.getElementById("contactSection");
         if (contactSection) {
-          const contactSectionPosition = contactSection.offsetTop;
-          window.scrollTo({
-            top: contactSectionPosition,
-            behavior: "smooth",
-          });
+            const contactSectionPosition = contactSection.offsetTop;
+            window.scrollTo({
+                top: contactSectionPosition,
+                behavior: "smooth",
+            });
         }
-      };
+    };
     return (
         <div className={styles.scrollButton}>
-            <Button onClick={scrollToTop} variant="contained" color="success">
-                Scroll to Top
-            </Button>
+
             <div>
                 <Link to="/">
-                    <Button variant="contained" color="success">
+                    <Button variant="contained" color="error">
                         Strona Główna
                     </Button>
                 </Link>
@@ -42,6 +40,9 @@ function Scroll(props) {
                 </Link>
                 <Button onClick={scrollToContactSection} variant="contained" color="secondary">
                     Kontakt
+                </Button>
+                <Button onClick={scrollToTop} variant="contained" color="success">
+                    Scroll to Top
                 </Button>
             </div>
         </div>
