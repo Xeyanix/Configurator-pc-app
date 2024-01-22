@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import { Link } from 'react-router-dom';
 import styles from "./UserPage.module.scss";
 
-function UserPage() {
+function UserPage({isLoggedIn}) {
   const currentUser = JSON.parse(window.localStorage.getItem("user"));
 
   return (
@@ -15,6 +15,7 @@ function UserPage() {
           Wyloguj
         </Button>
       </Link>
+    
     </div>
   );
 }

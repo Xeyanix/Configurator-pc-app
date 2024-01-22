@@ -9,6 +9,7 @@ import Motherboards from './common/consts/motherboard';
 import LastViewed from './components/LastViewed/LastViewed';
 import Contact from './components/Contact/Contact';
 
+
 function App() {
   const [cart, setCart] = useState([]);
   const [selectedMotherboard, setSelectedMotherboard] = useState(Motherboards);
@@ -25,7 +26,7 @@ function App() {
 
   const addToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
-    setSelectedMotherboard((prev) => [...prev, product])
+    setSelectedMotherboard((prev) => [...prev, product]);
     setListViewed((prev) => [...prev, product]);
   };
 
@@ -64,6 +65,9 @@ function App() {
             removeAll={removeAllItems}
           />
         </div>
+        
+          
+ 
         <div>
           <LastViewed
             cart={listViewed}
@@ -73,6 +77,7 @@ function App() {
           />
           <Scroll />
         </div>
+
       </div >
     </div >
   );
@@ -81,3 +86,4 @@ function App() {
 export default App;
 
 
+//redirect from login tu app but with message from userPage

@@ -5,11 +5,13 @@ import styles from "./LoginPage.module.scss";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
+
 function LoginPage() {
   let navigate = useNavigate();
 
   const [userfirstName, setUserFirstName] = useState("");
   const [userLastName, setUserLastName] = useState("");
+  const [showLoginMessage, setShowLoginMessage] = useState(false);
 
   const signInUser = (e) => {
     e.preventDefault();
@@ -17,8 +19,18 @@ function LoginPage() {
       "user",
       JSON.stringify({ userfirstName, userLastName })
     );
-    navigate("/userPage");
+
+
+    setShowLoginMessage(true);
+    setTimeout(() => {
+      setShowLoginMessage(false);
+      navigate("/UserPage"); 
+    }, 2000); // 2000 milliseconds (2 seconds)
+
   };
+
+
+
   return (
     <div>
       <form className={styles.loginPageWrapper} onSubmit={signInUser}>
@@ -47,6 +59,7 @@ function LoginPage() {
             disabled={!userfirstName || !userLastName}
             variant="contained"
             type="submit"
+            color="success"
           >
             Zaloguj się
           </Button>
@@ -59,6 +72,12 @@ function LoginPage() {
           </Button>
         </Link>
       </form>
+
+      {showLoginMessage && (
+        <div className={styles.loginMessage}>
+          Zostałeś zalogowany! Zaraz nastąpi przekierowanie...
+        </div>
+      )}
     </div>
   );
 }
