@@ -33,9 +33,6 @@ function Cart(props) {
     };
   });
 
-  // const totalPrice = props.cart.reduce((acc, product) => acc + product.price, 0);
-
-
   const totalPrice = () => {
      const Price = props.cart.reduce((acc, product) => acc + product.price, 0);
     return Price.toLocaleString('pl-PL', { minimumFractionDigits: 2 });
