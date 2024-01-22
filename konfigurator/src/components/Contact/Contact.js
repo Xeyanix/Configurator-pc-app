@@ -34,7 +34,7 @@ function Contact() {
                             rel="noopener noreferrer"
                             target="_blank"
                             // href="https://www.instagram.com/bboyjohnny/"
-                            href="https://www.linkedin.com/feed/?trk=homepage-basic_sign-in-submit"
+                            href="https://www.linkedin.com/in/jan-goralewski/"
                             class="wp-block-social-link-anchor">
                             
                             <svg
