@@ -38,14 +38,15 @@ function Cart(props) {
     return Price.toLocaleString('pl-PL', { minimumFractionDigits: 2 });
   };
 
-  const AddedItem = cartItems.map((Motherboards) => (
+  const AddedItem = cartItems.map((product) => (
     <li
-      onContextMenu={(event) => { removeFromShoppingList(event, Motherboards.id); }}
-      key={Motherboards.id} >
-      {Motherboards.name} - {Motherboards.price} zł x{Motherboards.count} {" "}
-      <button className={commonColumnsStyles.myButton} onClick={() => props.remove(Motherboards.id)}>Usuń</button >
+      onContextMenu={(event) => { removeFromShoppingList(event, product.id); }}
+      key={product.id} >
+      {product.name} - {product.price.toLocaleString('pl-PL', { minimumFractionDigits: 2 })} zł x{product.count} {" "}
+      <button className={commonColumnsStyles.myButton} onClick={() => props.remove(product.id)}>Usuń</button >
     </li >
   ));
+
 
   return (
     <div className={commonColumnsStyles.App}>
