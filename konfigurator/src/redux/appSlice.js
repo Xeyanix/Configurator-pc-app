@@ -15,7 +15,6 @@ export const appSlice = createSlice({
         },
         loadCartList: (state, value) => {
             state.cart = value.payload;
-          
         },
         removeItem: (state, value) => {
             const productId = value.payload;

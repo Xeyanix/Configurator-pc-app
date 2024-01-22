@@ -48,9 +48,9 @@ function Cart(props) {
     <div className={commonColumnsStyles.App}>
       <header className={commonColumnsStyles.AppHeader}>
         <div className={commonColumnsStyles.smallerFont}>
-          <h2>Cart</h2>
+          <h2>Koszyk</h2>
           {props.cart.length === 0 ? (
-            <p>Your shopping cart is empty.</p>
+            <p>Twój koszyk jest pusty</p>
           ) : (
             <div>
               <ul>{AddedItem}</ul>

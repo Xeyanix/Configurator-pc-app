@@ -1,6 +1,6 @@
 const graphicsCards = [
     {
-        id: 1,
+        id: 31,
         name: 'Nvidia GeForce RTX 3090',
         pciEvers: 'PCI Express 4.0 x16',
         price: 1499.99,
@@ -8,7 +8,7 @@ const graphicsCards = [
         memoryType: 'GDDR6X',
     },
     {
-        id: 2,
+        id: 32,
         name: 'AMD Radeon RX 6900 XT',
         pciEvers: 'PCI Express 4.0 x16',
         price: 999.99,
@@ -16,7 +16,7 @@ const graphicsCards = [
         memoryType: 'GDDR6',
     },
     {
-        id: 3,
+        id: 33,
         name: 'Nvidia GeForce RTX 3080',
         pciEvers: 'PCI Express 4.0 x16',
         price: 799.99,
@@ -24,7 +24,7 @@ const graphicsCards = [
         memoryType: 'GDDR6X',
     },
     {
-        id: 4,
+        id: 34,
         name: 'AMD Radeon RX 6800 XT',
         pciEvers: 'PCI Express 4.0 x16',
         price: 649.99,
@@ -32,7 +32,7 @@ const graphicsCards = [
         memoryType: 'GDDR6',
     },
     {
-        id: 5,
+        id: 35,
         name: 'Nvidia GeForce RTX 3070',
         pciEvers: 'PCI Express 4.0 x16',
         price: 499.99,
@@ -40,7 +40,7 @@ const graphicsCards = [
         memoryType: 'GDDR6',
     },
     {
-        id: 6,
+        id: 36,
         name: 'AMD Radeon RX 6700 XT',
         pciEvers: 'PCI Express 4.0 x16',
         price: 479.99,
@@ -48,7 +48,7 @@ const graphicsCards = [
         memoryType: 'GDDR6',
     },
     {
-        id: 7,
+        id: 37,
         name: 'Nvidia GeForce RTX 3060 Ti',
         pciEvers: 'PCI Express 4.0 x16',
         price: 399.99,
@@ -56,7 +56,7 @@ const graphicsCards = [
         memoryType: 'GDDR6',
     },
     {
-        id: 8,
+        id: 38,
         name: 'AMD Radeon RX 6600 XT',
         pciEvers: 'PCI Express 4.0 x16',
         price: 379.99,
@@ -64,7 +64,7 @@ const graphicsCards = [
         memoryType: 'GDDR6',
     },
     {
-        id: 9,
+        id: 39,
         name: 'Nvidia GeForce RTX 3060',
         pciEvers: 'PCI Express 4.0 x16',
         price: 329.99,
@@ -72,7 +72,7 @@ const graphicsCards = [
         memoryType: 'GDDR6',
     },
     {
-        id: 10,
+        id: 40,
         name: 'AMD Radeon RX 6600',
         pciEvers: 'PCI Express 4.0 x8',
         price: 299.99,
@@ -81,5 +81,5 @@ const graphicsCards = [
     },
 ];
 
-
+export default graphicsCards;
 

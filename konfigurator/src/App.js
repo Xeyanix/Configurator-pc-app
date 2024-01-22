@@ -43,7 +43,6 @@ function App() {
   };
 
   const removeAllItems = () => {
-    // implement logic to remove all items from the cart
     setCart([]);
   };
 
