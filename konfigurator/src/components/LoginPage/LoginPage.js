@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import styles from "./LoginPage.module.scss";
 import Box from "@mui/material/Box";
@@ -51,6 +51,13 @@ function LoginPage() {
             Zaloguj się
           </Button>
         </Box>
+        <Link to="/configurator">
+          <Button
+            variant="contained"
+          >
+            powrót
+          </Button>
+        </Link>
       </form>
     </div>
   );

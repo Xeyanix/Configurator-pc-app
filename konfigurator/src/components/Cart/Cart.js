@@ -33,14 +33,20 @@ function Cart(props) {
     };
   });
 
-  const totalPrice = props.cart.reduce((acc, product) => acc + product.price, 0);
+  // const totalPrice = props.cart.reduce((acc, product) => acc + product.price, 0);
+
+
+  const totalPrice = () => {
+     const Price = props.cart.reduce((acc, product) => acc + product.price, 0);
+    return Price.toLocaleString('pl-PL', { minimumFractionDigits: 2 });
+  };
 
   const AddedItem = cartItems.map((Motherboards) => (
     <li
       onContextMenu={(event) => { removeFromShoppingList(event, Motherboards.id); }}
       key={Motherboards.id} >
-      {Motherboards.name} - ${Motherboards.price} x{Motherboards.count}
-      <button className={commonColumnsStyles.myButton} onClick={() => props.remove(Motherboards.id)}> Remove</button >
+      {Motherboards.name} - {Motherboards.price} zł x{Motherboards.count} {" "}
+      <button className={commonColumnsStyles.myButton} onClick={() => props.remove(Motherboards.id)}>Usuń</button >
     </li >
   ));
 
@@ -58,14 +64,16 @@ function Cart(props) {
                 className={commonColumnsStyles.myButton}
                 onClick={removeAllItems}
               >
-                Remove All
+                Usuń wszystko
               </button>
             </div>
           )}
-          <p id="total"> Total Price: ${totalPrice} </p>
+          <p id="total"> Łącznie: {totalPrice()} PLN</p>
         </div>
       </header>
     </div>
   );
 }
+
 export default Cart;
+

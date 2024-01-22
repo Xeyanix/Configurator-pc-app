@@ -61,7 +61,7 @@ function ProductList (props) {
         {selectedMotherboard &&
           CPUs.filter((cpu) => cpu.compatibleMotherboards.includes(selectedMotherboard.id)).map((cpu) => (
             <div key={cpu.id}>
-              {cpu.name}
+              {cpu.name}<br />
               <button className={styles.myButton} onClick={() => handleDodajDoKoszyka(cpu)}>
                 Dodaj do koszyka
               </button>
@@ -78,6 +78,7 @@ function ProductList (props) {
         {RAMs.map((ram) => (
           <li key={ram.id}>
             {ram.name}
+            <br />
             <button className={styles.myButton} onClick={() => handleDodajDoKoszyka(ram)}>
               Dodaj do koszyka
             </button>

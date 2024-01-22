@@ -23,8 +23,6 @@ function App() {
     })
   }, [scrollPosition]);
 
-
-
   const addToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
     setSelectedMotherboard((prev) => [...prev, product])
