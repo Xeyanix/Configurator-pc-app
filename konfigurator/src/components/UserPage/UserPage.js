@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 import styles from "./UserPage.module.scss";
 
 function UserPage() {
+  const currentUser = JSON.parse(window.localStorage.getItem("user"));
 
   return (
     <div className={styles.mainContainer}>
-      Zostałes zalogowany
-      <Link to="/configurator">
-        <Button variant="contained" color="success">
+      Zostałes zalogowany: {" "}
+          {`${currentUser.userfirstName} ${currentUser.userLastName}`}
+      <Link to="/LoginPage">
+        <Button variant="contained" color="error">
           Wyloguj
         </Button>
       </Link>
