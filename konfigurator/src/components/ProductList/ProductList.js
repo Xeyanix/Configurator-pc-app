@@ -45,7 +45,7 @@ function ProductList (props) {
   const RenderMotherboardOptions = () => (
     <>
       <h2>Wybierz płytę główną:</h2>
-      <div className={styles.productsNames}>
+      <div className={styles.productsListNames}>
         {props.Motherboards.map((motherboard) => (
           <div key={motherboard.id} onClick={() => handlePlytaClick(motherboard)}>
             {motherboard.name}, {motherboard.chipset} <br />
@@ -62,7 +62,7 @@ function ProductList (props) {
     <>
       <h4>Kompatybilne procesory dla: {selectedMotherboard?.name}</h4>
       <h4>Wybierz Procesor:</h4>
-      <div>
+      <div className={styles.productsListNames}>
         {selectedMotherboard &&
           CPUs.filter((cpu) => cpu.compatibleMotherboards.includes(selectedMotherboard.id)).map((cpu) => (
             <div key={cpu.id} onClick={() => handleCPUsClick(cpu)}>
@@ -79,7 +79,7 @@ function ProductList (props) {
   const RenderRAMOptions = () => (
     <>
       <h3>Pamięci RAM dla: {selectedCpu?.name}</h3>
-      <div>
+      <div className={styles.productsListNames}>
         {RAMs.map((ram) => (
           <li key={ram.id}>
             {ram.name}

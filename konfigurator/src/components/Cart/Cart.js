@@ -41,7 +41,7 @@ function Cart(props) {
 
   const AddedItem = cartItems.map((product) => (
     <li
-      className={commonColumnsStyles.productsNames}
+      className={commonColumnsStyles.productsCartNames}
       key={product.id}
       onContextMenu={(event) => { removeFromShoppingList(event, product.id); }}
       title={`${product.name}`}

@@ -82,9 +82,14 @@ $color-red: red;
   // border: 1px solid blue;
 }
 
-.productsNames {
-   cursor: pointer;
+.productsCartNames {
   color: white;
+}
+
+.productsListNames {
+  color: white;
+  cursor: pointer;
+
   position: relative;
   // border: 1px solid #ccc;
 
