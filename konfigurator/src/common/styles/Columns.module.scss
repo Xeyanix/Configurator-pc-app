@@ -73,12 +73,20 @@ $color-red: red;
   overflow-x: auto;
 }
 
-.productsNames {
-  cursor: pointer;
+.cart {
+  // border: 1px solid yellow;
 }
 
-.tooltip {
+.productsList {
+  // cursor: pointer;
+  // border: 1px solid blue;
+}
+
+.productsNames {
+   cursor: pointer;
+  color: white;
   position: relative;
+  // border: 1px solid #ccc;
 
   &::after {
     content: attr(customTitle);
@@ -91,13 +99,11 @@ $color-red: red;
     color: #fff;
     border-radius: 20px;
     opacity: 0;
-    visibility: hidden;
     transition: opacity 0.2s ease-in-out;
     white-space: nowrap;
-    box-shadow: 0 0 3px #fff;
+    box-shadow: 0 0 3px rgb(255, 255, 255);
+    /* Updated box-shadow color */
     font-size: 12px;
-    display: block;
-   
   }
 
   &:hover::after {
@@ -105,16 +111,22 @@ $color-red: red;
     visibility: visible;
   }
 
-  //trojkącik podpowiedzi
-  &:hover::before {
+  // Triangle indicator
+  &::before {
+    content: "";
     position: absolute;
     border: solid;
     border-color: lightgreen transparent;
     border-width: 6px 6px 0 6px;
-    content: "";
-    display: block;
     bottom: 30px;
-    left: 37%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
     transition: opacity 0.2s ease-in-out;
+  }
+
+  &:hover::before {
+    opacity: 1;
+    /* Show triangle on hover */
   }
 }

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 function Cart(props) {
   const [productsToBuy, setProductsToBuy] = useState([]);
   const [removeAllClicked, setRemoveAllClicked] = useState([]);
- 
+
   useEffect(() => {
     setProductsToBuy(props.cart);
   }, [props.cart]);
@@ -41,11 +41,11 @@ function Cart(props) {
 
   const AddedItem = cartItems.map((product) => (
     <li
-      className={commonColumnsStyles.tooltip}
+      className={commonColumnsStyles.productsNames}
       key={product.id}
       onContextMenu={(event) => { removeFromShoppingList(event, product.id); }}
       title={`${product.name}`}
-      customTitle={`Kliknij prawym aby usunąć`}
+      customTitle={`Kliknij prawym by usunąć`}
     >
       {product.name} - {product.price.toLocaleString('pl-PL', { minimumFractionDigits: 2 })} zł x{product.count} {" "}
 
@@ -62,8 +62,10 @@ function Cart(props) {
           {props.cart.length === 0 ? (
             <p>Twój koszyk jest pusty</p>
           ) : (
-            <div className={commonColumnsStyles.productsNames}>
-              <ul>{AddedItem}</ul>
+            <div className={commonColumnsStyles.cart}>
+              <ol className={commonColumnsStyles.productsList}>
+                {AddedItem}
+              </ol>
               <button
                 className={commonColumnsStyles.myButton}
                 onClick={removeAllItems}
