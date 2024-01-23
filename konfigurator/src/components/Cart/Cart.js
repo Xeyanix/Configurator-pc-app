@@ -1,10 +1,11 @@
 import commonColumnsStyles from '../../common/styles/Columns.module.scss'
 import { useEffect, useState } from "react";
-
+import { Tooltip } from "react-tooltip";
 
 function Cart(props) {
   const [productsToBuy, setProductsToBuy] = useState([]);
   const [removeAllClicked, setRemoveAllClicked] = useState([]);
+
 
   useEffect(() => {
     setProductsToBuy(props.cart);
@@ -35,14 +36,16 @@ function Cart(props) {
   });
 
   const totalPrice = () => {
-     const Price = props.cart.reduce((acc, product) => acc + product.price, 0);
+    const Price = props.cart.reduce((acc, product) => acc + product.price, 0);
     return Price.toLocaleString('pl-PL', { minimumFractionDigits: 2 });
   };
 
   const AddedItem = cartItems.map((product) => (
     <li
+      key={product.id}
       onContextMenu={(event) => { removeFromShoppingList(event, product.id); }}
-      key={product.id} >
+      title={`${product.name} (Kliknij prawym aby usunąć)`}
+    >
       {product.name} - {product.price.toLocaleString('pl-PL', { minimumFractionDigits: 2 })} zł x{product.count} {" "}
       <button className={commonColumnsStyles.myButton} onClick={() => props.remove(product.id)}>Usuń</button >
     </li >
@@ -68,6 +71,7 @@ function Cart(props) {
             </div>
           )}
           <p id="total"> Łącznie: {totalPrice()} PLN</p>
+          <Tooltip multiline={true} place="right" effect="solid" />
         </div>
       </header>
     </div>
