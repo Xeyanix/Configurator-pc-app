@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 function Cart(props) {
   const [productsToBuy, setProductsToBuy] = useState([]);
   const [removeAllClicked, setRemoveAllClicked] = useState([]);
+  const [isTooltipActive, setTooltipActive] = useState(true);
 
 
 
@@ -42,14 +43,14 @@ function Cart(props) {
   };
 
   const AddedItem = cartItems.map((product) => (
-    <li className={commonColumnsStyles.tooltip}
-    
+    <li
+      className={commonColumnsStyles.tooltip}
       key={product.id}
-      onContextMenu={(event) => { removeFromShoppingList(event, product.id); }}
+      onContextMenu={(event) => { setTooltipActive(false); removeFromShoppingList(event, product.id); }}
       data-tip={`Kliknij prawym aby usunąć`}
       title={`${product.name}`}
     >
-      
+    
       {product.name} - {product.price.toLocaleString('pl-PL', { minimumFractionDigits: 2 })} zł x{product.count} {" "}
 
 
@@ -77,7 +78,6 @@ function Cart(props) {
             </div>
           )}
           <p id="total"> Łącznie: {totalPrice()} PLN</p>
-
         </div>
       </header>
     </div>

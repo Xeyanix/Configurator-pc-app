@@ -79,7 +79,6 @@ $color-red: red;
 
 .tooltip {
   position: relative;
-  display: inline-block;
 
   &::after {
     content: attr(data-tip);
@@ -96,10 +95,11 @@ $color-red: red;
     transition: opacity 0.2s ease-in-out;
     white-space: nowrap;
     box-shadow: 0 0 3px #fff;
-    z-index: 98;
     font-size: 12px;
     display: block;
+   
   }
+
   &:hover::after {
     opacity: 1;
     visibility: visible;
@@ -107,15 +107,14 @@ $color-red: red;
 
   //trojkącik podpowiedzi
   &:hover::before {
+    position: absolute;
     border: solid;
     border-color: lightgreen transparent;
     border-width: 6px 6px 0 6px;
     content: "";
     display: block;
-    position: absolute;
-    z-index: 99;
-    bottom: 32px;
-    left: 52%;
+    bottom: 30px;
+    left: 37%;
     transition: opacity 0.2s ease-in-out;
   }
 }
