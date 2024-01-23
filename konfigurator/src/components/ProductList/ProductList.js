@@ -16,6 +16,11 @@ function ProductList (props) {
     setShowMotherboardList(false);
   };
 
+  const handleCPUsClick = (cpu) => {
+    setSelectedCpu(cpu);
+    setShowRamList(false);
+  };
+
   const handleShowMotherboardList = () => {
     setSelectedMotherboard(null);
     setShowMotherboardList(true);
@@ -23,7 +28,7 @@ function ProductList (props) {
 
   const handleShowCpuList = () => {
     setSelectedCpu(null);
-    setShowRamList(false); //znika lista ramu jak klikniemy wyswietl liste procesorow
+    setShowRamList(false); 
   };
 
   const handleDodajDoKoszyka = (item) => {
@@ -60,7 +65,7 @@ function ProductList (props) {
       <div>
         {selectedMotherboard &&
           CPUs.filter((cpu) => cpu.compatibleMotherboards.includes(selectedMotherboard.id)).map((cpu) => (
-            <div key={cpu.id}>
+            <div key={cpu.id} onClick={() => handleCPUsClick(cpu)}>
               {cpu.name}<br />
               <button className={styles.myButton} onClick={() => handleDodajDoKoszyka(cpu)}>
                 Dodaj do koszyka
