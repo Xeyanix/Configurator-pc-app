@@ -11,7 +11,6 @@ $color-red: red;
   pointer-events: none;
 }
 
-
 .wrapper {
   height: 230px;
   width: 90%;
@@ -74,14 +73,39 @@ $color-red: red;
   overflow-x: auto;
 }
 
-.productsNames{
+.productsNames {
   cursor: pointer;
-  .tooltip {
-    position: absolute;
-    background-color: #333;
+
+}
+
+.tooltip {
+  position: relative;
+
+  &:hover:after {
+    background: #111;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    bottom: 18px;
     color: #fff;
-    padding: 5px;
-    border-radius: 3px;
-    z-index: 999;
+    content: attr(data-tip);
+    display: block;
+    padding: 5px 15px;
+    position: absolute;
+    white-space: nowrap;
+    box-shadow: 0 0 3px #fff;
+    z-index: 98;
+    bottom: 30px;
+  }
+
+  &:hover:before {
+    border: solid;
+    border-color: #111 transparent;
+    border-width: 6px 6px 0 6px;
+    bottom: 12px;
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 99;
+    bottom: 30px;
   }
 }

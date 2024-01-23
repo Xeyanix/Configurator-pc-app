@@ -41,10 +41,11 @@ function Cart(props) {
   };
 
   const AddedItem = cartItems.map((product) => (
-    <li
+    <li className={commonColumnsStyles.tooltip}
       key={product.id}
       onContextMenu={(event) => { removeFromShoppingList(event, product.id); }}
-      title={`${product.name} (Kliknij prawym aby usunąć)`}
+      data-tip={`(Kliknij prawym aby usunąć)`}
+      title={`${product.name}`}
     >
       {product.name} - {product.price.toLocaleString('pl-PL', { minimumFractionDigits: 2 })} zł x{product.count} {" "}
       <button className={commonColumnsStyles.myButton} onClick={() => props.remove(product.id)}>Usuń</button >
