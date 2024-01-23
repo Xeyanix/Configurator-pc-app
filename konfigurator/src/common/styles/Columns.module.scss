@@ -75,37 +75,47 @@ $color-red: red;
 
 .productsNames {
   cursor: pointer;
-
 }
 
 .tooltip {
   position: relative;
+  display: inline-block;
 
-  &:hover:after {
-    background: #111;
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 5px;
-    bottom: 18px;
-    color: #fff;
+  &::after {
     content: attr(data-tip);
-    display: block;
-    padding: 5px 15px;
     position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem;
+    background-color: #333;
+    color: #fff;
+    border-radius: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
     white-space: nowrap;
     box-shadow: 0 0 3px #fff;
     z-index: 98;
-    bottom: 30px;
+    font-size: 12px;
+    display: block;
+  }
+  &:hover::after {
+    opacity: 1;
+    visibility: visible;
   }
 
-  &:hover:before {
+  //trojkącik podpowiedzi
+  &:hover::before {
     border: solid;
-    border-color: #111 transparent;
+    border-color: lightgreen transparent;
     border-width: 6px 6px 0 6px;
-    bottom: 12px;
     content: "";
     display: block;
     position: absolute;
     z-index: 99;
-    bottom: 30px;
+    bottom: 32px;
+    left: 52%;
+    transition: opacity 0.2s ease-in-out;
   }
 }
