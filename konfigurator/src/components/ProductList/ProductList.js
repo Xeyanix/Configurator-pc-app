@@ -18,7 +18,7 @@ function ProductList (props) {
 
   const handleCPUsClick = (cpu) => {
     setSelectedCpu(cpu);
-    setShowRamList(false);
+    setShowRamList(true);
   };
 
   const handleShowMotherboardList = () => {
