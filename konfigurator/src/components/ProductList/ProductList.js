@@ -45,7 +45,7 @@ function ProductList (props) {
   const RenderMotherboardOptions = () => (
     <>
       <h2>Wybierz płytę główną:</h2>
-      <div>
+      <div className={styles.productsNames}>
         {props.Motherboards.map((motherboard) => (
           <div key={motherboard.id} onClick={() => handlePlytaClick(motherboard)}>
             {motherboard.name}, {motherboard.chipset} <br />
