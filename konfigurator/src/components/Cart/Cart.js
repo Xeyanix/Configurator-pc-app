@@ -44,8 +44,8 @@ function Cart(props) {
       className={commonColumnsStyles.tooltip}
       key={product.id}
       onContextMenu={(event) => { removeFromShoppingList(event, product.id); }}
-      data-tip={`Kliknij prawym aby usunąć`}
       title={`${product.name}`}
+      customTitle={`Kliknij prawym aby usunąć`}
     >
       {product.name} - {product.price.toLocaleString('pl-PL', { minimumFractionDigits: 2 })} zł x{product.count} {" "}
 
