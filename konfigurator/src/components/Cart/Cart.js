@@ -1,6 +1,7 @@
 import commonColumnsStyles from '../../common/styles/Columns.module.scss'
 import { useEffect, useState } from "react";
 
+
 function Cart(props) {
   const [productsToBuy, setProductsToBuy] = useState([]);
   const [removeAllClicked, setRemoveAllClicked] = useState([]);
@@ -56,7 +57,7 @@ function Cart(props) {
           {props.cart.length === 0 ? (
             <p>Twój koszyk jest pusty</p>
           ) : (
-            <div>
+            <div className={commonColumnsStyles.productsNames}>
               <ul>{AddedItem}</ul>
               <button
                 className={commonColumnsStyles.myButton}
