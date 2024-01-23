@@ -5,10 +5,7 @@ import { useEffect, useState } from "react";
 function Cart(props) {
   const [productsToBuy, setProductsToBuy] = useState([]);
   const [removeAllClicked, setRemoveAllClicked] = useState([]);
-  const [isTooltipActive, setTooltipActive] = useState(true);
-
-
-
+ 
   useEffect(() => {
     setProductsToBuy(props.cart);
   }, [props.cart]);
@@ -46,13 +43,11 @@ function Cart(props) {
     <li
       className={commonColumnsStyles.tooltip}
       key={product.id}
-      onContextMenu={(event) => { setTooltipActive(false); removeFromShoppingList(event, product.id); }}
+      onContextMenu={(event) => { removeFromShoppingList(event, product.id); }}
       data-tip={`Kliknij prawym aby usunąć`}
       title={`${product.name}`}
     >
-    
       {product.name} - {product.price.toLocaleString('pl-PL', { minimumFractionDigits: 2 })} zł x{product.count} {" "}
-
 
       <button className={commonColumnsStyles.myButton} onClick={() => props.remove(product.id)}>Usuń</button >
     </li >
