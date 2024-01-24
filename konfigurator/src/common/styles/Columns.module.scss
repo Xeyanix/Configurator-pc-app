@@ -82,14 +82,14 @@ $color-red: red;
   // border: 1px solid blue;
 }
 
-.productsCartNames {
-  color: white;
-}
-
 .productsListNames {
   color: white;
   cursor: pointer;
+}
 
+.productsCartNames {
+  color: white;
+  cursor: pointer;
   position: relative;
   // border: 1px solid #ccc;
 
@@ -104,10 +104,9 @@ $color-red: red;
     color: #fff;
     border-radius: 20px;
     opacity: 0;
-    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
     white-space: nowrap;
     box-shadow: 0 0 3px rgb(255, 255, 255);
-    /* Updated box-shadow color */
     font-size: 12px;
   }
 
@@ -127,7 +126,7 @@ $color-red: red;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
-    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
   }
 
   &:hover::before {

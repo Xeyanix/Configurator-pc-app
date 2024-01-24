@@ -43,7 +43,7 @@ function ProductList (props) {
   };
 
   const RenderMotherboardOptions = () => (
-    <>
+    <div>
       <h2>Wybierz płytę główną:</h2>
       <div className={styles.productsListNames}>
         {props.Motherboards.map((motherboard) => (
@@ -55,13 +55,13 @@ function ProductList (props) {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 
   const RenderCPUsOptions = () => (
-    <>
-      <h4>Kompatybilne procesory dla: {selectedMotherboard?.name}</h4>
-      <h4>Wybierz Procesor:</h4>
+    <div>
+      <h3>Kompatybilne procesory dla: {selectedMotherboard?.name}</h3>
+      <h2>Wybierz Procesor:</h2>
       <div className={styles.productsListNames}>
         {selectedMotherboard &&
           CPUs.filter((cpu) => cpu.compatibleMotherboards.includes(selectedMotherboard.id)).map((cpu) => (
@@ -73,12 +73,13 @@ function ProductList (props) {
             </div>
           ))}
       </div>
-    </>
+    </div>
   );
 
   const RenderRAMOptions = () => (
-    <>
-      <h3>Pamięci RAM dla: {selectedCpu?.name}</h3>
+    <div>
+      <h3>Wybrana Pamięć RAM: {selectedCpu?.name}</h3>
+      <h2>Wybierz RAM:</h2>
       <div className={styles.productsListNames}>
         {RAMs.map((ram) => (
           <li key={ram.id}>
@@ -90,7 +91,7 @@ function ProductList (props) {
           </li>
         ))}
       </div>
-    </>
+    </div>
   );
 
   return (

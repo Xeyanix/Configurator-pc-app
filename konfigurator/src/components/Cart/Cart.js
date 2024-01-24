@@ -5,6 +5,11 @@ import { useEffect, useState } from "react";
 function Cart(props) {
   const [productsToBuy, setProductsToBuy] = useState([]);
   const [removeAllClicked, setRemoveAllClicked] = useState([]);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  
+  const handleMouseMove = (event) => {
+    setMousePosition({ x: event.clientX, y: event.clientY });
+  };
 
   useEffect(() => {
     setProductsToBuy(props.cart);
@@ -43,9 +48,10 @@ function Cart(props) {
     <li
       className={commonColumnsStyles.productsCartNames}
       key={product.id}
+      onMouseMove={handleMouseMove}
       onContextMenu={(event) => { removeFromShoppingList(event, product.id); }}
       title={`${product.name}`}
-      customTitle={`Kliknij prawym by usunąć`}
+      customTitle={`Kliknij prawym, aby usunąć`}
     >
       {product.name} - {product.price.toLocaleString('pl-PL', { minimumFractionDigits: 2 })} zł x{product.count} {" "}
 
