@@ -65,9 +65,7 @@ function App() {
             removeAll={removeAllItems}
           />
         </div>
-        
-          
- 
+      
         <div>
           <LastViewed
             cart={listViewed}

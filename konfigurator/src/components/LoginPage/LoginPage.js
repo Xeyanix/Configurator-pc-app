@@ -5,7 +5,6 @@ import styles from "./LoginPage.module.scss";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
-
 function LoginPage() {
   let navigate = useNavigate();
 
@@ -24,8 +23,8 @@ function LoginPage() {
     setShowLoginMessage(true);
     setTimeout(() => {
       setShowLoginMessage(false);
-      navigate("/UserPage"); 
-    }, 2000); // 2000 milliseconds (2 seconds)
+      navigate("/UserPage");
+    }, 1000); // 1000 milliseconds (2 seconds)
 
   };
 
