@@ -49,7 +49,7 @@ function UserPage({ tooltip1, tooltip2 }) {
           Witaj na swojej stronie użytkownika! Tutaj możesz zarządzać swoim kontem oraz korzystać z różnych funkcji.
         </p>
       </div>
-      <h2>Create a New Account</h2>
+      <h2>Stwórz Nowe Konto</h2>
       <UserForm />
     </div>
 
