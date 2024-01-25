@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import { Link } from 'react-router-dom';
 import styles from "./UserPage.module.scss";
 import { useState } from "react";
+import UserForm from "../UserForm/UserForm";
 
 function UserPage({ tooltip1, tooltip2 }) {
   const currentUser = JSON.parse(window.localStorage.getItem("user"));
@@ -41,13 +42,19 @@ function UserPage({ tooltip1, tooltip2 }) {
             {activeTooltip === 1 ? tooltip1 : tooltip2} Dzięki ze najechałes - chyba działa
           </div>
         )}
-       Najedz zeby zobaczyć podpowiedz
+        Najedz zeby zobaczyć podpowiedz
         <div>
         </div>
+        <p>
+          Witaj na swojej stronie użytkownika! Tutaj możesz zarządzać swoim kontem oraz korzystać z różnych funkcji.
+        </p>
       </div>
+      <h2>Create a New Account</h2>
+      <UserForm />
     </div>
 
   );
 }
 
 export default UserPage;
+
