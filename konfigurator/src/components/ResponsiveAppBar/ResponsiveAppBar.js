@@ -31,12 +31,14 @@ function ResponsiveAppBar() {
   const menuItems = [
     { label: "Strona Główna", path: "/" },
     { label: "Zaloguj", path: "/LoginPage" },
+    { label: "Konto", path: "/UserPage" },
     { label: "Kontakt", onClick: scrollToContactSection },
   ];
 
   const BarItems = [
     { label: "Strona Główna", path: "/" },
     { label: "Zaloguj", path: "/LoginPage" },
+    { label: "Konto", path: "/UserPage" },
     { label: "Kontakt", onClick: scrollToContactSection },
   ];
 

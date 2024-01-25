@@ -93,6 +93,3 @@ function App() {
 }
 
 export default App;
-
-
-//redirect from loginPage tu app but with message "u are logined as: user"
