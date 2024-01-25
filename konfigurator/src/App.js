@@ -53,13 +53,7 @@ function App() {
     <div>
 
       <div className={styles.appWrapper}>
-        {loggedInUser && (
-          <div className={styles.loggedInMessage}>
-            You are logged in as: {loggedInUser}
-          </div>
-        )}
-        <ResponsiveAppBar
-        />
+        <ResponsiveAppBar loggedInUser={loggedInUser} />
         <Filters
           Motherboards={Motherboards}
           sendfilteredProductsToAppComponent={setMotherboardsToDisplay}

@@ -6,7 +6,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
 
-function ResponsiveAppBar() {
+function ResponsiveAppBar({ loggedInUser }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
 
@@ -44,6 +44,8 @@ function ResponsiveAppBar() {
 
   return (
     <div>
+
+
       <AppBar position="static">
         <Toolbar className={styles.wrapper}>
           <Typography
@@ -82,11 +84,17 @@ function ResponsiveAppBar() {
                 onClick={item.onClick}
               >
                 <ListItemText primary={item.label} />
+
               </MenuItem>
             ))}
+            {loggedInUser && (
+              <div className={styles.loggedInMessage}>
+                Logged in as: {loggedInUser}
+              </div>
+            )}
           </div>
-        
-      
+
+
         </Toolbar>
 
       </AppBar>
@@ -104,9 +112,9 @@ function ResponsiveAppBar() {
             </ListItem>
           ))}
         </List>
-        <div>
 
-        </div>
+
+
       </Drawer>
     </div>
   );
