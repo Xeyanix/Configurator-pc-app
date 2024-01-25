@@ -5,28 +5,28 @@ import styles from "./LoginPage.module.scss";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
+
 function LoginPage() {
   let navigate = useNavigate();
-
   const [userfirstName, setUserFirstName] = useState("");
   const [userLastName, setUserLastName] = useState("");
   const [showLoginMessage, setShowLoginMessage] = useState(false);
 
   const signInUser = (e) => {
     e.preventDefault();
+    const fullName = `${userfirstName} ${userLastName}`;
+
     window.localStorage.setItem(
       "user",
       JSON.stringify({ userfirstName, userLastName })
     );
-
-
+   
     setShowLoginMessage(true);
+
     setTimeout(() => {
       setShowLoginMessage(false);
-      // navigate("/UserPage");
-      navigate(`/configurator?user=${userfirstName} ${userLastName}`);
+      navigate(`/configurator?user=${fullName}`);
     }, 1000); // 1000 milliseconds (2 seconds)
-
   };
 
 
@@ -78,6 +78,7 @@ function LoginPage() {
           Zostałeś zalogowany! Zaraz nastąpi przekierowanie...
         </div>
       )}
+
     </div>
   );
 }
