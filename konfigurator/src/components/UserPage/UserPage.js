@@ -38,20 +38,15 @@ function UserPage({ tooltip1, tooltip2 }) {
     }
   }, []);
 
-
-
   const handleLogout = () => {
     window.localStorage.removeItem("user");
     setLoggedInUserData(null);
     console.log("Użytkownik został wylogowany");
   }
 
-
-
-
   return (
     <div className={styles.mainContainer}>
-      {loggedInUserData && ( // Wyświetl dane tylko jeśli są dostępne
+      {loggedInUserData && (
         <div>
           <p>Zalogowany jako: {loggedInUserData.userfirstName} {loggedInUserData.userLastName}</p>
         </div>
