@@ -8,7 +8,7 @@ import Cart from './components/Cart/Cart';
 import Motherboards from './common/consts/motherboard';
 import LastViewed from './components/LastViewed/LastViewed';
 import Contact from './components/Contact/Contact';
-
+import { useLocation } from 'react-router-dom';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -17,6 +17,10 @@ function App() {
   const [listViewed, setListViewed] = useState([]); // Użyj osobnego stanu dla listy ostatnio oglądanych
 
   const [scrollPosition, setScrollPosition] = useState(0);
+
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const loggedInUser = searchParams.get('user');
 
   useEffect(() => {
     window.scrollTo({
@@ -47,8 +51,15 @@ function App() {
 
   return (
     <div>
+
       <div className={styles.appWrapper}>
-        <ResponsiveAppBar />
+        {loggedInUser && (
+          <div className={styles.loggedInMessage}>
+            You are logged in as: {loggedInUser}
+          </div>
+        )}
+        <ResponsiveAppBar
+        />
         <Filters
           Motherboards={Motherboards}
           sendfilteredProductsToAppComponent={setMotherboardsToDisplay}
@@ -65,7 +76,7 @@ function App() {
             removeAll={removeAllItems}
           />
         </div>
-      
+
         <div>
           <LastViewed
             cart={listViewed}
@@ -84,4 +95,4 @@ function App() {
 export default App;
 
 
-//redirect from loginPage tu app but with message "u arelogined as: user"
+//redirect from loginPage tu app but with message "u are logined as: user"

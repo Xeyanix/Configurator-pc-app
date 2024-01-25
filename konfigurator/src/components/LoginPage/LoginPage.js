@@ -23,7 +23,8 @@ function LoginPage() {
     setShowLoginMessage(true);
     setTimeout(() => {
       setShowLoginMessage(false);
-      navigate("/UserPage");
+      // navigate("/UserPage");
+      navigate(`/configurator?user=${userfirstName} ${userLastName}`);
     }, 1000); // 1000 milliseconds (2 seconds)
 
   };
