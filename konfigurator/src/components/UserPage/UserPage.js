@@ -5,7 +5,7 @@ import styles from "./UserPage.module.scss";
 import { useState } from "react";
 import UserForm from "../UserForm/UserForm";
 
-function UserPage({ tooltip1, tooltip2 }) {
+function UserPage({ tooltip1, tooltip2, loggedInUser }) {
   const currentUser = JSON.parse(window.localStorage.getItem("user"));
   const [isTooltipVisible, setTooltipVisibility] = useState(false);
   const [activeTooltip, setActiveTooltip] = useState(1);
@@ -24,8 +24,15 @@ function UserPage({ tooltip1, tooltip2 }) {
 
   return (
     <div className={styles.mainContainer}>
-      Zostałes zalogowany: {" "}
-      {`${currentUser.userfirstName} ${currentUser.userLastName}`}
+      {loggedInUser && (
+        <div className={styles.loggedInMessage}>
+          Zalogowany jako: {loggedInUser}
+
+
+          {`${currentUser.userfirstName} ${currentUser.userLastName}`}
+        </div>
+      )}
+
       <Link to="/LoginPage">
         <Button variant="contained" color="error">
           Wyloguj
@@ -39,17 +46,17 @@ function UserPage({ tooltip1, tooltip2 }) {
       >
         {isTooltipVisible && (
           <div className={styles.tooltip}>
-            {activeTooltip === 1 ? tooltip1 : tooltip2} Dzięki ze najechałes - chyba działa
+            {activeTooltip === 1 ? tooltip1 : tooltip2} Dzięki ze najechałeś - chyba działa
           </div>
         )}
         Najedz zeby zobaczyć podpowiedz
         <div>
         </div>
-        <p>
-          Witaj na swojej stronie użytkownika! Tutaj możesz zarządzać swoim kontem oraz korzystać z różnych funkcji.
-        </p>
+
+
       </div>
-      <h2>Stwórz Nowe Konto</h2>
+      Witaj na swojej stronie użytkownika! Tutaj możesz zarządzać swoim kontem oraz korzystać z różnych funkcji.
+      <h2>Profil Twojego Konta</h2>
       <UserForm />
     </div>
 
