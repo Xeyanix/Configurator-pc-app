@@ -10,10 +10,10 @@ import { useEffect } from "react";
 function UserPage({ tooltip1, tooltip2 }) {
   const [isTooltipVisible, setTooltipVisibility] = useState(false);
   const [activeTooltip, setActiveTooltip] = useState(1);
+  const [loggedInUserData, setLoggedInUserData] = useState(null); 
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const loggedInUser = searchParams.get('user');
-  const [loggedInUserData, setLoggedInUserData] = useState(null); 
 
   const handleMouseEnter = () => {
     setTooltipVisibility(true);

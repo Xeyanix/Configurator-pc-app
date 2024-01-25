@@ -93,10 +93,7 @@ function ResponsiveAppBar({ loggedInUser }) {
               </div>
             )}
           </div>
-
-
         </Toolbar>
-
       </AppBar>
       <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
         <List>
@@ -112,9 +109,6 @@ function ResponsiveAppBar({ loggedInUser }) {
             </ListItem>
           ))}
         </List>
-
-
-
       </Drawer>
     </div>
   );

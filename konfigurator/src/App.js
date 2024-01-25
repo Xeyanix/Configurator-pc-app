@@ -9,21 +9,30 @@ import Motherboards from './common/consts/motherboard';
 import LastViewed from './components/LastViewed/LastViewed';
 import Contact from './components/Contact/Contact';
 import { useLocation } from 'react-router-dom';
-import { AuthProvider } from './components/AuthenticationContext/AuthenticationContext';
+
 
 function App() {
   const [cart, setCart] = useState([]);
   const [selectedMotherboard, setSelectedMotherboard] = useState(Motherboards);
   const [MotherboardsToDisplay, setMotherboardsToDisplay] = useState(selectedMotherboard);
   const [listViewed, setListViewed] = useState([]); // Użyj osobnego stanu dla listy ostatnio oglądanych
-
   const [scrollPosition, setScrollPosition] = useState(0);
-
-
+  const [loggedInUserData, setLoggedInUserData] = useState(null);
+  
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const loggedInUser = searchParams.get('user');
 
+  useEffect(() => {
+    // Odczytaj dane logowania z Local Storage
+    const storedUser = window.localStorage.getItem("user");
+    if (storedUser) {
+      const { userfirstName, userLastName } = JSON.parse(storedUser);
+      // Zapisz dane logowania w stanie komponentu
+      setLoggedInUserData({ userfirstName, userLastName });
+      console.log(`Zalogowany jako: ${userfirstName} ${userLastName}`);
+    }
+  }, []);
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -85,8 +94,7 @@ function App() {
           <Scroll />
         </div>
       </div >
-      <AuthProvider>
-      </AuthProvider>
+
     </div >
   );
 }
