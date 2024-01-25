@@ -13,7 +13,7 @@ function UserPage({ tooltip1, tooltip2 }) {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const loggedInUser = searchParams.get('user');
-  const [loggedInUserData, setLoggedInUserData] = useState(null); // Dodaj nowy stan
+  const [loggedInUserData, setLoggedInUserData] = useState(null); 
 
   const handleMouseEnter = () => {
     setTooltipVisibility(true);
