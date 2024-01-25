@@ -27,8 +27,6 @@ function UserPage({ tooltip1, tooltip2 }) {
     setActiveTooltip((prev) => (prev === 1 ? 2 : 1));
   };
 
-
-
   useEffect(() => {
     // Odczytaj dane logowania z Local Storage
     const storedUser = window.localStorage.getItem("user");
@@ -40,6 +38,17 @@ function UserPage({ tooltip1, tooltip2 }) {
     }
   }, []);
 
+
+
+  const handleLogout = () => {
+    window.localStorage.removeItem("user");
+    setLoggedInUserData(null);
+    console.log("Użytkownik został wylogowany");
+  }
+
+
+
+
   return (
     <div className={styles.mainContainer}>
       {loggedInUserData && ( // Wyświetl dane tylko jeśli są dostępne
@@ -48,7 +57,7 @@ function UserPage({ tooltip1, tooltip2 }) {
         </div>
       )}
       <Link to="/LoginPage">
-        <Button variant="contained" color="error">
+        <Button variant="contained" color="error" onClick={handleLogout}>
           Wyloguj
         </Button>
       </Link>
