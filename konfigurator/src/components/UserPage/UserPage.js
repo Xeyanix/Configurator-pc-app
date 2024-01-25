@@ -13,6 +13,7 @@ function UserPage({ tooltip1, tooltip2 }) {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const loggedInUser = searchParams.get('user');
+  const [loggedInUserData, setLoggedInUserData] = useState(null); // Dodaj nowy stan
 
   const handleMouseEnter = () => {
     setTooltipVisibility(true);
@@ -26,25 +27,26 @@ function UserPage({ tooltip1, tooltip2 }) {
     setActiveTooltip((prev) => (prev === 1 ? 2 : 1));
   };
 
-  const handleLogout = () => {
-    // Wyczyść dane logowania z Local Storage
-    window.localStorage.removeItem("user");
-    console.log("Użytkownik został wylogowany.");
-  };
+
 
   useEffect(() => {
     // Odczytaj dane logowania z Local Storage
     const storedUser = window.localStorage.getItem("user");
     if (storedUser) {
       const { userfirstName, userLastName } = JSON.parse(storedUser);
-      // Tutaj możesz używać danych logowania, na przykład wyświetlić je w komponencie
-      console.log(`Logged jako: ${userfirstName} ${userLastName}`);
+      // Zapisz dane logowania w stanie komponentu
+      setLoggedInUserData({ userfirstName, userLastName });
+      console.log(`Zalogowany jako: ${userfirstName} ${userLastName}`);
     }
   }, []);
 
   return (
     <div className={styles.mainContainer}>
-
+      {loggedInUserData && ( // Wyświetl dane tylko jeśli są dostępne
+        <div>
+          <p>Zalogowany jako: {loggedInUserData.userfirstName} {loggedInUserData.userLastName}</p>
+        </div>
+      )}
       <Link to="/LoginPage">
         <Button variant="contained" color="error">
           Wyloguj
