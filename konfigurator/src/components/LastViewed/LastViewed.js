@@ -1,4 +1,4 @@
-import styles from './LastViewed.module.scss'
+import styles from '../../common/styles/LastViewed.module.scss'
 import { useEffect, useState } from "react";
 
 function LastViewed(props) {
