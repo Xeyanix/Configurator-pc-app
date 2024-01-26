@@ -7,8 +7,6 @@ function Cart(props) {
   const [removeAllClicked, setRemoveAllClicked] = useState([]);
  
 
- 
-
   useEffect(() => {
     setProductsToBuy(props.cart);
   }, [props.cart]);

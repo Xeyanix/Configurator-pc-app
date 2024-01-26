@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "./Contact.module.scss";
+import styles from '../../common/styles/Contact.module.scss'
 
 function Contact() {
     return (
@@ -36,7 +36,7 @@ function Contact() {
                             // href="https://www.instagram.com/bboyjohnny/"
                             href="https://www.linkedin.com/in/jan-goralewski/"
                             class="wp-block-social-link-anchor">
-                            
+
                             <svg
                                 width="24"
                                 height="24"
