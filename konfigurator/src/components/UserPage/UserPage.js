@@ -1,11 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import { Link } from 'react-router-dom';
 import styles from "../../common/styles/UserPage.module.scss";
-import { useState } from "react";
-import UserForm from "../UserForm/UserForm";
 import { useLocation } from 'react-router-dom';
-import { useEffect } from "react";
+import UserForm from "../UserForm/UserForm";
 
 function UserPage({ tooltip1, tooltip2 }) {
   const [isTooltipVisible, setTooltipVisibility] = useState(false);
@@ -46,42 +44,48 @@ function UserPage({ tooltip1, tooltip2 }) {
 
   return (
     <div className={styles.mainContainer}>
-      {loggedInUserData && (
+      {loggedInUserData ? (
         <div>
           <p>Zalogowany jako: {loggedInUserData.userfirstName} {loggedInUserData.userLastName}</p>
+          <Link to="/LoginPage">
+            <Button variant="contained" color="error" onClick={handleLogout}>
+              Wyloguj
+            </Button>
+          </Link>
+          <div
+            className={styles.tooltip}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            title={!isTooltipVisible ? (activeTooltip === 1 ? tooltip1 : tooltip2) : 'Podpowiedz'}
+          >
+            {isTooltipVisible && (
+              <div className={styles.tooltip}>
+                {activeTooltip === 1 ? tooltip1 : tooltip2} Dzięki ze najechałeś - chyba działa
+              </div>
+            )}
+            (Najedz żeby zobaczyć podpowiedz)
+            <div>
+            </div>
+          </div>
+          <h3>
+            Witaj na swojej stronie użytkownika! Tutaj możesz zarządzać swoim kontem oraz korzystać z różnych funkcji.
+          </h3>
+          <h2>Profil Twojego Konta</h2>
+          <UserForm loggedInUser={loggedInUser} />
+        </div>
+      ) : (
+        <div>
+          <p>Nie jesteś zalogowany.</p>
+          <Link to="/configurator">
+            <Button variant="contained"  onClick={handleLogout}>
+              Powrót
+            </Button>
+          </Link>
+          {/* Możesz dodać dodatkowe elementy, które będą widoczne tylko gdy użytkownik nie jest zalogowany */}
         </div>
       )}
-      <Link to="/LoginPage">
-        <Button variant="contained" color="error" onClick={handleLogout}>
-          Wyloguj
-        </Button>
-      </Link>
-      <div
-        className={styles.tooltip}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        title={!isTooltipVisible ? (activeTooltip === 1 ? tooltip1 : tooltip2) : 'Podpowiedz'}
-      >
-        {isTooltipVisible && (
-          <div className={styles.tooltip}>
-            {activeTooltip === 1 ? tooltip1 : tooltip2} Dzięki ze najechałeś - chyba działa
-          </div>
-        )}
-        (Najedz zeby zobaczyć podpowiedz)
-        <div>
-        </div>
-
-
-      </div>
-      <h3>
-        Witaj na swojej stronie użytkownika! Tutaj możesz zarządzać swoim kontem oraz korzystać z różnych funkcji.
-      </h3>
-      <h2>Profil Twojego Konta</h2>
-      <UserForm loggedInUser={loggedInUser} />
     </div>
-
   );
 }
 
 export default UserPage;
-
