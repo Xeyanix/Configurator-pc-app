@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import { Link } from 'react-router-dom';
-import styles from "./UserPage.module.scss";
+import styles from "../../common/styles/UserPage.module.scss";
 import { useState } from "react";
 import UserForm from "../UserForm/UserForm";
 import { useLocation } from 'react-router-dom';

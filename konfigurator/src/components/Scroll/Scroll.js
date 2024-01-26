@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Button from "@mui/material/Button";
-import styles from "./Scroll.module.scss";
+import styles from "../../common/styles/Scroll.module.scss";
 import { Link } from 'react-router-dom';
 
 function Scroll(props) {
