@@ -8,6 +8,7 @@ import UserForm from "../UserForm/UserForm";
 function UserPage({ tooltip1, tooltip2 }) {
   const [isTooltipVisible, setTooltipVisibility] = useState(false);
   const [activeTooltip, setActiveTooltip] = useState(1);
+
   const [loggedInUserData, setLoggedInUserData] = useState(null);
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -52,44 +53,37 @@ function UserPage({ tooltip1, tooltip2 }) {
               Wyloguj
             </Button>
           </Link>
-
           <div
             className={styles.tooltip}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             title={!isTooltipVisible ? (activeTooltip === 1 ? tooltip1 : tooltip2) : 'Podpowiedz'}
           >
-            {isTooltipVisible && (
-              <div className={styles.tooltip}>
-                {activeTooltip === 1 ? tooltip1 : tooltip2} Dzięki ze najechałeś - chyba działa
-              </div>
-            )}
-            (Najedz żeby zobaczyć podpowiedz)
-            <div>
-            </div>
           </div>
           <h3>
             Witaj na swojej stronie użytkownika! Tutaj możesz zarządzać swoim kontem oraz korzystać z różnych funkcji.
           </h3>
           <h2>Profil Twojego Konta</h2>
           <UserForm loggedInUser={loggedInUser} />
-            <Link to="/configurator">
+        </div>
+      ) : (
+        <div>
+          <p>Nie jesteś zalogowany.</p>
+          <Link to="/configurator">
             <Button variant="contained" >
               Powrót
             </Button>
           </Link>
         </div>
-      ) : (
-         
-        <div>
-          <p>Nie jesteś zalogowany.</p>
-          <Link to="/configurator">
-            <Button variant="contained"  onClick={handleLogout}>
-              Powrót
-            </Button>
-          </Link>
-        </div>
       )}
+      <div>
+        {isTooltipVisible && (
+          <div className={styles.tooltip}>
+            {activeTooltip === 1 ? tooltip1 : tooltip2} Dzięki ze najechałeś - chyba działa
+          </div>
+        )}
+        (Najedz żeby zobaczyć podpowiedz)
+      </div>
     </div>
   );
 }

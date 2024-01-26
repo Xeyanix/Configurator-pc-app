@@ -10,6 +10,7 @@ function ResponsiveAppBar({ loggedInUser }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
 
+
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
@@ -42,6 +43,7 @@ function ResponsiveAppBar({ loggedInUser }) {
     { label: "Kontakt", onClick: scrollToContactSection },
   ];
 
+
   return (
     <div>
 
@@ -65,6 +67,9 @@ function ResponsiveAppBar({ loggedInUser }) {
           >
             PC Configurator
           </Typography>
+
+
+
           <div className={styles.otherPageButtons}>
             <IconButton
               edge="start"
@@ -86,7 +91,9 @@ function ResponsiveAppBar({ loggedInUser }) {
                 <ListItemText primary={item.label} />
 
               </MenuItem>
+
             ))}
+         
             {loggedInUser && (
               <div className={styles.loggedInMessage}>
                 Zalogowany jako: {loggedInUser}

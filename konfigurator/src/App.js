@@ -17,8 +17,8 @@ function App() {
   const [MotherboardsToDisplay, setMotherboardsToDisplay] = useState(selectedMotherboard);
   const [listViewed, setListViewed] = useState([]); // Użyj osobnego stanu dla listy ostatnio oglądanych
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [loggedInUserData, setLoggedInUserData] = useState(null);
   
+  const [loggedInUserData, setLoggedInUserData] = useState(null);
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const loggedInUser = searchParams.get('user');
@@ -66,7 +66,10 @@ function App() {
     <div>
 
       <div className={styles.appWrapper}>
-        <ResponsiveAppBar loggedInUser={loggedInUser} />
+        <ResponsiveAppBar 
+        loggedInUser={loggedInUser}
+
+         />
         <Filters
           Motherboards={Motherboards}
           sendfilteredProductsToAppComponent={setMotherboardsToDisplay}

@@ -4,8 +4,7 @@ import TextField from "@mui/material/TextField";
 import styles from "../../common/styles/LoginPage.module.scss";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-
-
+ 
 function LoginPage() {
   let navigate = useNavigate();
   const [userfirstName, setUserFirstName] = useState("");
@@ -15,21 +14,16 @@ function LoginPage() {
   const signInUser = (e) => {
     e.preventDefault();
     const fullName = `${userfirstName} ${userLastName}`;
-
     window.localStorage.setItem(
       "user",
       JSON.stringify({ userfirstName, userLastName })
     );
-   
     setShowLoginMessage(true);
-
     setTimeout(() => {
       setShowLoginMessage(false);
       navigate(`/configurator?user=${fullName}`);
     }, 1000); // 1000 milliseconds (2 seconds)
   };
-
-
 
   return (
     <div>
