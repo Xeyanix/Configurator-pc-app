@@ -8,7 +8,7 @@ import UserForm from "../UserForm/UserForm";
 function UserPage({ tooltip1, tooltip2 }) {
   const [isTooltipVisible, setTooltipVisibility] = useState(false);
   const [activeTooltip, setActiveTooltip] = useState(1);
-  const [loggedInUserData, setLoggedInUserData] = useState(null); 
+  const [loggedInUserData, setLoggedInUserData] = useState(null);
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const loggedInUser = searchParams.get('user');
@@ -52,6 +52,7 @@ function UserPage({ tooltip1, tooltip2 }) {
               Wyloguj
             </Button>
           </Link>
+
           <div
             className={styles.tooltip}
             onMouseEnter={handleMouseEnter}
@@ -72,8 +73,14 @@ function UserPage({ tooltip1, tooltip2 }) {
           </h3>
           <h2>Profil Twojego Konta</h2>
           <UserForm loggedInUser={loggedInUser} />
+            <Link to="/configurator">
+            <Button variant="contained" >
+              Powrót
+            </Button>
+          </Link>
         </div>
       ) : (
+         
         <div>
           <p>Nie jesteś zalogowany.</p>
           <Link to="/configurator">
@@ -81,7 +88,6 @@ function UserPage({ tooltip1, tooltip2 }) {
               Powrót
             </Button>
           </Link>
-          {/* Możesz dodać dodatkowe elementy, które będą widoczne tylko gdy użytkownik nie jest zalogowany */}
         </div>
       )}
     </div>
@@ -89,3 +95,5 @@ function UserPage({ tooltip1, tooltip2 }) {
 }
 
 export default UserPage;
+
+//po klikneicu powrot resetuje sie pamiec w aplikacji i nie poakzuje stanu ze ktos jest zalogowany 
