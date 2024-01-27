@@ -36,15 +36,9 @@ function UserPage({ tooltip1, tooltip2 }) {
       console.log(`Zalogowany jako: ${userfirstName} ${userLastName}`);
     }
 
-    const handleBeforeUnload = (event) => {
-      window.sessionStorage.renoveItem("user");
-    };
 
-    window.addEventListener("beforeRunLoad", handleBeforeUnload);
 
-    return () => {
-      window.removeEventListener("beforeRunLoad", handleBeforeUnload);
-    };
+
   }, []);
 
   const handleLogout = () => {
