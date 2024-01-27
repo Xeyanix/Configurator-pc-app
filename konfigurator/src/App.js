@@ -8,7 +8,7 @@ import Cart from './components/Cart/Cart';
 import Motherboards from './common/consts/motherboard';
 import LastViewed from './components/LastViewed/LastViewed';
 import Contact from './components/Contact/Contact';
-import { useLocation } from 'react-router-dom';
+
 import { AuthProvider, useAuth } from './context/Context';
 
 
@@ -18,13 +18,7 @@ function App() {
   const [MotherboardsToDisplay, setMotherboardsToDisplay] = useState(selectedMotherboard);
   const [listViewed, setListViewed] = useState([]); // Użyj osobnego stanu dla listy ostatnio oglądanych
   const [scrollPosition, setScrollPosition] = useState(0);
-
-  const { login, logout, loggedInUser } = useAuth();
-
-  
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const userFromURL = searchParams.get('user');
+  const { login, loggedInUser } = useAuth();
 
   useEffect(() => {
     window.scrollTo({
@@ -33,9 +27,9 @@ function App() {
     if (loggedInUser) {
       login(loggedInUser);
     } else {
-      logout();
+     
     }
-  }, [scrollPosition,loggedInUser, login, logout]);
+  }, [scrollPosition,loggedInUser, login]);
 
 
   const addToCart = (product) => {

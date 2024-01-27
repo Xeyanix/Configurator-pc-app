@@ -9,7 +9,7 @@ function UserPage({ tooltip1, tooltip2 }) {
   const [isTooltipVisible, setTooltipVisibility] = useState(false);
   const [activeTooltip, setActiveTooltip] = useState(1);
   const { loggedInUser, logout } = useAuth();
-
+  const [loggedInUserData, setLoggedInUserData] = useState(null);
 
   const handleMouseEnter = () => {
     setTooltipVisibility(true);
@@ -23,7 +23,17 @@ function UserPage({ tooltip1, tooltip2 }) {
     setActiveTooltip((prev) => (prev === 1 ? 2 : 1));
   };
 
-
+  // useEffect(() => {
+  //   // Odczytaj dane logowania z session Storage
+  //   const storedUser = window.sessionStorage.getItem("loggedInUser");
+  //   if (storedUser) {
+  //     const { userfirstName, userLastName } = JSON.parse(storedUser);
+  //     // Zapisz dane logowania w stanie komponentu
+  //     setLoggedInUserData({ userfirstName, userLastName });
+  //     console.log(`Zalogowany jako: ${userfirstName} ${userLastName}`);
+  //   }
+  // }, []);
+ 
   useEffect(() => {
     if (loggedInUser) {
       console.log("Zalogowany użytkownik:", loggedInUser);
