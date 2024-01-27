@@ -9,6 +9,7 @@ import Motherboards from './common/consts/motherboard';
 import LastViewed from './components/LastViewed/LastViewed';
 import Contact from './components/Contact/Contact';
 import { useLocation } from 'react-router-dom';
+import { AuthProvider, useAuth } from './context/Context';
 
 
 function App() {
@@ -17,27 +18,25 @@ function App() {
   const [MotherboardsToDisplay, setMotherboardsToDisplay] = useState(selectedMotherboard);
   const [listViewed, setListViewed] = useState([]); // Użyj osobnego stanu dla listy ostatnio oglądanych
   const [scrollPosition, setScrollPosition] = useState(0);
+
+  const { login, logout, loggedInUser } = useAuth();
+
   
-  const [loggedInUserData, setLoggedInUserData] = useState(null);
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const loggedInUser = searchParams.get('user');
+  const userFromURL = searchParams.get('user');
 
-  useEffect(() => {
-    // Odczytaj dane logowania z Local Storage
-    const storedUser = window.localStorage.getItem("user");
-    if (storedUser) {
-      const { userfirstName, userLastName } = JSON.parse(storedUser);
-      // Zapisz dane logowania w stanie komponentu
-      setLoggedInUserData({ userfirstName, userLastName });
-      console.log(`Zalogowany jako: ${userfirstName} ${userLastName}`);
-    }
-  }, []);
   useEffect(() => {
     window.scrollTo({
       top: 0,
-    })
-  }, [scrollPosition]);
+    });
+    if (loggedInUser) {
+      login(loggedInUser);
+    } else {
+      logout();
+    }
+  }, [scrollPosition,loggedInUser, login, logout]);
+
 
   const addToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
@@ -63,42 +62,40 @@ function App() {
 
 
   return (
-    <div>
+    <AuthProvider>
+      <div>
 
-      <div className={styles.appWrapper}>
-        <ResponsiveAppBar 
-        loggedInUser={loggedInUser}
+        <div className={styles.appWrapper}>
+          <ResponsiveAppBar
+            loggedInUser={loggedInUser}
 
-         />
-        <Filters
-          Motherboards={Motherboards}
-          sendfilteredProductsToAppComponent={setMotherboardsToDisplay}
-        />
-        <div className={styles.columnsWrapper}>
-          <ProductList
-            Motherboards={MotherboardsToDisplay}
-            dodawanie={addToCart}
           />
-          <Cart
-            cart={cart}
-            removeByRightClick={setCart}
-            remove={removeItem}
-            removeAll={removeAllItems}
+          <Filters
+            Motherboards={Motherboards}
+            sendfilteredProductsToAppComponent={setMotherboardsToDisplay}
           />
-        </div>
+          <div className={styles.columnsWrapper}>
+            <ProductList
+              Motherboards={MotherboardsToDisplay}
+              dodawanie={addToCart}
+            />
+            <Cart
+              cart={cart}
+              removeByRightClick={setCart}
+              remove={removeItem}
+              removeAll={removeAllItems}
+            />
+          </div>
 
-        <div>
-          <LastViewed
-            cart={listViewed}
-          />
-          <Contact
-            id="kontakt"
-          />
-          <Scroll />
-        </div>
+          <div>
+            <LastViewed cart={listViewed} />
+            <Contact id="kontakt" />
+            <Scroll />
+          </div>
+        </div >
+
       </div >
-
-    </div >
+    </AuthProvider>
   );
 }
 

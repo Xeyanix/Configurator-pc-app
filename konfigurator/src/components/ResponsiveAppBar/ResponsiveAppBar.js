@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, IconButton, Typography, Drawer, List, ListItem, ListItemText } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { useAuth } from "../../context/Context";
 
 function ResponsiveAppBar({ loggedInUser }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
-
+  const { user } = useAuth(); 
+  
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;

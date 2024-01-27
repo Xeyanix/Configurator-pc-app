@@ -9,6 +9,7 @@ import UserPage from "./components/UserPage/UserPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import { AuthProvider } from './context/Context';
 
 const router = createBrowserRouter([
   {
@@ -35,9 +36,11 @@ const router = createBrowserRouter([
 ReactDOM.render(
 
   <Provider store={store}>
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
+    <AuthProvider>
+      <React.StrictMode>
+        <RouterProvider router={router} />
+      </React.StrictMode>
+    </AuthProvider>
   </Provider>,
   document.getElementById("root")
 

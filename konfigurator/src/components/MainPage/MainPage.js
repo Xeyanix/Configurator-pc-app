@@ -4,8 +4,12 @@ import Button from "@mui/material/Button";
 import { Link } from 'react-router-dom';
 import Box from "@mui/material/Box";
 import styles from "../../common/styles/MainPage.module.scss";
+import { useLocation } from "react-router-dom";
 
 function MainPage() {
+  const { state } = useLocation();
+  const loggedInUser = state?.loggedInUser;
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.maintext}>
@@ -22,7 +26,7 @@ function MainPage() {
           zacząć powinniśmy od określenia, jaką kwotę jesteśmy w stanie przeznaczyć na zakup nowego komputera. Istotne jest także jego przeznaczenie. Inne parametry powinien mieć komputer do biura, a inne wydajny komputer dla graczy.
         </div>
 
-      
+
         <div className={styles.section}>
           <h2 className={styles.sectionHeading}>O Nas</h2>
           <p className={styles.sectionParagraph}>
@@ -84,15 +88,15 @@ function MainPage() {
           <p className={styles.sectionParagraph}>
             Obudowa nie tylko chroni podzespoły, ale także wpływa na wentylację i estetykę. Wybór zależy od preferencji użytkownika, liczby dostępnych miejsc na chłodzenie oraz wielkości planowanego zestawu.
           </p>
-        </div> 
+        </div>
 
 
         <form className={styles.mainPageWrapper} >
           <Box sx={{ m: 2 }}>
-          <Link to="/configurator">
-            <Button variant="contained">
-              Skonfiguruj
-            </Button>
+          <Link to={`/configurator?user=${loggedInUser}`}>
+              <Button variant="contained">
+                Skonfiguruj
+              </Button>
             </Link>
           </Box>
         </form>

@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
-import Button from "@mui/material/Button";
 import { Link } from 'react-router-dom';
-import styles from "../../common/styles/UserPage.module.scss";
 import { useLocation } from 'react-router-dom';
+import Button from "@mui/material/Button";
+import { useAuth } from "../../context/Context";
+import styles from "../../common/styles/UserPage.module.scss";
 import UserForm from "../UserForm/UserForm";
 
 function UserPage({ tooltip1, tooltip2 }) {
   const [isTooltipVisible, setTooltipVisibility] = useState(false);
   const [activeTooltip, setActiveTooltip] = useState(1);
-
   const [loggedInUserData, setLoggedInUserData] = useState(null);
+
+  
+  const { user, logout, setUser } = useAuth();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const loggedInUser = searchParams.get('user');
@@ -33,6 +36,7 @@ function UserPage({ tooltip1, tooltip2 }) {
       const { userfirstName, userLastName } = JSON.parse(storedUser);
       // Zapisz dane logowania w stanie komponentu
       setLoggedInUserData({ userfirstName, userLastName });
+      // setUser({ userfirstName, userLastName });
       console.log(`Zalogowany jako: ${userfirstName} ${userLastName}`);
     }
 
@@ -44,12 +48,14 @@ function UserPage({ tooltip1, tooltip2 }) {
   const handleLogout = () => {
     window.sessionStorage.removeItem("user");
     setLoggedInUserData(null);
+    // logout();
     console.log("Użytkownik został wylogowany");
   }
 
   return (
     <div className={styles.mainContainer}>
       {loggedInUserData ? (
+        //  {/* {user ? ( */}
         <div>
           <p>Zalogowany jako: {loggedInUserData.userfirstName} {loggedInUserData.userLastName}</p>
           <Link to="/LoginPage">

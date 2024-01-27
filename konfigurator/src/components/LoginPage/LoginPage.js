@@ -4,21 +4,21 @@ import TextField from "@mui/material/TextField";
 import styles from "../../common/styles/LoginPage.module.scss";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
- 
+import { useAuth } from "../../context/Context";
+
 function LoginPage() {
   let navigate = useNavigate();
   const [userfirstName, setUserFirstName] = useState("");
   const [userLastName, setUserLastName] = useState("");
   const [showLoginMessage, setShowLoginMessage] = useState(false);
-
+  const { login } = useAuth();
   const signInUser = (e) => {
     e.preventDefault();
     const fullName = `${userfirstName} ${userLastName}`;
-    window.sessionStorage.setItem(
-      "user",
-      JSON.stringify({ userfirstName, userLastName })
-      );
-      console.log(`Zalogowany jako: ${userfirstName} ${userLastName}`);
+
+    login(fullName);
+  
+
     setShowLoginMessage(true);
     setTimeout(() => {
       setShowLoginMessage(false);
