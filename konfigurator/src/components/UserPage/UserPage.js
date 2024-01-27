@@ -28,17 +28,27 @@ function UserPage({ tooltip1, tooltip2 }) {
 
   useEffect(() => {
     // Odczytaj dane logowania z Local Storage
-    const storedUser = window.localStorage.getItem("user");
+    const storedUser = window.sessionStorage.getItem("user");
     if (storedUser) {
       const { userfirstName, userLastName } = JSON.parse(storedUser);
       // Zapisz dane logowania w stanie komponentu
       setLoggedInUserData({ userfirstName, userLastName });
       console.log(`Zalogowany jako: ${userfirstName} ${userLastName}`);
     }
+
+    const handleBeforeUnload = (event) => {
+      window.sessionStorage.renoveItem("user");
+    };
+
+    window.addEventListener("beforeRunLoad", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeRunLoad", handleBeforeUnload);
+    };
   }, []);
 
   const handleLogout = () => {
-    window.localStorage.removeItem("user");
+    window.sessionStorage.removeItem("user");
     setLoggedInUserData(null);
     console.log("Użytkownik został wylogowany");
   }
