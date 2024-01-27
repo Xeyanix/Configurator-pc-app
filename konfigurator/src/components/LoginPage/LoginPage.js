@@ -14,10 +14,11 @@ function LoginPage() {
   const signInUser = (e) => {
     e.preventDefault();
     const fullName = `${userfirstName} ${userLastName}`;
-    window.localStorage.setItem(
+    window.sessionStorage.setItem(
       "user",
       JSON.stringify({ userfirstName, userLastName })
-    );
+      );
+      console.log(`Zalogowany jako: ${userfirstName} ${userLastName}`);
     setShowLoginMessage(true);
     setTimeout(() => {
       setShowLoginMessage(false);

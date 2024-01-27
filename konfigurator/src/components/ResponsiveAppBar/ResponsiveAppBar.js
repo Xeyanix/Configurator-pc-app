@@ -5,11 +5,8 @@ import { AppBar, Toolbar, IconButton, Typography, Drawer, List, ListItem, ListIt
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
-
 function ResponsiveAppBar({ loggedInUser }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
-
-
 
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -46,8 +43,6 @@ function ResponsiveAppBar({ loggedInUser }) {
 
   return (
     <div>
-
-
       <AppBar position="static">
         <Toolbar className={styles.wrapper}>
           <Typography

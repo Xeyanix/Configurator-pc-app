@@ -27,7 +27,7 @@ function UserPage({ tooltip1, tooltip2 }) {
   };
 
   useEffect(() => {
-    // Odczytaj dane logowania z Local Storage
+    // Odczytaj dane logowania z session Storage
     const storedUser = window.sessionStorage.getItem("user");
     if (storedUser) {
       const { userfirstName, userLastName } = JSON.parse(storedUser);
