@@ -41,7 +41,7 @@ function UserPage({ tooltip1, tooltip2 }) {
       {loggedInUser  ? (
       
         <div>
-          <p>Zalogowany jako: {loggedInUser.userfirstName} {loggedInUser.userLastName}</p>
+          <p>Zalogowany jako: {loggedInUser} </p>
           <Link to="/LoginPage">
             <Button variant="contained" color="error" onClick={handleLogout}>
               Wyloguj
