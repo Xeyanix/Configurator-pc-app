@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
 import Button from "@mui/material/Button";
 import { useAuth } from "../../context/Context";
 import styles from "../../common/styles/UserPage.module.scss";
@@ -9,13 +8,8 @@ import UserForm from "../UserForm/UserForm";
 function UserPage({ tooltip1, tooltip2 }) {
   const [isTooltipVisible, setTooltipVisibility] = useState(false);
   const [activeTooltip, setActiveTooltip] = useState(1);
-  const [loggedInUserData, setLoggedInUserData] = useState(null);
+  const { loggedInUser, logout } = useAuth();
 
-  
-  const { user, logout, setUser } = useAuth();
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const loggedInUser = searchParams.get('user');
 
   const handleMouseEnter = () => {
     setTooltipVisibility(true);
@@ -29,35 +23,25 @@ function UserPage({ tooltip1, tooltip2 }) {
     setActiveTooltip((prev) => (prev === 1 ? 2 : 1));
   };
 
+
   useEffect(() => {
-    // Odczytaj dane logowania z session Storage
-    const storedUser = window.sessionStorage.getItem("user");
-    if (storedUser) {
-      const { userfirstName, userLastName } = JSON.parse(storedUser);
-      // Zapisz dane logowania w stanie komponentu
-      setLoggedInUserData({ userfirstName, userLastName });
-      // setUser({ userfirstName, userLastName });
-      console.log(`Zalogowany jako: ${userfirstName} ${userLastName}`);
+    if (loggedInUser) {
+      console.log("Zalogowany użytkownik:", loggedInUser);
     }
-
-
-
-
-  }, []);
-
+  }, [loggedInUser]);
+  
   const handleLogout = () => {
     window.sessionStorage.removeItem("user");
-    setLoggedInUserData(null);
-    // logout();
+    logout();
     console.log("Użytkownik został wylogowany");
   }
 
   return (
     <div className={styles.mainContainer}>
-      {loggedInUserData ? (
-        //  {/* {user ? ( */}
+      {loggedInUser  ? (
+      
         <div>
-          <p>Zalogowany jako: {loggedInUserData.userfirstName} {loggedInUserData.userLastName}</p>
+          <p>Zalogowany jako: {loggedInUser.userfirstName} {loggedInUser.userLastName}</p>
           <Link to="/LoginPage">
             <Button variant="contained" color="error" onClick={handleLogout}>
               Wyloguj

@@ -12,12 +12,13 @@ function LoginPage() {
   const [userLastName, setUserLastName] = useState("");
   const [showLoginMessage, setShowLoginMessage] = useState(false);
   const { login } = useAuth();
+
   const signInUser = (e) => {
     e.preventDefault();
     const fullName = `${userfirstName} ${userLastName}`;
 
     login(fullName);
-  
+        console.log(`Zalogowany jako: ${userfirstName} ${userLastName}`);
 
     setShowLoginMessage(true);
     setTimeout(() => {
