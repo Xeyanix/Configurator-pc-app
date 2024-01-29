@@ -26,6 +26,7 @@ function DownMenu(props) {
             });
         }
     };
+    
     return (
         <footer>
             <div className={styles.mainContainer}>

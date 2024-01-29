@@ -1,15 +1,24 @@
-import React from "react";
-// import TextField from "@mui/material/TextField";
+import React, { useState } from 'react';
 import Button from "@mui/material/Button";
 import { Link } from 'react-router-dom';
 import Box from "@mui/material/Box";
 import styles from "../../common/styles/MainPage.module.scss";
 import { useLocation } from "react-router-dom";
-import DownMenu from "../DownMenu/DownMenu";
+
 
 function MainPage() {
   const { state } = useLocation();
   const loggedInUser = state?.loggedInUser;
+  const [setScrollPosition] = useState(0);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+    setScrollPosition(0);
+  };
+
 
   return (
     <div>
@@ -114,7 +123,7 @@ function MainPage() {
       </div>
 
       <p>&copy; {new Date().getFullYear()}{' '}
-        <Link to="/" >
+        <Link to="/" onClick={scrollToTop} >
           Configurator
         </Link>
         . All rights reserved.</p>
