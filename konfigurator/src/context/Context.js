@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         // Przy ładowaniu strony sprawdź, czy dane zalogowanego użytkownika są w LocalStorage
-        const storedUser = window.localStorage.getItem('loggedInUser');
+        const storedUser = window.sessionStorage.getItem('loggedInUser');
         if (storedUser) {
            
             setLoggedInUser(JSON.parse(storedUser));
@@ -19,12 +19,12 @@ export const AuthProvider = ({ children }) => {
 
     const login = (user) => {
         setLoggedInUser(user);
-        window.localStorage.setItem("loggedInUser", JSON.stringify(user));
+        window.sessionStorage.setItem("loggedInUser", JSON.stringify(user));
     };
 
     const logout = () => {
         setLoggedInUser(null);
-        window.localStorage.removeItem("loggedInUser");
+        window.sessionStorage.removeItem("loggedInUser");
     };
 
     return (

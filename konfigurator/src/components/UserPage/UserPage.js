@@ -22,17 +22,6 @@ function UserPage({ tooltip1, tooltip2 }) {
   const toggleTooltip = () => {
     setActiveTooltip((prev) => (prev === 1 ? 2 : 1));
   };
-
-  // useEffect(() => {
-  //   // Odczytaj dane logowania z session Storage
-  //   const storedUser = window.sessionStorage.getItem("loggedInUser");
-  //   if (storedUser) {
-  //     const { userfirstName, userLastName } = JSON.parse(storedUser);
-  //     // Zapisz dane logowania w stanie komponentu
-  //     setLoggedInUserData({ userfirstName, userLastName });
-  //     console.log(`Zalogowany jako: ${userfirstName} ${userLastName}`);
-  //   }
-  // }, []);
  
   useEffect(() => {
     if (loggedInUser) {
