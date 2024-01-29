@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import styles from "../../common/styles/Scroll.module.scss";
 import { Link } from 'react-router-dom';
 
-function Scroll(props) {
+function DownMenu(props) {
     const [setScrollPosition] = useState(0);
 
     const scrollToTop = () => {
@@ -25,9 +25,11 @@ function Scroll(props) {
         }
     };
     return (
-        <div className={styles.scrollButton}>
-
-            <div>
+        <div className={styles.mainContainer}>
+            <p className={styles.copyrightText}>
+                &copy; 2024 Your Company Name. All rights reserved.
+            </p>
+            <div className={styles.buttonsContainer}>
                 <Link to="/">
                     <Button variant="contained" color="error">
                         Strona Główna
@@ -46,7 +48,8 @@ function Scroll(props) {
                 </Button>
             </div>
         </div>
+
     );
 }
 
-export default Scroll;
+export default DownMenu;

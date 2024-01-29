@@ -3,7 +3,7 @@ import styles from './App.module.scss';
 import Filters from './components/Filters/Filters';
 import ResponsiveAppBar from './components/ResponsiveAppBar/ResponsiveAppBar';
 import ProductList from './components/ProductList/ProductList';
-import Scroll from './components/Scroll/Scroll';
+import DownMenu from './components/DownMenu/DownMenu';
 import Cart from './components/Cart/Cart';
 import Motherboards from './common/consts/motherboard';
 import LastViewed from './components/LastViewed/LastViewed';
@@ -27,9 +27,9 @@ function App() {
     if (loggedInUser) {
       login(loggedInUser);
     } else {
-     
+
     }
-  }, [scrollPosition,loggedInUser, login]);
+  }, [scrollPosition, loggedInUser, login]);
 
 
   const addToCart = (product) => {
@@ -80,13 +80,18 @@ function App() {
               removeAll={removeAllItems}
             />
           </div>
-
           <div>
             <LastViewed cart={listViewed} />
             <Contact id="kontakt" />
-            <Scroll />
           </div>
+
         </div >
+
+        <footer>
+          <div>
+            < DownMenu />
+          </div>
+        </footer>
 
       </div >
     </AuthProvider>
