@@ -8,8 +8,8 @@ import { useAuth } from "../../context/Context";
 
 function ResponsiveAppBar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const { loggedInUser } = useAuth(); 
-  
+  const { loggedInUser } = useAuth();
+
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
@@ -33,6 +33,7 @@ function ResponsiveAppBar() {
     { label: "Zaloguj", path: "/LoginPage" },
     { label: "Konto", path: "/UserPage" },
     { label: "Kontakt", onClick: scrollToContactSection },
+
   ];
 
   const BarItems = [
@@ -40,6 +41,7 @@ function ResponsiveAppBar() {
     { label: "Zaloguj", path: "/LoginPage" },
     { label: "Konto", path: "/UserPage" },
     { label: "Kontakt", onClick: scrollToContactSection },
+
   ];
 
 
@@ -65,8 +67,6 @@ function ResponsiveAppBar() {
             PC Configurator
           </Typography>
 
-
-
           <div className={styles.otherPageButtons}>
             <IconButton
               edge="start"
@@ -77,24 +77,30 @@ function ResponsiveAppBar() {
             >
               <MenuIcon />
             </IconButton>
+
             {BarItems.map((item, index) => (
-              <MenuItem
-                button
-                key={index}
-                component={item.path ? Link : "button"}
-                to={item.path}
-                onClick={item.onClick}
-              >
-                <ListItemText primary={item.label} />
+              item.label && (
+                <MenuItem
+                  button
+                  key={index}
+                  component={item.path ? Link : "button"}
+                  to={item.path}
+                  onClick={item.onClick}
+                >
+                  <ListItemText primary={item.label} />
 
-              </MenuItem>
-
+                </MenuItem>
+              )
             ))}
-            {loggedInUser && (
-              <div className={styles.loggedInMessage}>
-                Zalogowany jako: {loggedInUser}
-              </div>
-            )}
+     
+
+
+              {loggedInUser && (
+                <div className={styles.loggedInMessage}>
+                  Zalogowany jako: {loggedInUser}
+                </div>
+              )}
+            
           </div>
         </Toolbar>
       </AppBar>

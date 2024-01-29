@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 function Cart(props) {
   const [productsToBuy, setProductsToBuy] = useState([]);
   const [removeAllClicked, setRemoveAllClicked] = useState([]);
- 
 
   useEffect(() => {
     setProductsToBuy(props.cart);
@@ -64,7 +63,7 @@ function Cart(props) {
             <p>Twój koszyk jest pusty</p>
           ) : (
             <div className={commonColumnsStyles.cart}>
-              <ol className={commonColumnsStyles.productsList}>
+              <ol className={commonColumnsStyles.cartList}>
                 {AddedItem}
               </ol>
               <button

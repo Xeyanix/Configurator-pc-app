@@ -39,6 +39,14 @@ $color-red: red;
   width: 100%;
 }
 
+.loggedInMessage {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3px;
+  flex-direction: flex;
+  align-items: center;
+  text-decoration: underline;
+}
 
 .wrapper:hover {
   background-color: #2980b9;
@@ -74,12 +82,16 @@ $color-red: red;
 }
 
 .cart {
-  // border: 1px solid yellow;
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
 }
 
-.productsList {
-  // cursor: pointer;
-  // border: 1px solid blue;
+.cartList {
+  justify-content: space-between;
+  margin: 10px;
 }
 
 .productsListNames {
