@@ -22,8 +22,6 @@ function MainPage() {
 
   return (
     <div>
-
-
       <div className={styles.mainContainer}>
         <div className={styles.maintext}>
           <h1 className={styles.mainHeading}>Witaj w Konfiguratorze Swojego komputera - PC</h1>
