@@ -6,9 +6,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useAuth } from "../../context/Context";
 
-function ResponsiveAppBar({ loggedInUser }) {
+function ResponsiveAppBar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const { user } = useAuth(); 
+  const { loggedInUser } = useAuth(); 
   
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -90,7 +90,6 @@ function ResponsiveAppBar({ loggedInUser }) {
               </MenuItem>
 
             ))}
-         
             {loggedInUser && (
               <div className={styles.loggedInMessage}>
                 Zalogowany jako: {loggedInUser}
