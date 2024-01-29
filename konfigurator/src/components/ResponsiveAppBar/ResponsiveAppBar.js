@@ -52,7 +52,7 @@ function ResponsiveAppBar() {
           <Typography
             variant="h4"
             noWrap
-            component={Link} // Użyj komponentu Link
+            component={Link} 
             to="/"  
             sx={{
               mr: 0,

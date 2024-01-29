@@ -1,34 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from 'react-router-dom';
 import Button from "@mui/material/Button";
 import { useAuth } from "../../context/Context";
 import styles from "../../common/styles/UserPage.module.scss";
 import UserForm from "../UserForm/UserForm";
 
-function UserPage({ tooltip1, tooltip2 }) {
-  const [isTooltipVisible, setTooltipVisibility] = useState(false);
-  const [activeTooltip, setActiveTooltip] = useState(1);
+function UserPage() {
   const { loggedInUser, logout } = useAuth();
-  const [loggedInUserData, setLoggedInUserData] = useState(null);
 
-  const handleMouseEnter = () => {
-    setTooltipVisibility(true);
-  };
 
-  const handleMouseLeave = () => {
-    setTooltipVisibility(false);
-  };
-
-  const toggleTooltip = () => {
-    setActiveTooltip((prev) => (prev === 1 ? 2 : 1));
-  };
- 
   useEffect(() => {
     if (loggedInUser) {
       console.log("Zalogowany użytkownik:", loggedInUser);
     }
   }, [loggedInUser]);
-  
+
   const handleLogout = () => {
     window.sessionStorage.removeItem("user");
     logout();
@@ -37,8 +23,8 @@ function UserPage({ tooltip1, tooltip2 }) {
 
   return (
     <div className={styles.mainContainer}>
-      {loggedInUser  ? (
-      
+      {loggedInUser ? (
+
         <div>
           <p>Zalogowany jako: {loggedInUser} </p>
           <Link to="/LoginPage">
@@ -48,9 +34,7 @@ function UserPage({ tooltip1, tooltip2 }) {
           </Link>
           <div
             className={styles.tooltip}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            title={!isTooltipVisible ? (activeTooltip === 1 ? tooltip1 : tooltip2) : 'Podpowiedz'}
+
           >
           </div>
           <h3>
@@ -69,14 +53,7 @@ function UserPage({ tooltip1, tooltip2 }) {
           </Link>
         </div>
       )}
-      <div>
-        {isTooltipVisible && (
-          <div className={styles.tooltip}>
-            {activeTooltip === 1 ? tooltip1 : tooltip2} Dzięki ze najechałeś - chyba działa
-          </div>
-        )}
-        (Najedz żeby zobaczyć podpowiedz)
-      </div>
+
     </div>
   );
 }
