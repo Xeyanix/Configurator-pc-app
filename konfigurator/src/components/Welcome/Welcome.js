@@ -2,8 +2,11 @@ import React from 'react';
 import Button from "@mui/material/Button";
 import styles from "../../common/styles/WelcomePage.module.scss";
 import { Link } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';  
 
 function Welcome() {
+   
+
     const redirectToCV = () => {
         window.location.href = "/ShowPage";
     }
@@ -18,10 +21,35 @@ function Welcome() {
                 <h1>Moje Portfolio</h1>
             </header>
 
-            <section className={styles.options}>
+            <div className={styles.additionalText}>
+                Tu znajdują sie moje projekty
+                <br />
+                <br />
+                <ScrollLink to="projectSection" smooth={true} duration={500}> 
+                <Button variant="contained" >
+                    Projekty
+                </Button>
+                </ScrollLink>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
 
-                <div className={styles.option} onClick={redirectToCV}>
-                    <h2 >Moje CV</h2>
+            <section  className={styles.options}>
+
+                <div id="projectSection" className={styles.option} onClick={redirectToCV}>
+                    <h2 > CV</h2>
                     <p>Znajdź wszystkie informacje o mnie.</p>
                     <Link to="/ShowPage">
                         <Button variant="contained">
