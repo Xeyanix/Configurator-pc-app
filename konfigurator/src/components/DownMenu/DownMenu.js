@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import styles from "../../common/styles/DownMenu.module.scss";
 import { Link } from 'react-router-dom';
 
-function DownMenu(props) {
+function DownMenu() {
     const [setScrollPosition] = useState(0);
 
 
