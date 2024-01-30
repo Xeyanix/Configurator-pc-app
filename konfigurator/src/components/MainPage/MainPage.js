@@ -124,7 +124,13 @@ function MainPage() {
         <Link to="/" onClick={scrollToTop} >
           Configurator
         </Link>
-        . All rights reserved.</p>
+        . All rights reserved.
+        <Button onClick={scrollToTop} variant="contained" color="success">
+          Scroll to Top
+        </Button></p>
+
+
+   
     </div>
   );
 }
