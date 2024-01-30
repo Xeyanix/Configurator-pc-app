@@ -114,7 +114,7 @@ function MainPage() {
           <div className={styles.contactSection}>
             <h2 className={styles.sectionHeading}>Kontakt</h2>
             <p className={styles.sectionParagraph}>
-              Skontaktuj się z nami pod adresem email: kontakt@example.com
+              Skontaktuj się z nami pod adresem email: jan.goralewski@o2.pl
             </p>
           </div>
         </div>
