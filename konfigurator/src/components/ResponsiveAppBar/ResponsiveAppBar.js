@@ -29,7 +29,7 @@ function ResponsiveAppBar() {
   };
 
   const menuItems = [
-    { label: "Witaj", path: "/" },
+    { label: "Witaj !", path: "/" },
     { label: "Strona Główna", path: "/MainPage" },
     { label: "Zaloguj", path: "/LoginPage" },
     { label: "Konto", path: "/UserPage" },
@@ -38,7 +38,7 @@ function ResponsiveAppBar() {
   ];
 
   const BarItems = [
-    { label: "Witaj", path: "/" },
+    { label: "Witaj !", path: "/" },
     { label: "Strona Główna", path: "/MainPage" },
     { label: "Zaloguj", path: "/LoginPage" },
     { label: "Konto", path: "/UserPage" },

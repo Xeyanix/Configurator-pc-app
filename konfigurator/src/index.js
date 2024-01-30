@@ -11,7 +11,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import { AuthProvider } from './context/Context';
 import LandingPage from './components/Welcome/Welcome';
-import ShowPage from './components/ShowPage/ShowPage';
+import ShowPage from './components/showPage/showPage';
 
 const router = createBrowserRouter([
   {
@@ -20,14 +20,14 @@ const router = createBrowserRouter([
     // errorElement: <Page404 />,
   },
   {
-    path: "/ShowPage", //tu bedzie CV
+    path: "/showPage",
     element: <ShowPage />,
-    // errorElement: <Page404 />,
+
   },
   {
     path: "/MainPage",
     element: <MainPage />,
-    // errorElement: <Page404 />,
+
   },
   {
     path: "/configurator",
@@ -36,12 +36,12 @@ const router = createBrowserRouter([
   {
     path: "/LoginPage",
     element: <LoginPage />,
-    // errorElement: <Page404 />,
+
   },
   {
     path: "/UserPage",
     element: <UserPage />,
-    // errorElement: <Page404 />,
+
   },
 ]);
 

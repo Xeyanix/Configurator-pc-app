@@ -1,0 +1,42 @@
+.MainContainer {
+    background-color: #306ea3;
+}
+
+.header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+}
+
+.options {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: calc(100vh - 100px);
+
+    .option {
+        text-align: center;
+        padding: 2rem;
+        width: 45%;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
