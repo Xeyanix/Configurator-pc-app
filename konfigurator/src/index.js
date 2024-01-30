@@ -10,10 +10,22 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import { AuthProvider } from './context/Context';
+import LandingPage from './components/Welcome/Welcome';
+import ShowPage from './components/ShowPage/ShowPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <LandingPage />,
+    // errorElement: <Page404 />,
+  },
+  {
+    path: "/ShowPage", //tu bedzie CV
+    element: <ShowPage />,
+    // errorElement: <Page404 />,
+  },
+  {
+    path: "/MainPage",
     element: <MainPage />,
     // errorElement: <Page404 />,
   },

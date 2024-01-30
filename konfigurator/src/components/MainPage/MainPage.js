@@ -121,7 +121,7 @@ function MainPage() {
       </div>
 
       <p>&copy; {new Date().getFullYear()}{' '}
-        <Link to="/" onClick={scrollToTop} >
+        <Link to="/MainPage" onClick={scrollToTop} >
           Configurator
         </Link>
         . All rights reserved.

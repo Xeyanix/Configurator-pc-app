@@ -29,7 +29,8 @@ function ResponsiveAppBar() {
   };
 
   const menuItems = [
-    { label: "Strona Główna", path: "/" },
+    { label: "Witaj", path: "/" },
+    { label: "Strona Główna", path: "/MainPage" },
     { label: "Zaloguj", path: "/LoginPage" },
     { label: "Konto", path: "/UserPage" },
     { label: "Kontakt", onClick: scrollToContactSection },
@@ -37,7 +38,8 @@ function ResponsiveAppBar() {
   ];
 
   const BarItems = [
-    { label: "Strona Główna", path: "/" },
+    { label: "Witaj", path: "/" },
+    { label: "Strona Główna", path: "/MainPage" },
     { label: "Zaloguj", path: "/LoginPage" },
     { label: "Konto", path: "/UserPage" },
     { label: "Kontakt", onClick: scrollToContactSection },
@@ -52,8 +54,8 @@ function ResponsiveAppBar() {
           <Typography
             variant="h4"
             noWrap
-            component={Link} 
-            to="/"  
+            component={Link}
+            to="/"
             sx={{
               mr: 0,
               display: { xs: 'none', md: 'flex' },
@@ -92,15 +94,15 @@ function ResponsiveAppBar() {
                 </MenuItem>
               )
             ))}
-     
 
 
-              {loggedInUser && (
-                <div className={styles.loggedInMessage}>
-                  Zalogowany jako: {loggedInUser}
-                </div>
-              )}
-            
+
+            {loggedInUser && (
+              <div className={styles.loggedInMessage}>
+                Zalogowany jako: {loggedInUser}
+              </div>
+            )}
+
           </div>
         </Toolbar>
       </AppBar>

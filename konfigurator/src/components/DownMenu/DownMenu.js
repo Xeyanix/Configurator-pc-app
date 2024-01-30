@@ -32,14 +32,14 @@ function DownMenu(props) {
             <div className={styles.mainContainer}>
                 <p className={styles.copyrightText}>
                     &copy; {new Date().getFullYear()}{' '}
-                    <Link to="/" >
+                    <Link to="/MainPage" >
                         Configurator
                     </Link>
                     . All rights reserved.
                 </p>
 
                 <div className={styles.buttonsContainer}>
-                    <Link to="/">
+                    <Link to="/MainPage">
                         <Button variant="contained" color="error">
                             Strona Główna
                         </Button>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function LandingPage() {
+function Welcome() {
     const redirectToCV = () => {
         // Update the URL to the CV page
         window.location.href = "/cv";
@@ -36,4 +36,4 @@ function LandingPage() {
     );
 }
 
-export default LandingPage;
+export default Welcome;
