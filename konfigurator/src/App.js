@@ -88,9 +88,7 @@ function App() {
         </div >
 
         <footer>
-      
-            < DownMenu />
-       
+            <DownMenu />
         </footer>
       </div >
     </AuthProvider>
