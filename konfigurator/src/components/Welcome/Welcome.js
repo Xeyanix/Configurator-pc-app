@@ -7,7 +7,6 @@ import Contact from '../Contact/Contact';
 
 function Welcome() {
 
-
     const redirectToCV = () => {
         window.location.href = "/ShowPage";
     }
@@ -18,8 +17,6 @@ function Welcome() {
 
     return (
         <div>
-
-
             <div className={styles.MainContainer}>
                 <header className={styles.header}>
                     <h1>Moje Portfolio</h1>

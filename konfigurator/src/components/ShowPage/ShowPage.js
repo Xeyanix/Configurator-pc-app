@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from "@mui/material/Button";
 import styles from "../../common/styles/ShowPage.module.scss";
-import PDFViewer from '../PDFViewer/PDFViewer';
+import Viewer from '../Viewer/Viewer';
 import { Link } from 'react-router-dom';
 
 
@@ -14,7 +14,7 @@ function ShowPage() {
                         Welcome Page
                     </Button>
                 </Link>
-                <PDFViewer />
+                <Viewer />
             </div>
         </div>
     );

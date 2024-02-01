@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from "../../common/styles/ShowPage.module.scss";
 import { Button } from '@mui/material';
 
-function PDFViewer() {
+function Viewer() {
     const [currentPage, setCurrentPage] = useState(1);
 
     const images = [
@@ -45,4 +45,4 @@ function PDFViewer() {
     );
 }
 
-export default PDFViewer;
+export default Viewer;
