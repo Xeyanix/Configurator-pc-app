@@ -11,7 +11,7 @@ function Welcome() {
     }
 
     const redirectToConfigurator = () => {
-        window.location.href =  "/MainPage";
+        window.location.href = "/MainPage";
     }
 
     const projectsData = [
@@ -51,10 +51,12 @@ function Welcome() {
 
                 <section id="projectSection" className={styles.projects}>
                     {projectsData.map((project, index) => (
-                        <div key={index} className={styles.option} onClick={index === 0 ? redirectToCV : () => redirectToConfigurator(index)}>
+                        <div
+                            key={index} className={styles.option} onClick={index === 0 ? redirectToCV : () => redirectToConfigurator(index)}>
+                           
                             <h2>{project.title}</h2>
                             <p>{project.description}</p>
-                            <Link to={(index === 0 ) ? "/ShowPage" : "/MainPage"}>
+                            <Link to={index === 0 ? "/ShowPage" : "/MainPage"}>
                                 <Button variant="contained">
                                     {project.buttonText}
                                 </Button>
