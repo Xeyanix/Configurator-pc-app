@@ -6,14 +6,24 @@ import { Link as ScrollLink } from 'react-scroll';
 import Contact from '../Contact/Contact';
 
 function Welcome() {
-
     const redirectToCV = () => {
         window.location.href = "/ShowPage";
     }
 
-    const redirectToConfigurator = () => {
-        window.location.href = "/MainPage";
+    const redirectToConfigurator = (index) => {
+        window.location.href = (index === 0) ? "/ShowPage" : "/MainPage";
     }
+
+    const projectsData = [
+        { title: "CV", description: "Znajdź wszystkie informacje o mnie.", buttonText: "Show Page" },
+        { title: "Konfigurator", description: "Przejrzyj mój projekt konfiguratora.", buttonText: "Konfigurator" },
+        { title: "Project 3", description: "Przejrzyj mój projekt konfiguratora.", buttonText: "Konfigurator" },
+        { title: "Project 4", description: "Przejrzyj mój projekt konfiguratora.", buttonText: "Konfigurator" },
+        { title: "Project 5", description: "Przejrzyj mój projekt konfiguratora.", buttonText: "Show Page" },
+        { title: "Project 6", description: "Przejrzyj mój projekt konfiguratora.", buttonText: "Konfigurator" },
+        { title: "Project 7", description: "Przejrzyj mój projekt konfiguratora.", buttonText: "Konfigurator" },
+        { title: "Project 8", description: "Przejrzyj mój projekt konfiguratora.", buttonText: "Konfigurator" },
+    ];
 
     return (
         <div>
@@ -23,7 +33,7 @@ function Welcome() {
                 </header>
 
                 <div className={styles.additionalText}>
-                    Tu znajdują sie moje projekty
+                    Tu znajdują się moje projekty
                     <br />
                     <br />
                     <ScrollLink to="projectSection" smooth={true} duration={500}>
@@ -37,35 +47,29 @@ function Welcome() {
                         </Button>
                     </ScrollLink>
                     <br />
-
                 </div>
 
                 <section id="projectSection" className={styles.projects}>
-                    <div className={styles.option} onClick={redirectToCV}>
-                        <h2 > CV</h2>
-                        <p>Znajdź wszystkie informacje o mnie.</p>
-                        <Link to="/ShowPage">
-                            <Button variant="contained">
-                                Show Page
-                            </Button>
-                        </Link>
-                    </div>
-                    <div className={styles.option} onClick={redirectToConfigurator}>
-                        <h2>Konfigurator</h2>
-                        <p>Przejrzyj mój projekt konfiguratora. </p>
-                        <Link to="/MainPage">
-                            <Button variant="contained">
-                                Konfigurator
-                            </Button>
-                        </Link>
-                    </div>
+                    {projectsData.map((project, index) => (
+                        <div key={index} className={styles.option} onClick={index === 0 ? redirectToCV : () => redirectToConfigurator(index)}>
+                            <h2>{project.title}</h2>
+                            <p>{project.description}</p>
+                            <Link to={(index === 0) ? "/ShowPage" : "/MainPage"}>
+                                <Button variant="contained">
+                                    {project.buttonText}
+                                </Button>
+                            </Link>
+                        </div>
+                    ))}
                 </section>
+            </div>
 
+            <div>
                 <section id="contact">
                     <Contact />
                 </section>
-
             </div>
+
             <footer className={styles.footer}>
                 <p>&copy; 2024 Moje Portfolio. Wszelkie prawa zastrzeżone.</p>
             </footer>
