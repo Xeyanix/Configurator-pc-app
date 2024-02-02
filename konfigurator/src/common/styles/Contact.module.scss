@@ -1,12 +1,29 @@
 .contactSection {
   display: flex;
-  // height: calc(50vh - 100px);
   max-width: 100%;
-  margin: 0 auto;
   padding: 20px;
   background-color: rgb(186, 186, 161);
-  border: 1px solid #ddd;
   border-radius: 20px;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
 }
+
+
+.h2 {
+  background-color: #b0786a;
+  margin-bottom: var(--wp--preset--spacing--40);
+  text-transform: uppercase;
+}
+
+.p    {
+  margin-top: var(--wp--preset--spacing--30);
+  margin-bottom: var(--wp--preset--spacing--20);
+  font-size: clamp(0.875rem, 0.875rem + ((1vw - 0.2rem) * 0.531), 1.3rem);
+  text-transform: uppercase;
+}
+
+.socialMediaLinks {
+  display: flex;
+  // align-items: center;
+}
+

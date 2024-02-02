@@ -11,33 +11,16 @@ function Contact() {
     return (
         <div id="contactSection" className={styles.contactSection}>
             <div >
-                <h2
-                    className="wp-block-heading has-background"
-                    style={{
-                        backgroundColor: '#b0786a',
-                        marginBottom: 'var(--wp--preset--spacing--40)',
-                        textTransform: 'uppercase',
-                    }}
-                >
+                <h2 className={styles.h2} >
                     Zapraszam do kontaktu
                 </h2>
-                <p
-                    style={{
-                        marginTop: 'var(--wp--preset--spacing--30)',
-                        marginBottom: 'var(--wp--preset--spacing--20)',
-                        fontSize: 'clamp(0.875rem, 0.875rem + ((1vw - 0.2rem) * 0.531), 1.3rem)',
-                        textTransform: 'uppercase',
-                    }}
-                >
+                <p className={styles.p}>
                     <strong>Social media</strong>
                 </p>
-
-                <ul >
-
+                <ul className={styles.socialMediaLinks}>
                     <a
                         rel="noopener noreferrer"
                         target="_blank"
-                        // href="https://www.instagram.com/bboyjohnny/"
                         href="https://www.linkedin.com/in/jan-goralewski/"
                         class="wp-block-social-link-anchor">
 
