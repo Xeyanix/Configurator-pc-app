@@ -24,15 +24,17 @@
     background-color: rgb(23, 94, 34);
     height: calc(100vh - 100px);
     overflow-x: auto;
-
+    text-align: center;
 
     .option {
+        display:auto;
+        color:black;
         text-align: center;
         justify-content: center;
-        padding: 2rem;
+        padding: 50px;
         margin: 5%;
         background-color: #fff;
-        border-radius: 8px;
+        border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease-in-out;
         cursor: pointer;
@@ -40,6 +42,11 @@
         &:hover {
             transform: scale(1.05);
         }
+        h2, p {
+            text-align: center;
+        }
+    
+      
     }
 }
 
