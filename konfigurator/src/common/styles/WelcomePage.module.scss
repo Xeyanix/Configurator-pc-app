@@ -9,12 +9,14 @@
     color: #fff;
     text-align: center;
     padding: 2rem;
+    margin-bottom: 2rem;
 }
 
 .additionalText {
     color: #fff;
     text-align: center;
     padding: 2rem;
+    font-size: 1.2rem;
 }
 
 .projects {
@@ -24,14 +26,13 @@
     background-color: rgb(23, 94, 34);
     height: calc(100vh - 100px);
     overflow-x: auto;
-    text-align: center;
 
     .option {
         display:auto;
         color:black;
         text-align: center;
         justify-content: center;
-        padding: 50px;
+        padding: 2rem;
         margin: 5%;
         background-color: #fff;
         border-radius: 10px;
@@ -42,11 +43,7 @@
         &:hover {
             transform: scale(1.05);
         }
-        h2, p {
-            text-align: center;
-        }
-    
-      
+        
     }
 }
 
@@ -56,5 +53,6 @@
     text-align: center;
     padding: 1rem;
     bottom: 0;
+    
     width: 100%;
 }
