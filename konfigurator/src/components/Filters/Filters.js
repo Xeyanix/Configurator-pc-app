@@ -61,40 +61,43 @@ function Filters(props) {
   const uniqueCategory = getUniqueCategory();
 
   return (
-    <div className={styles.productsFiltersWrapper}>
-      Płyta Główna
-      <input
-        id={styles.searchPhraseInput}
-        value={searchPhrase}
-        placeholder="ASUS, Gigabyte"
-        onChange={handleSearchPhraseChange}
-        onKeyUp={handleSearchKeyUp}
-      ></input>
-      Chipset
-      <input
-        pattern="[0-9]+"
-        type="text"
-        required
-        placeholder="X570,b450, etc"
-        id={styles.searchChipsetInput}
-        value={searchChipset}
-        onChange={handleProductType}
-        title="Wprowadź tylko cyfry i litery"
-      ></input>
-      Socket
-      <select
-        value={searchSocket}
-        onChange={handleSelectCategory}>
-        <option key={'all'} value={''}>
-          All Categories
-        </option>{uniqueCategory.map((socket) => (
-          <option key={socket} value={socket}>
-            {socket}
-          </option>
-        ))}
-      </select>
-      <button onClick={filterProdukty}>Wyszukaj</button>
-      <button onClick={handleResetFilters}>Zresetuj filtry</button>
+    <div className={styles.name}>
+      Filtr płyty głównej
+      <div className={styles.productsFiltersWrapper}>
+        Płyta Główna
+        <input
+          id={styles.searchPhraseInput}
+          value={searchPhrase}
+          placeholder="ASUS, Gigabyte"
+          onChange={handleSearchPhraseChange}
+          onKeyUp={handleSearchKeyUp}
+        ></input>
+        Chipset
+        <input
+          pattern="[0-9]+"
+          type="text"
+          required
+          placeholder="X570,b450, etc"
+          id={styles.searchChipsetInput}
+          value={searchChipset}
+          onChange={handleProductType}
+          title="Wprowadź tylko cyfry i litery"
+        ></input>
+        Socket
+        <select
+          value={searchSocket}
+          onChange={handleSelectCategory}>
+          <option key={'all'} value={''}>
+            All Categories
+          </option>{uniqueCategory.map((socket) => (
+            <option key={socket} value={socket}>
+              {socket}
+            </option>
+          ))}
+        </select>
+        <button onClick={filterProdukty}>Wyszukaj</button>
+        <button onClick={handleResetFilters}>Zresetuj filtry</button>
+      </div>
     </div>
   );
 };
