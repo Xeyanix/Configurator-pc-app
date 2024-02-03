@@ -68,7 +68,7 @@ function Filters(props) {
         <input
           id={styles.searchPhraseInput}
           value={searchPhrase}
-          placeholder="ASUS, Gigabyte"
+          placeholder="ASUS, Gigabyte, etc.."
           onChange={handleSearchPhraseChange}
           onKeyUp={handleSearchKeyUp}
         ></input>
@@ -77,7 +77,7 @@ function Filters(props) {
           pattern="[0-9]+"
           type="text"
           required
-          placeholder="X570,b450, etc"
+          placeholder="X570,b450, etc.."
           id={styles.searchChipsetInput}
           value={searchChipset}
           onChange={handleProductType}
