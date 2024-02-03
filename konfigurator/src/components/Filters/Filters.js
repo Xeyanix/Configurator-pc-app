@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from '../../common/styles/Headers.module.scss';
 
-  function Filters(props) {
+function Filters(props) {
   const [searchPhrase, setSearchPhrase] = useState('');
   const [searchSocket, setSearchSocket] = useState('');
   const [searchChipset, setSearchChipset] = useState('');
@@ -66,6 +66,7 @@ import styles from '../../common/styles/Headers.module.scss';
       <input
         id={styles.searchPhraseInput}
         value={searchPhrase}
+        placeholder="ASUS, Gigabyte"
         onChange={handleSearchPhraseChange}
         onKeyUp={handleSearchKeyUp}
       ></input>
