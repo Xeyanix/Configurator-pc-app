@@ -25,35 +25,33 @@ function Welcome() {
     return (
         <div>
             <div className={styles.MainContainer}>
+                <div className={styles.additionalText}>
+                    Tu znajdują się moje projekty
+                </div>
+                <ScrollLink to="contact" smooth={true} duration={500}>
+                    <Button variant="contained" >
+                        Kontakt
+                    </Button>
+                </ScrollLink>
+                <ScrollLink to="projectSection" smooth={true} duration={500}>
+                    <Button variant="contained" >
+                        Projekty
+                    </Button>
+                </ScrollLink>
                 <header className={styles.header}>
                     <h1>Moje Portfolio</h1>
                 </header>
-                <div className={styles.additionalText}>
-                    Tu znajdują się moje projekty
-                    <br />
-                    <br />
-                    <ScrollLink to="projectSection" smooth={true} duration={500}>
-                        <Button variant="contained" >
-                            Projekty
-                        </Button>
-                    </ScrollLink>
-                    <ScrollLink to="contact" smooth={true} duration={500}>
-                        <Button variant="contained" >
-                            Kontakt
-                        </Button>
-                    </ScrollLink>
-                    <br />
-                </div>
+
 
                 <section id="projectSection" className={styles.projects}>
                     {projectsData.map((project, index) => (
                         <div
-                            key={index} 
+                            key={index}
                             className={styles.option}
                             onClick={index === 0 ? redirectToCV : () => redirectToConfigurator(index)}>
-                           
+
                             <h2>{project.title}</h2>
-                            
+
                             <p>{project.description}</p>
                             <Link to={index === 0 ? "/ShowPage" : "/MainPage"}>
                                 <Button variant="contained">
