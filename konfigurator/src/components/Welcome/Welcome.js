@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import styles from "../../common/styles/WelcomePage.module.scss";
 import { Link } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import Contact from '../Contact/Contact';
+import { AppBar, Toolbar, IconButton, Typography, Drawer, List, ListItem, ListItemText } from "@mui/material";
+import MenuIcon from '@mui/icons-material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
 function Welcome() {
+    const [drawerOpen, setDrawerOpen] = useState(false);
+    const toggleDrawer = (open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+        setDrawerOpen(open);
+    };
+
     const redirectToCV = () => {
         window.location.href = "/ShowPage";
     }
@@ -22,9 +33,106 @@ function Welcome() {
         { title: "Projekt 5", description: "Przejrzyj mój projekt 5.", buttonText: "Show Page" },
     ];
 
+    const scrollToContactSection = () => {
+        const contactSection = document.getElementById("contactSection");
+        if (contactSection) {
+            const contactSectionPosition = contactSection.offsetTop;
+            window.scrollTo({
+                top: contactSectionPosition,
+                behavior: "smooth",
+            });
+        }
+    };
+
+    const menuItems = [
+        { label: "Witaj !", path: "/" },
+        { label: "Strona Główna", path: "/MainPage" },
+        { label: "Zaloguj", path: "/LoginPage" },
+        { label: "Konto", path: "/UserPage" },
+        { label: "Kontakt", onClick: scrollToContactSection },
+
+    ];
+
+    const BarItems = [
+        { label: "Witaj !", path: "/" },
+        { label: "Strona Główna", path: "/MainPage" },
+        { label: "Zaloguj", path: "/LoginPage" },
+        { label: "Konto", path: "/UserPage" },
+        { label: "Kontakt", onClick: scrollToContactSection },
+
+    ];
+
+
     return (
         <div>
             <div className={styles.MainContainer}>
+                <AppBar position="static">
+                    <Toolbar className={styles.wrapper}>
+                        <Typography
+                            variant="h4"
+                            noWrap
+                            component={Link}
+                            to="/"
+                            sx={{
+                                mr: 0,
+                                display: { xs: 'none', md: 'flex' },
+                                fontFamily: 'monospace',
+                                fontWeight: 700,
+                                letterSpacing: '.3rem',
+                                color: 'inherit',
+                                textDecoration: 'none',
+                            }}
+                        >
+                          
+                        </Typography>
+
+                        <div className={styles.otherPageButtons}>
+                            <IconButton
+                                edge="start"
+                                color="inherit"
+                                aria-label="menu"
+                                sx={{ mr: 2 }}
+                                onClick={toggleDrawer(true)}
+                            >
+                                <MenuIcon />
+                            </IconButton>
+
+                            {BarItems.map((item, index) => (
+                                item.label && (
+                                    <MenuItem
+                                        button
+                                        key={index}
+                                        component={item.path ? Link : "button"}
+                                        to={item.path}
+                                        onClick={item.onClick}
+                                    >
+                                        <ListItemText primary={item.label} />
+
+                                    </MenuItem>
+                                )
+                            ))}
+
+
+
+
+                        </div>
+                    </Toolbar>
+                </AppBar>
+                <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
+                    <List>
+                        {menuItems.map((item, index) => (
+                            <ListItem
+                                button
+                                key={index}
+                                component={item.path ? Link : "button"}
+                                to={item.path}
+                                onClick={item.onClick}
+                            >
+                                <ListItemText primary={item.label} />
+                            </ListItem>
+                        ))}
+                    </List>
+                </Drawer>
                 <div className={styles.additionalText}>
                     Tu znajdują się moje projekty
                 </div>
