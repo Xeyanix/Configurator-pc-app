@@ -10,6 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 
 function Welcome() {
     const [drawerOpen, setDrawerOpen] = useState(false);
+
     const toggleDrawer = (open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
@@ -45,47 +46,21 @@ function Welcome() {
     };
 
     const menuItems = [
-        { label: "Witaj !", path: "/" },
-        { label: "Strona Główna", path: "/MainPage" },
-        { label: "Zaloguj", path: "/LoginPage" },
-        { label: "Konto", path: "/UserPage" },
+        { label: "Projekty", path: "/UserPage" },
         { label: "Kontakt", onClick: scrollToContactSection },
-
     ];
 
     const BarItems = [
-        { label: "Witaj !", path: "/" },
-        { label: "Strona Główna", path: "/MainPage" },
-        { label: "Zaloguj", path: "/LoginPage" },
-        { label: "Konto", path: "/UserPage" },
+        { label: "Projekty", path: "/UserPage" },
         { label: "Kontakt", onClick: scrollToContactSection },
 
     ];
-
 
     return (
         <div>
             <div className={styles.MainContainer}>
                 <AppBar position="static">
                     <Toolbar className={styles.wrapper}>
-                        <Typography
-                            variant="h4"
-                            noWrap
-                            component={Link}
-                            to="/"
-                            sx={{
-                                mr: 0,
-                                display: { xs: 'none', md: 'flex' },
-                                fontFamily: 'monospace',
-                                fontWeight: 700,
-                                letterSpacing: '.3rem',
-                                color: 'inherit',
-                                textDecoration: 'none',
-                            }}
-                        >
-                          
-                        </Typography>
-
                         <div className={styles.otherPageButtons}>
                             <IconButton
                                 edge="start"
@@ -111,10 +86,6 @@ function Welcome() {
                                     </MenuItem>
                                 )
                             ))}
-
-
-
-
                         </div>
                     </Toolbar>
                 </AppBar>
