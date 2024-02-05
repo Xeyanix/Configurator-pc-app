@@ -61,7 +61,6 @@ function Welcome() {
                             >
                                 <MenuIcon />
                             </IconButton>
-
                             {BarItems.map((item, index) => (
                                 item.label && (
                                     <div key={index}>
@@ -142,13 +141,14 @@ function Welcome() {
                         ))}
                     </List>
                 </Drawer>
+                <header className={styles.header}>
+                    <h1>Moje Portfolio</h1>
+                </header>
+
                 <div className={styles.additionalText}>
                     Tu znajdują się moje projekty
                 </div>
 
-                <header className={styles.header}>
-                    <h1>Moje Portfolio</h1>
-                </header>
 
 
                 <section id="projectSection" className={styles.projects}>
