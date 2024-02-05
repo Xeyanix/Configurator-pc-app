@@ -4,7 +4,7 @@ import styles from "../../common/styles/WelcomePage.module.scss";
 import { Link } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import Contact from '../Contact/Contact';
-import { AppBar, Toolbar, IconButton, Typography, Drawer, List, ListItem, ListItemText } from "@mui/material";
+import { AppBar, Toolbar, IconButton, Drawer, List, ListItem, ListItemText } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
@@ -34,16 +34,6 @@ function Welcome() {
         { title: "Projekt 5", description: "Przejrzyj mój projekt 5.", buttonText: "Show Page" },
     ];
 
-    // const scrollToContactSection = () => {
-    //     const contactSection = document.getElementById("contactSection");
-    //     if (contactSection) {
-    //         const contactSectionPosition = contactSection.offsetTop;
-    //         window.scrollTo({
-    //             top: contactSectionPosition,
-    //             behavior: "smooth",
-    //         });
-    //     }
-    // };
 
     const menuItems = [
         { label: "Projekty", path: "Projects" },
@@ -150,8 +140,6 @@ function Welcome() {
                                 </div>
                             )
                         ))}
-
-
                     </List>
                 </Drawer>
                 <div className={styles.additionalText}>
