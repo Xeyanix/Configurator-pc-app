@@ -34,25 +34,25 @@ function Welcome() {
         { title: "Projekt 5", description: "Przejrzyj mój projekt 5.", buttonText: "Show Page" },
     ];
 
-    const scrollToContactSection = () => {
-        const contactSection = document.getElementById("contactSection");
-        if (contactSection) {
-            const contactSectionPosition = contactSection.offsetTop;
-            window.scrollTo({
-                top: contactSectionPosition,
-                behavior: "smooth",
-            });
-        }
-    };
+    // const scrollToContactSection = () => {
+    //     const contactSection = document.getElementById("contactSection");
+    //     if (contactSection) {
+    //         const contactSectionPosition = contactSection.offsetTop;
+    //         window.scrollTo({
+    //             top: contactSectionPosition,
+    //             behavior: "smooth",
+    //         });
+    //     }
+    // };
 
     const menuItems = [
-        { label: "Projekty", path: "/UserPage" },
-        { label: "Kontakt", onClick: scrollToContactSection },
+        { label: "Projekty", path: "Projects" },
+        { label: "Kontakt", path: "Contact" },
     ];
 
     const BarItems = [
-        { label: "Projekty", path: "/UserPage" },
-        { label: "Kontakt", onClick: scrollToContactSection },
+        { label: "Projekty", path: "Projects" },
+        { label: "Kontakt", path: "Contact" },
 
     ];
 
@@ -74,16 +74,42 @@ function Welcome() {
 
                             {BarItems.map((item, index) => (
                                 item.label && (
-                                    <MenuItem
-                                        button
-                                        key={index}
-                                        component={item.path ? Link : "button"}
-                                        to={item.path}
-                                        onClick={item.onClick}
-                                    >
-                                        <ListItemText primary={item.label} />
-
-                                    </MenuItem>
+                                    <div key={index}>
+                                        {item.path === 'Projects' ? (
+                                            <ScrollLink
+                                                to="projectSection"
+                                                smooth={true}
+                                                duration={500}
+                                                offset={-64}
+                                            >
+                                                <MenuItem button component={Link}>
+                                                    <ListItemText primary={item.label} />
+                                                </MenuItem>
+                                            </ScrollLink>
+                                        ) : item.path === 'Contact' ? (
+                                            <ScrollLink
+                                                to="contactSection"
+                                                smooth={true}
+                                                duration={500}
+                                                offset={-64}
+                                            >
+                                                <MenuItem button component={Link}>
+                                                    <ListItemText primary={item.label} />
+                                                </MenuItem>
+                                            </ScrollLink>
+                                        ) : (
+                                            <ScrollLink
+                                                to={item.path}
+                                                smooth={true}
+                                                duration={500}
+                                                offset={-64}
+                                            >
+                                                <MenuItem button component={Link}>
+                                                    <ListItemText primary={item.label} />
+                                                </MenuItem>
+                                            </ScrollLink>
+                                        )}
+                                    </div>
                                 )
                             ))}
                         </div>
@@ -92,31 +118,46 @@ function Welcome() {
                 <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
                     <List>
                         {menuItems.map((item, index) => (
-                            <ListItem
-                                button
-                                key={index}
-                                component={item.path ? Link : "button"}
-                                to={item.path}
-                                onClick={item.onClick}
-                            >
-                                <ListItemText primary={item.label} />
-                            </ListItem>
+                            item.label && (
+                                <div key={index}>
+                                    {item.path === 'Projects' ? (
+                                        <ScrollLink
+                                            to="projectSection"
+                                            smooth={true}
+                                            duration={500}
+                                            offset={-64}
+                                        >
+                                            <ListItem button component={Link}>
+                                                <ListItemText primary={item.label} />
+                                            </ListItem>
+                                        </ScrollLink>
+                                    ) : item.path === 'Contact' ? (
+                                        <ScrollLink
+                                            to="contactSection"
+                                            smooth={true}
+                                            duration={500}
+                                            offset={-64}
+                                        >
+                                            <ListItem button component={Link}>
+                                                <ListItemText primary={item.label} />
+                                            </ListItem>
+                                        </ScrollLink>
+                                    ) : (
+                                        <ListItem button>
+                                            <ListItemText primary={item.label} />
+                                        </ListItem>
+                                    )}
+                                </div>
+                            )
                         ))}
+
+
                     </List>
                 </Drawer>
                 <div className={styles.additionalText}>
                     Tu znajdują się moje projekty
                 </div>
-                <ScrollLink to="contact" smooth={true} duration={500}>
-                    <Button variant="contained" >
-                        Kontakt
-                    </Button>
-                </ScrollLink>
-                <ScrollLink to="projectSection" smooth={true} duration={500}>
-                    <Button variant="contained" >
-                        Projekty
-                    </Button>
-                </ScrollLink>
+
                 <header className={styles.header}>
                     <h1>Moje Portfolio</h1>
                 </header>
