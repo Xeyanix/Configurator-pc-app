@@ -1,6 +1,5 @@
 .MainContainer {
     background-color: #306ea3;
-    text-align: center; 
 }
 
 .wrapper {
@@ -25,16 +24,19 @@
     color: #fff;
     text-align: center;
     padding: 2rem;
-    margin-bottom: 2rem;
 }
 
 .additionalText {
+    display: flex;
     color: #fff;
     padding: 2rem;
     font-size: 1.5rem;
     line-height: 1.8;
-    text-align: center;
-    max-width: 800px;
+    // text-align: center;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    max-height: 100%;
     margin: 0 auto;
 }
 
