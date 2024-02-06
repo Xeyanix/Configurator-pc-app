@@ -188,7 +188,7 @@ function Welcome() {
            
 
             <footer className={styles.footer}>
-                <div>
+                <div className={styles.downMenu}>
                     <p className={styles.copyrightText}>
                         &copy; {new Date().getFullYear()}{' '}
                         <Link to="/MainPage" >
