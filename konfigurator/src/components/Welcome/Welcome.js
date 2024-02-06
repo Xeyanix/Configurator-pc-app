@@ -10,6 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 
 function Welcome() {
     const [drawerOpen, setDrawerOpen] = useState(false);
+    const [setScrollPosition] = useState(0);
 
     const toggleDrawer = (open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -25,6 +26,14 @@ function Welcome() {
     const redirectToConfigurator = () => {
         window.location.href = "/MainPage";
     }
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+        setScrollPosition(0);
+    };
 
     const projectsData = [
         { title: "CV", description: "Znajdź wszystkie informacje o mnie.", buttonText: "Show Page" },
@@ -176,9 +185,44 @@ function Welcome() {
                     <Contact />
                 </section>
             </div>
+           
 
             <footer className={styles.footer}>
-                <p>&copy; 2024 Moje Portfolio. Wszelkie prawa zastrzeżone.</p>
+                <div>
+                    <p className={styles.copyrightText}>
+                        &copy; {new Date().getFullYear()}{' '}
+                        <Link to="/MainPage" >
+                            Configurator
+                        </Link>
+                        . All rights reserved.
+                    </p>
+
+                    <div className={styles.buttonsContainer}>
+                        <ScrollLink
+                            smooth={true}
+                            duration={500}
+                            offset={-64}
+                            to="projectSection"
+                        >
+                            <Button variant="contained" color="error">
+                                Projekty
+                            </Button>
+                        </ScrollLink>
+                        <ScrollLink
+                            smooth={true}
+                            duration={500}
+                            offset={-64}
+                            to="contact"
+                        >
+                            <Button variant="contained" color="secondary">
+                                Kontakt
+                            </Button>
+                        </ScrollLink>
+                        <Button onClick={scrollToTop} variant="contained" color="success">
+                            Scroll to Top
+                        </Button>
+                    </div>
+                </div>
             </footer>
         </div>
     );
