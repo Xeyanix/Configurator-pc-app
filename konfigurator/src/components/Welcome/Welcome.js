@@ -151,7 +151,7 @@ function Welcome() {
                     </List>
                 </Drawer>
                 <header className={styles.header}>
-                    <h1>Moje Portfolio</h1>
+                    <h1>Moje Portfolio !</h1>
                 </header>
 
                 <div className={styles.additionalText}>
