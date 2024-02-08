@@ -156,6 +156,7 @@ function Welcome() {
 
                 <div className={styles.additionalText}>
                     Tu znajdują się moje projekty
+                    
                 </div>
 
 
