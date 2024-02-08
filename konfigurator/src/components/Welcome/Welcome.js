@@ -156,7 +156,7 @@ function Welcome() {
 
                 <div className={styles.additionalText}>
                     Tu znajdują się moje projekty
-                    "changeed for teest"
+                    "changeed for teest" again
                 </div>
 
 
