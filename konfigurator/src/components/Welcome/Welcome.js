@@ -114,7 +114,7 @@ function Welcome() {
                     </Toolbar>
                 </AppBar>
                 <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
-                    <List>
+                    <List className={styles.menu}>
                         {menuItems.map((item, index) => (
                             item.label && (
                                 <div key={index}>
@@ -156,10 +156,7 @@ function Welcome() {
 
                 <div className={styles.additionalText}>
                     Tu znajdują się moje projekty
-                    "changeed for teest" again
                 </div>
-
-
 
                 <section id="projectSection" className={styles.projects}>
                     {projectsData.map((project, index) => (
@@ -186,7 +183,7 @@ function Welcome() {
                     <Contact />
                 </section>
             </div>
-           
+
 
             <footer className={styles.footer}>
                 <div className={styles.downMenu}>
@@ -220,7 +217,7 @@ function Welcome() {
                             </Button>
                         </ScrollLink>
                         <Button onClick={scrollToTop} variant="contained" color="success">
-                            Scroll to Top
+                            Do góry
                         </Button>
                     </div>
                 </div>

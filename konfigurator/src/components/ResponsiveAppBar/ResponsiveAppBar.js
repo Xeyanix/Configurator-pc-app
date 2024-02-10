@@ -55,7 +55,7 @@ function ResponsiveAppBar() {
             variant="h4"
             noWrap
             component={Link}
-            to="/"
+            to="/MainPage"
             sx={{
               mr: 0,
               display: { xs: 'none', md: 'flex' },

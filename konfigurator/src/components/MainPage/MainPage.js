@@ -120,17 +120,26 @@ function MainPage() {
         </div>
       </div>
 
-      <p>&copy; {new Date().getFullYear()}{' '}
-        <Link to="/MainPage" onClick={scrollToTop} >
-          Configurator
-        </Link>
-        . All rights reserved.
-        <Button onClick={scrollToTop} variant="contained" color="success">
-          Scroll to Top
-        </Button></p>
+
+      <footer className={styles.footer}>
+        <div className={styles.downMenu}>
+          <p className={styles.copyrightText}>
+            &copy; {new Date().getFullYear()}{' '}
+            <Link to="/MainPage" onClick={scrollToTop} >
+              Configurator
+            </Link>
+            . All rights reserved.
+          </p>
+
+          <div className={styles.buttonsContainer}>
+            <Button onClick={scrollToTop} variant="contained" color="success" className={styles.buttonInFooter}>
+              Do góry
+            </Button>
+          </div>
+        </div>
+      </footer>
 
 
-   
     </div>
   );
 }

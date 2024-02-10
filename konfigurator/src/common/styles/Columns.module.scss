@@ -81,8 +81,8 @@ $color-red: red;
 }
 
 .cart {
-  background-color: #f4f4f4;
-  border: 1px solid #ccc;
+  background-color: rgb(53, 48, 48);
+  border: 1px solid #5c5656;
   padding: 10px;
   margin: 10px;
   border-radius: 5px;
@@ -94,7 +94,8 @@ $color-red: red;
 }
 
 .cartIsEmpty {
-  background-color: #f4f4f4;
+  color:white;
+  background-color: #5c5656;
   border: 1px solid #ccc;
   padding: 10px;
   margin: 10px;

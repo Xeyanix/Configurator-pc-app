@@ -17,49 +17,52 @@ function Contact() {
                 <p className={styles.p}>
                     <strong>Social media</strong>
                 </p>
-                <ul className={styles.socialMediaLinks}>
-                    <a
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        href="https://www.linkedin.com/in/jan-goralewski/"
-                        class="wp-block-social-link-anchor">
+                <div >
+                    <ul className={styles.socialMediaLinks}>
+                        <a
 
-                        <a href={linkDoLinkedIn} target="_blank" rel="noopener noreferrer">
-                            <FontAwesomeIcon icon={faLinkedin} size="2x" />
-                        </a> &nbsp;
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            href="https://www.linkedin.com/in/jan-goralewski/"
+                            class="wp-block-social-link-anchor">
 
-                        <span class="wp-block-social-link-label">Janek Góralewski</span>
+                            <a href={linkDoLinkedIn} target="_blank" rel="noopener noreferrer">
+                                <FontAwesomeIcon icon={faLinkedin} size="2x" />
+                            </a> &nbsp;
 
-                    </a>
-                    <br />
-                    <a
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        href="https://www.linkedin.com/in/jan-goralewski/"
-                        class="wp-block-social-link-anchor">
+                            <span class="wp-block-social-link-label">Janek Góralewski</span>
 
-                        <a href={linkDoInstagram} target="_blank" rel="noopener noreferrer">
-                            <FontAwesomeIcon icon={faInstagram} size="2x" />
-                        </a> &nbsp;
+                        </a>
 
-                        <span class="wp-block-social-link-label">Bboy Johnny</span>
+                        <a
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            href="https://www.linkedin.com/in/jan-goralewski/"
+                            class="wp-block-social-link-anchor">
 
-                    </a>
-                    <br />
-                    <a
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        href="https://www.facebook.com/jan.goralewski2"
-                        class="wp-block-social-link-anchor">
+                            <a href={linkDoInstagram} target="_blank" rel="noopener noreferrer">
+                                <FontAwesomeIcon icon={faInstagram} size="2x" />
+                            </a> &nbsp;
 
-                        <a href={linkDoFacebook} target="_blank" rel="noopener noreferrer">
-                            <FontAwesomeIcon icon={faFacebook} size="2x" />
-                        </a> &nbsp;
+                            <span class="wp-block-social-link-label">Bboy Johnny</span>
 
-                        <span class="wp-block-social-link-label">Janek Góralewski</span>
-                    </a>
+                        </a>
 
-                </ul>
+                        <a
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            href="https://www.facebook.com/jan.goralewski2"
+                            class="wp-block-social-link-anchor">
+
+                            <a href={linkDoFacebook} target="_blank" rel="noopener noreferrer">
+                                <FontAwesomeIcon icon={faFacebook} size="2x" />
+                            </a> &nbsp;
+
+                            <span class="wp-block-social-link-label">Janek Góralewski</span>
+                        </a>
+
+                    </ul>
+                </div>
             </div>
         </div >
     );

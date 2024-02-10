@@ -3,7 +3,7 @@
   max-width: 100%;
   padding: 20px;
   background-color: rgb(186, 186, 161);
-  border-radius: 20px;
+  // border-radius: 20px;
   justify-content: center;
   // align-items: center;
 }
@@ -15,7 +15,7 @@
   text-transform: uppercase;
 }
 
-.p    {
+.p {
   margin-top: var(--wp--preset--spacing--30);
   margin-bottom: var(--wp--preset--spacing--20);
   font-size: clamp(0.875rem, 0.875rem + ((1vw - 0.2rem) * 0.531), 1.3rem);
@@ -24,6 +24,12 @@
 
 .socialMediaLinks {
   display: flex;
-  // align-items: center;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 700px;
+  margin: 1rem;
+  padding: 1rem
+  // border: 1px solid black;
+  // border-radius: 20px;
+  // height: 100px;
 }
-

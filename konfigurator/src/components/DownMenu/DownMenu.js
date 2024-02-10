@@ -28,8 +28,8 @@ function DownMenu() {
     };
     
     return (
-        <footer>
-            <div className={styles.mainContainer}>
+        <footer className={styles.footer}>
+            <div className={styles.downMenu}>
                 <p className={styles.copyrightText}>
                     &copy; {new Date().getFullYear()}{' '}
                     <Link to="/MainPage" >
@@ -53,7 +53,7 @@ function DownMenu() {
                         Kontakt
                     </Button>
                     <Button onClick={scrollToTop} variant="contained" color="success">
-                        Scroll to Top
+                        Do góry
                     </Button>
                 </div>
             </div>

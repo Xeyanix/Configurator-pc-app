@@ -4,9 +4,8 @@
   justify-content: center;
   background-color: grey;
   height: 100px;
-  width: 100%;
   color: black;
-  line-height: 1;
+  // line-height: 1;
   flex-direction: column;
   padding: 10px;
 }
@@ -14,7 +13,7 @@
 
 .productsFiltersWrapper {
   height: 50px;
-  width: 95%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
