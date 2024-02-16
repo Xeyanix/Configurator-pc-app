@@ -5,15 +5,15 @@
   background-color: grey;
   height: 100px;
   color: black;
+  width: 100%;
   // line-height: 1;
   flex-direction: column;
-  padding: 10px;
 }
 
 
 .productsFiltersWrapper {
   height: 50px;
-  width: 100%;
+  width: 99%;
   display: flex;
   align-items: center;
   justify-content: center;
