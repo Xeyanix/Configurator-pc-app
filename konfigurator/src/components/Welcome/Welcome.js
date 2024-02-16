@@ -36,7 +36,7 @@ function Welcome() {
     };
 
     const projectsData = [
-        { title: "CV", description: "Znajdź wszystkie informacje o mnie.", buttonText: "Show Page" },
+        { title: "CV", description: "Znajdź wszystkie informacje o mnie.", buttonText: "CV Page" },
         { title: "Konfigurator", description: "Przejrzyj mój projekt konfiguratora.", buttonText: "Konfigurator" },
         { title: "Projekt 3", description: "Przejrzyj mój projekt 3.", buttonText: "Projekt 3" },
         { title: "Projekt 4", description: "Przejrzyj mój projekt 4.", buttonText: "Projekt 4" },

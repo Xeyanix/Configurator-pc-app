@@ -20,44 +20,34 @@ function Contact() {
                 <div >
                     <ul className={styles.socialMediaLinks}>
                         <a
-
                             rel="noopener noreferrer"
                             target="_blank"
                             href="https://www.linkedin.com/in/jan-goralewski/"
                             class="wp-block-social-link-anchor">
-
                             <a href={linkDoLinkedIn} target="_blank" rel="noopener noreferrer">
                                 <FontAwesomeIcon icon={faLinkedin} size="2x" />
                             </a> &nbsp;
-
                             <span class="wp-block-social-link-label">Janek Góralewski</span>
-
                         </a>
-
                         <a
                             rel="noopener noreferrer"
                             target="_blank"
                             href="https://www.linkedin.com/in/jan-goralewski/"
                             class="wp-block-social-link-anchor">
-
                             <a href={linkDoInstagram} target="_blank" rel="noopener noreferrer">
                                 <FontAwesomeIcon icon={faInstagram} size="2x" />
                             </a> &nbsp;
 
                             <span class="wp-block-social-link-label">Bboy Johnny</span>
-
                         </a>
-
                         <a
                             rel="noopener noreferrer"
                             target="_blank"
                             href="https://www.facebook.com/jan.goralewski2"
                             class="wp-block-social-link-anchor">
-
                             <a href={linkDoFacebook} target="_blank" rel="noopener noreferrer">
                                 <FontAwesomeIcon icon={faFacebook} size="2x" />
                             </a> &nbsp;
-
                             <span class="wp-block-social-link-label">Janek Góralewski</span>
                         </a>
 
