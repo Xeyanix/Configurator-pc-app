@@ -60,7 +60,6 @@ function ResponsiveAppBar() {
               mr: 0,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
-              fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
