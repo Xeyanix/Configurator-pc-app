@@ -6,11 +6,6 @@ $color-red: red;
   text-align: center;
 }
 
-.AppLogo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 .wrapper {
   display: flex;
   height: 230px;
@@ -19,8 +14,6 @@ $color-red: red;
   justify-content: center;
   color: black;
   border: 1px solid black;
-  border-radius: 15px;
-  // margin: auto;
   background-color: lightblue;
   transition: background-color 0.3s ease;
   cursor: pointer;
@@ -32,7 +25,9 @@ $color-red: red;
   margin: 35px;
   flex-direction: flex;
   align-items: center;
-  border: 1px solid black;
+
+
+  border: 3px solid black;
   border-radius: 8px;
   height: 50px;
   width: 100%;
