@@ -58,9 +58,9 @@ function ResponsiveAppBar() {
             to="/MainPage"
             sx={{
               mr: 0,
-              display: { xs: 'none', md: 'flex' },
+              display: { md: 'flex' },
               fontFamily: 'monospace',
-              letterSpacing: '.3rem',
+              // letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
