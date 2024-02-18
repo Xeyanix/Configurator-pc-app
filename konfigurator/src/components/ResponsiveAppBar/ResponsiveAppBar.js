@@ -5,18 +5,33 @@ import { AppBar, Toolbar, IconButton, Typography, Drawer, List, ListItem, ListIt
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useAuth } from "../../context/Context";
+import Alert from '@mui/material/Alert';
+import CheckIcon from '@mui/icons-material/Check';
+
 
 function ResponsiveAppBar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const { loggedInUser } = useAuth();
+  const [alertOpen, setAlertOpen] = useState(true);
 
- 
 
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
     setDrawerOpen(open);
+  };
+
+  const handleKontoClick = () => {
+    if (!loggedInUser) {
+      setAlertOpen(true);
+    } else {
+      setAlertOpen(false);
+    }
+  };
+
+  const handleCloseAlert = () => {
+    setAlertOpen(false);
   };
 
   const scrollToContactSection = () => {
@@ -34,7 +49,7 @@ function ResponsiveAppBar() {
     { label: "Witaj !", path: "/" },
     { label: "Strona Główna", path: "/MainPage" },
     { label: "Zaloguj", path: "/LoginPage" },
-    { label: "Konto", path: "/UserPage" },
+    { label: "Konto", path: "/UserPage", onClick: handleKontoClick },
     { label: "Kontakt", onClick: scrollToContactSection },
 
   ];
@@ -43,7 +58,7 @@ function ResponsiveAppBar() {
     { label: "Witaj !", path: "/" },
     { label: "Strona Główna", path: "/MainPage" },
     { label: "Zaloguj", path: "/LoginPage" },
-    { label: "Konto", path: "/UserPage" },
+    { label: "Konto", path: "/UserPage", onClick: handleKontoClick },
     { label: "Kontakt", onClick: scrollToContactSection },
 
   ];
@@ -51,6 +66,7 @@ function ResponsiveAppBar() {
 
   return (
     <div>
+
       <AppBar position="static">
         <Toolbar className={styles.wrapper}>
           <Typography
@@ -105,7 +121,17 @@ function ResponsiveAppBar() {
             )}
 
           </div>
+          {alertOpen && (
+            <Alert
+              severity="error"
+              open={alertOpen}
+              onClose={handleCloseAlert}
+            >
+              Nie jesteś zalogowany
+            </Alert>
+          )}
         </Toolbar>
+
       </AppBar>
       <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
         <List>
@@ -120,8 +146,10 @@ function ResponsiveAppBar() {
               <ListItemText primary={item.label} />
             </ListItem>
           ))}
+
         </List>
       </Drawer>
+
     </div>
   );
 }
