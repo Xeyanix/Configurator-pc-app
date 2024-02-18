@@ -6,14 +6,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useAuth } from "../../context/Context";
 import Alert from '@mui/material/Alert';
-// import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 
 
 function ResponsiveAppBar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const { loggedInUser } = useAuth();
-  const [alertOpen, setAlertOpen] = useState(true);
+  const [open, setOpen] = useState(true);
 
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -23,13 +22,17 @@ function ResponsiveAppBar() {
   };
 
   const handleKontoClick = () => {
-    if (!loggedInUser) {
-      setAlertOpen(true);
-    }
+    // if (!loggedInUser) {
+      setOpen(true);
+    // }
   };
 
-  const handleCloseAlert = () => {
-    setAlertOpen(false);
+  const handleCloseAlert = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
   };
 
   const scrollToContactSection = () => {
@@ -109,8 +112,8 @@ function ResponsiveAppBar() {
 
             {!loggedInUser && (
               <Snackbar
-                open={alertOpen}
-                autoHideDuration={6000}
+                open={open}
+                autoHideDuration={5000}
                 onClose={handleCloseAlert}
                 message={`Zaloguj się ! `}
                 action={
@@ -119,12 +122,12 @@ function ResponsiveAppBar() {
                   </IconButton>
                 }
               />
-            )}
+            )} 
 
             {loggedInUser && (
               <Alert
                 severity="success"
-                open={alertOpen}
+                open={open}
               >
                 Zalogowany jako: {loggedInUser}
               </Alert>
