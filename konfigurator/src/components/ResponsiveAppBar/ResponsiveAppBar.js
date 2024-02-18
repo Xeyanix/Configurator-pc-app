@@ -23,17 +23,11 @@ function ResponsiveAppBar() {
 
   const handleKontoClick = () => {
     // if (!loggedInUser) {
-      setOpen(true);
+    setOpen(true);
+    // alert("Zaloguj sie");
     // }
   };
 
-  const handleCloseAlert = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-
-    setOpen(false);
-  };
 
   const scrollToContactSection = () => {
     const contactSection = document.getElementById("contactSection");
@@ -110,19 +104,25 @@ function ResponsiveAppBar() {
               )
             ))}
 
-            {!loggedInUser && (
-              <Snackbar
-                open={open}
-                autoHideDuration={5000}
-                onClose={handleCloseAlert}
-                message={`Zaloguj się ! `}
-                action={
-                  <IconButton size="small" aria-label="open" color="inherit" onClick={handleCloseAlert}>
-                    <CloseIcon fontSize="small" />
-                  </IconButton>
-                }
-              />
-            )} 
+            {/* {!loggedInUser && ( */}
+            <Snackbar
+              open={open}
+              autoHideDuration={5000}
+              onClose={() => setOpen(false)}
+              message={`Zaloguj się ! `}
+              action={
+                <IconButton
+                  size="small"
+                  aria-label="close"
+                  color="inherit"
+                  // onClick={handleCloseAlert}
+                  onClick={() => setOpen(false)}
+                >
+                  <CloseIcon fontSize="small" />
+                </IconButton>
+              }
+            />
+            {/* )} */}
 
             {loggedInUser && (
               <Alert
