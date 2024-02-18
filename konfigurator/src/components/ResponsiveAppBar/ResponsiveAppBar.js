@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import styles from '../../common/styles/Columns.module.scss';
 import { Link } from 'react-router-dom';
-import { AppBar, Toolbar, IconButton, Typography, Drawer, List, ListItem, ListItemText } from "@mui/material";
+import { AppBar, Toolbar, IconButton, Snackbar, Typography, Drawer, List, ListItem, ListItemText } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useAuth } from "../../context/Context";
 import Alert from '@mui/material/Alert';
-import CheckIcon from '@mui/icons-material/Check';
+// import CheckIcon from '@mui/icons-material/Check';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 function ResponsiveAppBar() {
@@ -23,7 +24,7 @@ function ResponsiveAppBar() {
 
   const handleKontoClick = () => {
     if (!loggedInUser) {
-      alert("Nie jestes zalogowany")
+      setAlertOpen(true);
     }
   };
 
@@ -59,7 +60,6 @@ function ResponsiveAppBar() {
     { label: "Kontakt", onClick: scrollToContactSection },
 
   ];
-
 
   return (
     <div>
@@ -107,6 +107,19 @@ function ResponsiveAppBar() {
               )
             ))}
 
+            {!loggedInUser && (
+              <Snackbar
+                open={alertOpen}
+                autoHideDuration={6000}
+                onClose={handleCloseAlert}
+                message={`Zaloguj się ! `}
+                action={
+                  <IconButton size="small" aria-label="open" color="inherit" onClick={handleCloseAlert}>
+                    <CloseIcon fontSize="small" />
+                  </IconButton>
+                }
+              />
+            )}
 
             {loggedInUser && (
               <Alert
