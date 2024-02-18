@@ -16,8 +16,11 @@ function UserPage() {
     } 
   }, [loggedInUser]);
 
+
+  //make this part into Use Effect 
   if (!loggedInUser) {
     return <Navigate to="/configurator" />;
+    
   }
 
 
