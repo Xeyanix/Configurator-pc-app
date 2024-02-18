@@ -21,8 +21,12 @@ function UserPage() {
 
   //make this part into Use Effect 
   if (!loggedInUser) {
-    return <Navigate to="/configurator" />;
-
+    // return <Navigate to="/configurator" />;
+    return <Alert 
+    // icon={<CheckIcon fontSize="inherit" />} 
+    severity="error">
+      Zaloguj sie !
+    </Alert>;
   }
 
 

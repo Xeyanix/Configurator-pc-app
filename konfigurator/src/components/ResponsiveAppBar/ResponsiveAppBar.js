@@ -10,6 +10,8 @@ function ResponsiveAppBar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const { loggedInUser } = useAuth();
 
+ 
+
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
@@ -96,7 +98,7 @@ function ResponsiveAppBar() {
 
 
             {loggedInUser && (
-              
+
               <div className={styles.loggedInMessage}>
                 Zalogowany jako: {loggedInUser}
               </div>
