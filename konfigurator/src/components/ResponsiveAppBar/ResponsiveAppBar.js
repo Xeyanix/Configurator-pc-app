@@ -104,7 +104,7 @@ function ResponsiveAppBar() {
               )
             ))}
 
-            {/* {!loggedInUser && ( */}
+            {!loggedInUser && (
             <Snackbar
               open={open}
               autoHideDuration={5000}
@@ -115,14 +115,13 @@ function ResponsiveAppBar() {
                   size="small"
                   aria-label="close"
                   color="inherit"
-                  // onClick={handleCloseAlert}
                   onClick={() => setOpen(false)}
                 >
                   <CloseIcon fontSize="small" />
                 </IconButton>
               }
             />
-            {/* )} */}
+            )}
 
             {loggedInUser && (
               <Alert
