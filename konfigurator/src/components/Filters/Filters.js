@@ -64,7 +64,7 @@ function Filters(props) {
     <div className={styles.name}>
       Filtr płyty głównej
       <div className={styles.productsFiltersWrapper}>
-        {/* Płyta Główna */}
+        Płyta Główna
         <input
           id={styles.searchPhraseInput}
           value={searchPhrase}
@@ -72,7 +72,7 @@ function Filters(props) {
           onChange={handleSearchPhraseChange}
           onKeyUp={handleSearchKeyUp}
         ></input>
-        {/* Chipset */}
+        Chipset
         <input
           pattern="[0-9]+"
           type="text"
@@ -83,7 +83,7 @@ function Filters(props) {
           onChange={handleProductType}
           title="Wprowadź tylko cyfry i litery"
         ></input>
-        {/* Socket */}
+        Socket
         <select
           value={searchSocket}
           onChange={handleSelectCategory}>
