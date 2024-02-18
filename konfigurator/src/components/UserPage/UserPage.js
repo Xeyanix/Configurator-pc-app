@@ -22,64 +22,59 @@ function UserPage() {
   //make this part into Use Effect 
   if (!loggedInUser) {
     // return <Navigate to="/configurator" />;
-    return <Alert 
-    // icon={<CheckIcon fontSize="inherit" />} 
-    severity="error">
-      Zaloguj sie !
-    </Alert>;
+    // return 
   }
 
+    const handleLogout = () => {
+      window.sessionStorage.removeItem("user");
+      logout();
+      console.log("Użytkownik został wylogowany");
+    }
 
-  const handleLogout = () => {
-    window.sessionStorage.removeItem("user");
-    logout();
-    console.log("Użytkownik został wylogowany");
-  }
+    return (
 
-  return (
+      <div className={styles.mainContainer}>
+        {loggedInUser ? (
 
-    <div className={styles.mainContainer}>
-      {loggedInUser ? (
+          <div>
+            <Alert icon={<CheckIcon fontSize="inherit" />} severity="success">
+              Zalogowany jako: {loggedInUser}
+            </Alert>
+            <Link to="/LoginPage">
+              <Button variant="contained" color="error" onClick={handleLogout}>
+                Wyloguj
+              </Button>
+            </Link>
+            <div
+              className={styles.tooltip}
 
-        <div>
-          <Alert icon={<CheckIcon fontSize="inherit" />} severity="success">
-            Zalogowany jako: {loggedInUser}
-          </Alert>
-          <Link to="/LoginPage">
-            <Button variant="contained" color="error" onClick={handleLogout}>
-              Wyloguj
-            </Button>
-
-
-
-          </Link>
-          <div
-            className={styles.tooltip}
-
-          >
+            >
+            </div>
+            <h3>
+              Witaj na swojej stronie użytkownika! Tutaj możesz zarządzać swoim kontem oraz korzystać z różnych funkcji.
+            </h3>
+            <h2>Profil Twojego Konta</h2>
+            <UserForm loggedInUser={loggedInUser} />
           </div>
-          <h3>
-            Witaj na swojej stronie użytkownika! Tutaj możesz zarządzać swoim kontem oraz korzystać z różnych funkcji.
-          </h3>
-          <h2>Profil Twojego Konta</h2>
-          <UserForm loggedInUser={loggedInUser} />
-        </div>
-      ) : (
-        <div>
-          <p>Nie jesteś zalogowany.</p>
-          <Link to="/configurator">
-            <Button variant="contained" >
-              Powrót
-            </Button>
-          </Link>
-        </div>
-      )}
+        ) : (
+          <div>
+            <Alert
+              severity="error">
+              Nie jesteś zalogowany.
+            </Alert>
+            <Link to="/configurator">
+              <Button variant="contained" >
+                Powrót
+              </Button>
+            </Link>
+          </div>
+        )}
 
-    </div>
+      </div>
 
-  );
-}
+    );
+  }
 
-export default UserPage;
+  export default UserPage;
 
 //po klikneicu powrot resetuje sie pamiec w aplikacji i nie poakzuje stanu ze ktos jest zalogowany 
