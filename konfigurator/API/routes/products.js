@@ -4,7 +4,7 @@ const router = express.Router();
 const bodyParser = require("body-parser");
 
 var jsonParser = bodyParser.json();
-let productsList = require("../common/consts/products");
+let productsList = require("../common/consts/motherboard");
 let shoppingList = [];
 
 router.get("/", (req, res) => {

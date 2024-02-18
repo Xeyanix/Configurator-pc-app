@@ -5,6 +5,7 @@ import styles from "../../common/styles/LoginPage.module.scss";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { useAuth } from "../../context/Context";
+import { Navigate } from "react-router-dom";
 
 function LoginPage() {
   let navigate = useNavigate();

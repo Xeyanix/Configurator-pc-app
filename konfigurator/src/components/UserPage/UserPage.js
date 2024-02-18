@@ -4,16 +4,22 @@ import Button from "@mui/material/Button";
 import { useAuth } from "../../context/Context";
 import styles from "../../common/styles/UserPage.module.scss";
 import UserForm from "../UserForm/UserForm";
+import { Navigate } from "react-router-dom";
 
 function UserPage() {
   const { loggedInUser, logout } = useAuth();
-
+  const userExist = localStorage.getItem("user");
 
   useEffect(() => {
     if (loggedInUser) {
       console.log("Zalogowany użytkownik:", loggedInUser);
-    }
+    } 
   }, [loggedInUser]);
+
+  if (!loggedInUser) {
+    return <Navigate to="/configurator" />;
+  }
+
 
   const handleLogout = () => {
     window.sessionStorage.removeItem("user");

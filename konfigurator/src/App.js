@@ -8,7 +8,7 @@ import Cart from './components/Cart/Cart';
 import Motherboards from './common/consts/motherboard';
 import LastViewed from './components/LastViewed/LastViewed';
 import Contact from './components/Contact/Contact';
-
+import { Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/Context';
 
 
@@ -88,7 +88,7 @@ function App() {
         </div >
 
         <footer>
-            <DownMenu />
+          <DownMenu />
         </footer>
       </div >
     </AuthProvider>

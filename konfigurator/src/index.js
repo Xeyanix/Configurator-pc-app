@@ -10,13 +10,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import { AuthProvider } from './context/Context';
-import LandingPage from './components/Welcome/Welcome';
+import Welcome from './components/Welcome/Welcome';
 import ShowPage from './components/ShowPage/ShowPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LandingPage />,
+    element: <Welcome />,
     // errorElement: <Page404 />,
   },
   {
