@@ -96,6 +96,7 @@ function ResponsiveAppBar() {
 
 
             {loggedInUser && (
+              
               <div className={styles.loggedInMessage}>
                 Zalogowany jako: {loggedInUser}
               </div>

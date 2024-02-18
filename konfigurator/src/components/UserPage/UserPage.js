@@ -5,6 +5,8 @@ import { useAuth } from "../../context/Context";
 import styles from "../../common/styles/UserPage.module.scss";
 import UserForm from "../UserForm/UserForm";
 import { Navigate } from "react-router-dom";
+import Alert from '@mui/material/Alert';
+import CheckIcon from '@mui/icons-material/Check';
 
 function UserPage() {
   const { loggedInUser, logout } = useAuth();
@@ -13,14 +15,14 @@ function UserPage() {
   useEffect(() => {
     if (loggedInUser) {
       console.log("Zalogowany użytkownik:", loggedInUser);
-    } 
+    }
   }, [loggedInUser]);
 
 
   //make this part into Use Effect 
   if (!loggedInUser) {
     return <Navigate to="/configurator" />;
-    
+
   }
 
 
@@ -31,15 +33,21 @@ function UserPage() {
   }
 
   return (
+
     <div className={styles.mainContainer}>
       {loggedInUser ? (
 
         <div>
-          <p>Zalogowany jako: {loggedInUser} </p>
+          <Alert icon={<CheckIcon fontSize="inherit" />} severity="success">
+            Zalogowany jako: {loggedInUser}
+          </Alert>
           <Link to="/LoginPage">
             <Button variant="contained" color="error" onClick={handleLogout}>
               Wyloguj
             </Button>
+
+
+
           </Link>
           <div
             className={styles.tooltip}
@@ -64,6 +72,7 @@ function UserPage() {
       )}
 
     </div>
+
   );
 }
 

@@ -5,7 +5,7 @@ import styles from "../../common/styles/LoginPage.module.scss";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { useAuth } from "../../context/Context";
-import { Navigate } from "react-router-dom";
+
 
 function LoginPage() {
   let navigate = useNavigate();
@@ -19,7 +19,7 @@ function LoginPage() {
     const fullName = `${userfirstName} ${userLastName}`;
 
     login(fullName);
-        console.log(`Zalogowany jako: ${userfirstName} ${userLastName}`);
+    console.log(`Zalogowany jako: ${userfirstName} ${userLastName}`);
 
     setShowLoginMessage(true);
     setTimeout(() => {
@@ -32,6 +32,7 @@ function LoginPage() {
     <div>
       <form className={styles.loginPageWrapper} onSubmit={signInUser}>
         <Box sx={{ m: 2 }}>
+        
           <TextField
             margin="dense"
             id="outlined-basic"
