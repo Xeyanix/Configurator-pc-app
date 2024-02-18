@@ -12,7 +12,7 @@ import CheckIcon from '@mui/icons-material/Check';
 function ResponsiveAppBar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const { loggedInUser } = useAuth();
-  const [alertOpen, setAlertOpen] = useState(false);
+  const [alertOpen, setAlertOpen] = useState(true);
 
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -23,7 +23,7 @@ function ResponsiveAppBar() {
 
   const handleKontoClick = () => {
     if (!loggedInUser) {
-      setAlertOpen(true);
+      alert("Nie jestes zalogowany")
     }
   };
 
@@ -106,21 +106,12 @@ function ResponsiveAppBar() {
                 </MenuItem>
               )
             ))}
-           
-            {!loggedInUser && alertOpen && (
-              <Alert
-                severity="error"
-          
-                onClose={handleCloseAlert}
-              >
-                Nie jesteś zalogowany
-              </Alert>
-            )}
+
+
             {loggedInUser && (
               <Alert
                 severity="success"
                 open={alertOpen}
-                onClose={handleCloseAlert}
               >
                 Zalogowany jako: {loggedInUser}
               </Alert>
