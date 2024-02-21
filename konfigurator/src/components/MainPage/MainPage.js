@@ -47,18 +47,18 @@ function MainPage() {
           <div className={styles.section}>
             <h2 className={styles.sectionHeading}>Płyta Główna</h2>
             <div className={styles.sectionParagraph}>
-              <p >
-                Płyta główna to centralny element komputera, na którym montowane są pozostałe podzespoły. Wybór odpowiedniej płyty zależy od rodzaju procesora, ilości slotów pamięci RAM i innych funkcji, takich jak obsługa karty graficznej czy liczba portów USB. Natomiast bez dobrej płytyt głównej nie bedzie w przyszlosci mozliwosci do rozbudowy komputera. Dlatgo zaczynamy od Kregosłupa.
-              </p>
               <p>
-                Wybór płyty głównej ma zasadnicze znaczenie dla konfiguracji komputera PC, ponieważ w dużej mierze zadecyduje o jego przyszłych możliwościach rozbudowy, a także o włączeniu innych komponentów. Można powiedzieć, że płyta główna jest kręgosłupem komputera i utrzymuje razem wszystkie elementy. W BlackWhite.tv wiemy o tym, dlatego wybraliśmy dla Ciebie szeroką gamę komputerowych płyt głównych różnych producentów, takich jak MSI, Asus czy Asrock.
+                Wybór płyty głównej ma zasadnicze znaczenie dla konfiguracji komputera PC, ponieważ w dużej mierze zadecyduje o jego przyszłych możliwościach rozbudowy, a także o włączeniu innych komponentów. Można powiedzieć, że płyta główna jest kręgosłupem komputera i utrzymuje razem wszystkie elementy.
+                <p>
+                  Płyta główna to centralny element komputera, na którym montowane są pozostałe podzespoły. Wybór odpowiedniej płyty zależy od rodzaju procesora, ilości slotów pamięci RAM i innych funkcji, takich jak obsługa karty graficznej czy liczba portów USB. Natomiast bez dobrej płytyt głównej nie bedzie w przyszlosci mozliwosci do rozbudowy komputera. Dlatgo zaczynamy od Kregosłupa.
+                </p>
                 <h4>
                   Znaczenie płyty głównej
                 </h4>
                 <p>
                   Płyta główna służy nie tylko do zakotwiczenia wszystkich składowych komputera. Wszystkie dane i połączenia innych komponentów, takich jak procesory, pamięć RAM lub dyski twarde, przechodzą przez płytę komputerową. Można powiedzieć, że jest to część komputera, która kontroluje całość danych. Im lepsza płyta główna, tym lepszy obieg danych.
                 </p>
-                  Dodatkowo komputerowe płyty główne pozwalają na aktualizację komputera o nowe podzespoły. Musisz jednak wziąć pod uwagę, które części są z nimi kompatybilne, a które nie. Dlatego wybór jej jest sprawą najwyższej wagi i nie należy go lekceważyć. Kupując płyty główne w sklepie BlackWhite.tv, dostaniesz taką, która najlepiej odpowiada Twoim gustom i potrzebom.
+                Dodatkowo komputerowe płyty główne pozwalają na aktualizację komputera o nowe podzespoły. Musisz jednak wziąć pod uwagę, które części są z nimi kompatybilne, a które nie. Dlatego wybór jej jest sprawą najwyższej wagi i nie należy go lekceważyć. Kupując usługe złożenie komputera dostaniesz gwarancje kompatybilnośći podzespołów oraz możliwości przyszłej rozbudowy jednostki, która najlepiej odpowiada Twoim gustom i potrzebom. Złożona przez nas konifguracja posłuży Ci również na wiele lat.
                 <h4>
                   Płyty główne w formacie ATX
                 </h4>
