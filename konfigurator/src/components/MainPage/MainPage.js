@@ -72,6 +72,17 @@ function MainPage() {
             <h2 className={styles.sectionHeading}>Procesor</h2>
             <p className={styles.sectionParagraph}>
               Procesor pełni rolę mózgu komputera, odpowiadając za wykonywanie operacji. Wybór odpowiedniego procesora zależy od rodzaju zastosowań komputera - od prostych zadań biurowych po zaawansowane gry czy prace graficzne.
+              <p>
+                Procesory komputerowe (ang. CPU - Central Processing Unit) to jeden z podstawowych elementów każdego zestawu. To właśnie one odpowiadają za wykonywanie większości obliczeń związanych z pracą komputera. Znaczna część działających współcześnie konstrukcji cechuje się wielordzeniową konstrukcją umożliwiającą wykonywanie wielu zadań jednocześnie. Wśród typowych operacji, jakie są wykonywane przez procesory komputerowe, wyróżnić można: kopiowanie danych, działania arytmetyczne, działania na bitach, skoki.
+                <p>
+                  Procesory komputerowe - budowa
+                  Na funkcjonalną strukturę każdego procesora składają się kilka podstawowych układów. Pierwszy z nich to rejestry wykorzystywane do wyników i danych poszczególnych obliczeń, Mogą występować w jednej z form — ogólnodostępnej lub też dedykowanej do konkretnego zadania. Innym elementem funkcjonalnym jest jednostka arytmetyczna, wykonująca poszczególne operacje obliczeniowe na przechowywanych danych. Procesory komputerowe zawierają w sobie także układ odpowiadający za sterowanie przebiegiem wykonywania uruchomionego programu. Najmniejszym, podstawowym elementem są jednak tranzystory blokujące i odblokowujące przepływ prądu.
+                </p>
+                <p>
+                  Co wpływa na wydajność?
+                  Nie zawsze należy sugerować się wyłącznie taktowaniem. Końcowa wydajność, jaką jest zdolny osiągnąć dany egzemplarz, jest uzależniona od kilku czynników takich, jak: architektura, szybkość zegara, wielkość pamięci cache. Co to jednak oznacza? Pierwszy wspomniany czynnik, czyli architektura definiuje sposób, w jaki dany model współpracuje z zainstalowaną pamięcią operacyjną, a także urządzeniami wejścia i wyjścia. To właśnie ona określa także sposób, w jaki kolejne zadania są rozdzielane pomiędzy funkcjonujące rdzenie. Procesory komputerowe posiadają również wspomnianą już pamięć cache, czy podręczną. Do tej pory została ona podzielona na 3 poziomy: L1, L2, L3. L1 jest praktycznie zintegrowana z rdzeniem procesor podobnie jak L2, co nie od początku było jednak oczywiste. Poziom 3 jest natomiast najczęściej wykorzystywany w rozwiązaniach serwerowych, umożliwiając zmaksymalizowanie dokładności przesyłanych danych.
+                </p>
+              </p>
             </p>
           </div>
 
