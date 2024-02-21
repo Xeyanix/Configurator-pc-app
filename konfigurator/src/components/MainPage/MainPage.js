@@ -41,8 +41,7 @@ function MainPage() {
           <div className={styles.section}>
             <h2 className={styles.sectionHeading}>O Nas</h2>
             <p className={styles.sectionParagraph}>
-              Jesteśmy pasjonatami nowoczesnych technologii i staramy się dostarczać, spersonalizowane konfiguracje komputera
-              naszym klientom uzywając najwyższej jakości w przystępne cenie.
+              Jesteśmy pasjonatami nowoczesnych technologii i staskupiamy sie na tym by dostarczane jednostki komputerowe byly dopasowane i odpowiadały Twoim preferncjom.
             </p>
           </div>
           <div className={styles.section}>
@@ -59,9 +58,10 @@ function MainPage() {
                 <p>
                   Płyta główna służy nie tylko do zakotwiczenia wszystkich składowych komputera. Wszystkie dane i połączenia innych komponentów, takich jak procesory, pamięć RAM lub dyski twarde, przechodzą przez płytę komputerową. Można powiedzieć, że jest to część komputera, która kontroluje całość danych. Im lepsza płyta główna, tym lepszy obieg danych.
                 </p>
-                Dodatkowo komputerowe płyty główne pozwalają na aktualizację komputera o nowe podzespoły. Musisz jednak wziąć pod uwagę, które części są z nimi kompatybilne, a które nie. Dlatego wybór jej jest sprawą najwyższej wagi i nie należy go lekceważyć. Kupując płyty główne w sklepie BlackWhite.tv, dostaniesz taką, która najlepiej odpowiada Twoim gustom i potrzebom.
-                Płyty główne w formacie ATX
-
+                  Dodatkowo komputerowe płyty główne pozwalają na aktualizację komputera o nowe podzespoły. Musisz jednak wziąć pod uwagę, które części są z nimi kompatybilne, a które nie. Dlatego wybór jej jest sprawą najwyższej wagi i nie należy go lekceważyć. Kupując płyty główne w sklepie BlackWhite.tv, dostaniesz taką, która najlepiej odpowiada Twoim gustom i potrzebom.
+                <h4>
+                  Płyty główne w formacie ATX
+                </h4>
                 Oferujemy płyty główne w formacie ATX. Mają standardowy rozmiar i są używane przez większość komputerów. Jest to płyta główna o uniwersalnym zastosowaniu, ponieważ może być używana zarówno do komputerów domowych, przeznaczonych do pracy, jak i do gier.
                 Format ATX płyty komputerowej sprawia, że idealnie nadaje się do montażu w każdym typie komputera. Ma kilka portów i wystarczającą liczbę gniazd do zamontowania dobrego urządzenia PC, a także idealny rozmiar do umieszczenia w zdecydowanej większości obudów komputerowych.
               </p>
