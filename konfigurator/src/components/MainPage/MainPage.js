@@ -26,11 +26,11 @@ function MainPage() {
         <div className={styles.maintext}>
           <h1 className={styles.mainHeading}>Witaj w Konfiguratorze Swojego komputera - PC</h1>
           <p className={styles.sectionParagraph}>
-            Alternatywą dla kupowania gotowego zestawu PC jest samodzielne zbudowanie go od podstaw. Takie rozwiązanie ma sporo zalet, wśród których największą jest pełna kontrola nad doborem podzespołów i dopasowaniem ich do własnych potrzeb oraz budżetu, którym dysponujemy. W przyszłości można też łatwo modernizować nasz komputer, bez obawy o naruszenie gwarancji na cały zestaw. Każdy zakupiony przez nas komponent będzie mieć bowiem własną gwarancję. Samodzielne składanie komputera PC może wydawać się skomplikowane, ale w rzeczywistości każdy powinien sobie z tym zadaniem poradzić. Wszystkie podzespoły dostarczane są ze szczegółową instrukcją montażu, aby uniknąć wszelkich problemów. Aby maksymalnie ułatwić cały proces doboru sprzętu komputerowego stworzyliśmy Konfigurator Komputera PC, który krok po kroku pomoże Ci wybrać optymalne elementy zestawu, dbając, aby były ze sobą kompatybilne. Jeśli wybrany przez Ciebie komponent okaże się niezgodny z pozostałymi, zostaną zaproponowane alternatywy o zbliżonych parametrach.
+            Alternatywą dla kupowania gotowego zestawu PC jest samodzielne zbudowanie go od podstaw. Takie rozwiązanie ma sporo zalet, wśród których największą jest pełna kontrola nad doborem podzespołów i dopasowaniem ich do własnych potrzeb oraz budżetu, którym dysponujemy. W przyszłości można też łatwo modernizować nasz komputer, bez obawy o naruszenie gwarancji na cały zestaw. Każdy zakupiony przez nas komponent będzie mieć bowiem własną gwarancję. Samodzielne składanie komputera PC może wydawać się skomplikowane, ale w rzeczywistości każdy powinien sobie z tym zadaniem poradzić. Wszystkie podzespoły dostarczane są ze szczegółową instrukcją montażu, aby uniknąć wszelkich problemów. Aby maksymalnie ułatwić cały proces doboru sprzętu komputerowego stworzyliśmy Konfigurator Komputera PC, który krok po kroku pomoże Ci wybrać optymalne elementy zestawu, dbając, aby były ze sobą kompatybilne.Dołączając do tego uzasadnienie, dlaczego tak a nie ianczej. Jeśli wybrany przez Ciebie komponent okaże się niezgodny z pozostałymi, zostaną zaproponowane alternatywy o zbliżonych parametrach.
           </p>
           <div className={styles.additionalText}>
-            Po skompletowaniu wszystkich podzespołów możesz również zdecydować się na usługę montażu, którą sprawnie i szybko wykonają specjaliści Komputronik.
-            Gotowy i przetestowany sprzęt zostanie wówczas dostarczony pod wskazany przez Ciebie adres.
+            Po skompletowaniu wszystkich podzespołów możesz również zdecydować się na usługę montażu, którą sprawnie i szybko wykonam. Do ciebie bedzie należał bowiem tylko odbiór gotowego komputera.
+            Gotowy i przetestowany sprzęt zostanie wówczas dostarczony pod wskazany przez Ciebie adres. Istnieje również możliwośc odbioru komputera w siedziby firmy.
           </div>
           <div className={styles.section}>
             Budżet i przeznaczenie komputera
@@ -41,15 +41,31 @@ function MainPage() {
           <div className={styles.section}>
             <h2 className={styles.sectionHeading}>O Nas</h2>
             <p className={styles.sectionParagraph}>
-              Jesteśmy pasjonatami nowoczesnych technologii i staramy się dostarczać
-              najwyższej jakości produkty naszym klientom.
+              Jesteśmy pasjonatami nowoczesnych technologii i staramy się dostarczać, spersonalizowane konfiguracje komputera
+              naszym klientom uzywając najwyższej jakości w przystępne cenie.
             </p>
           </div>
           <div className={styles.section}>
             <h2 className={styles.sectionHeading}>Płyta Główna</h2>
-            <p className={styles.sectionParagraph}>
-              Płyta główna to centralny element komputera, na którym montowane są pozostałe podzespoły. Wybór odpowiedniej płyty zależy od rodzaju procesora, ilości slotów pamięci RAM i innych funkcji, takich jak obsługa karty graficznej czy liczba portów USB.
-            </p>
+            <div className={styles.sectionParagraph}>
+              <p >
+                Płyta główna to centralny element komputera, na którym montowane są pozostałe podzespoły. Wybór odpowiedniej płyty zależy od rodzaju procesora, ilości slotów pamięci RAM i innych funkcji, takich jak obsługa karty graficznej czy liczba portów USB. Natomiast bez dobrej płytyt głównej nie bedzie w przyszlosci mozliwosci do rozbudowy komputera. Dlatgo zaczynamy od Kregosłupa.
+              </p>
+              <p>
+                Wybór płyty głównej ma zasadnicze znaczenie dla konfiguracji komputera PC, ponieważ w dużej mierze zadecyduje o jego przyszłych możliwościach rozbudowy, a także o włączeniu innych komponentów. Można powiedzieć, że płyta główna jest kręgosłupem komputera i utrzymuje razem wszystkie elementy. W BlackWhite.tv wiemy o tym, dlatego wybraliśmy dla Ciebie szeroką gamę komputerowych płyt głównych różnych producentów, takich jak MSI, Asus czy Asrock.
+                <h4>
+                  Znaczenie płyty głównej
+                </h4>
+                <p>
+                  Płyta główna służy nie tylko do zakotwiczenia wszystkich składowych komputera. Wszystkie dane i połączenia innych komponentów, takich jak procesory, pamięć RAM lub dyski twarde, przechodzą przez płytę komputerową. Można powiedzieć, że jest to część komputera, która kontroluje całość danych. Im lepsza płyta główna, tym lepszy obieg danych.
+                </p>
+                Dodatkowo komputerowe płyty główne pozwalają na aktualizację komputera o nowe podzespoły. Musisz jednak wziąć pod uwagę, które części są z nimi kompatybilne, a które nie. Dlatego wybór jej jest sprawą najwyższej wagi i nie należy go lekceważyć. Kupując płyty główne w sklepie BlackWhite.tv, dostaniesz taką, która najlepiej odpowiada Twoim gustom i potrzebom.
+                Płyty główne w formacie ATX
+
+                Oferujemy płyty główne w formacie ATX. Mają standardowy rozmiar i są używane przez większość komputerów. Jest to płyta główna o uniwersalnym zastosowaniu, ponieważ może być używana zarówno do komputerów domowych, przeznaczonych do pracy, jak i do gier.
+                Format ATX płyty komputerowej sprawia, że idealnie nadaje się do montażu w każdym typie komputera. Ma kilka portów i wystarczającą liczbę gniazd do zamontowania dobrego urządzenia PC, a także idealny rozmiar do umieszczenia w zdecydowanej większości obudów komputerowych.
+              </p>
+            </div>
           </div>
 
           <div className={styles.section}>
