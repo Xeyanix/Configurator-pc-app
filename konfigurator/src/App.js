@@ -98,7 +98,6 @@ function App() {
 export default App;
 
 
-
-//contact section - bigger and prettier
+//contact section - bigger and prettierxd 
 //section filters to changed
 //appbar on welcome page maybe better or more usual for random people
