@@ -8,7 +8,6 @@ import { useAuth } from "../../context/Context";
 import Alert from '@mui/material/Alert';
 import CheckIcon from '@mui/icons-material/Check';
 
-
 function LoginPage() {
   let navigate = useNavigate();
   const [userfirstName, setUserFirstName] = useState("");
@@ -23,18 +22,23 @@ function LoginPage() {
     login(fullName);
     console.log(`Zalogowany jako: ${userfirstName} ${userLastName}`);
 
-    setShowLoginMessage(true);
+    
+  setUserFirstName(""); // Czyszczenie stanu
+  setUserLastName(""); // Czyszczenie stanu
+  
     setTimeout(() => {
-      setShowLoginMessage(false);
-      navigate(`/configurator?user=${fullName}`);
-    }, 1000); // 1000 milliseconds (2 seconds)
+      setShowLoginMessage(true);
+      setTimeout(() => {
+        setShowLoginMessage(false);
+        navigate(`/configurator?user=${fullName}`);
+      }, 1000); // 1000 milliseconds (1 second)
+    }, 100); // 100 milliseconds (0.1 second)
   };
 
   return (
     <div>
       <form className={styles.loginPageWrapper} onSubmit={signInUser}>
         <Box sx={{ m: 2 }}>
-
           <TextField
             margin="dense"
             id="outlined-basic"
@@ -65,11 +69,7 @@ function LoginPage() {
           </Button>
         </Box>
         <Link to="/configurator">
-          <Button
-            variant="contained"
-          >
-            powrót
-          </Button>
+          <Button variant="contained">powrót</Button>
         </Link>
       </form>
 
@@ -80,7 +80,6 @@ function LoginPage() {
           </Alert>
         </div>
       )}
-
     </div>
   );
 }

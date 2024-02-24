@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../../common/styles/Headers.module.scss";
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Button } from "@mui/material";
 import { loadProducts, loadCartList } from "../../redux/appSlice";
@@ -37,11 +36,6 @@ function Header(props) {
         >
           Załaduj produkty
         </Button>
-        <Link to="/">
-          <Button variant="contained" color="error">
-            Wyloguj
-          </Button>
-        </Link>
       </div>
     </div>
   );

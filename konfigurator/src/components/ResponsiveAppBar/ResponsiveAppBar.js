@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from '../../common/styles/Columns.module.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, IconButton, Snackbar, Typography, Drawer, List, ListItem, ListItemText } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -8,11 +8,11 @@ import { useAuth } from "../../context/Context";
 import Alert from '@mui/material/Alert';
 import CloseIcon from '@mui/icons-material/Close';
 
-
 function ResponsiveAppBar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const { loggedInUser } = useAuth();
   const [open, setOpen] = useState(true);
+  const navigate = useNavigate();
 
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -21,13 +21,19 @@ function ResponsiveAppBar() {
     setDrawerOpen(open);
   };
 
-  const handleKontoClick = () => {
-    // if (!loggedInUser) {
-    setOpen(true);
-    // alert("Zaloguj sie");
-    // }
+  const handleKontoClick = (event) => {
+    event.preventDefault();
+    if (!loggedInUser) {
+      setOpen(true);
+    } else {
+      navigate("/UserPage");
+    }
   };
 
+  useEffect(() => {
+    // Resetuj stan "open" przy zmianie ścieżki
+    setOpen(false);
+  }, [navigate]);
 
   const scrollToContactSection = () => {
     const contactSection = document.getElementById("contactSection");
@@ -46,7 +52,6 @@ function ResponsiveAppBar() {
     { label: "Zaloguj", path: "/LoginPage" },
     { label: "Konto", path: "/UserPage", onClick: handleKontoClick },
     { label: "Kontakt", onClick: scrollToContactSection },
-
   ];
 
   const BarItems = [
@@ -55,7 +60,6 @@ function ResponsiveAppBar() {
     { label: "Zaloguj", path: "/LoginPage" },
     { label: "Konto", path: "/UserPage", onClick: handleKontoClick },
     { label: "Kontakt", onClick: scrollToContactSection },
-
   ];
 
   return (
@@ -71,7 +75,6 @@ function ResponsiveAppBar() {
               mr: 0,
               display: { md: 'flex' },
               fontFamily: 'monospace',
-              // letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
@@ -99,34 +102,34 @@ function ResponsiveAppBar() {
                   onClick={item.onClick}
                 >
                   <ListItemText primary={item.label} />
-
                 </MenuItem>
               )
             ))}
 
             {!loggedInUser && (
-            <Snackbar
-              open={open}
-              autoHideDuration={5000}
-              onClose={() => setOpen(false)}
-              message={`Zaloguj się ! `}
-              action={
-                <IconButton
-                  size="small"
-                  aria-label="close"
-                  color="inherit"
-                  onClick={() => setOpen(false)}
-                >
-                  <CloseIcon fontSize="small" />
-                </IconButton>
-              }
-            />
+              <Snackbar
+                open={open}
+                autoHideDuration={5000}
+                onClose={() => setOpen(false)}
+                message={`Zaloguj się ! `}
+                action={
+                  <IconButton
+                    size="small"
+                    aria-label="close"
+                    color="inherit"
+                    onClick={() => setOpen(false)}
+                  >
+                    <CloseIcon fontSize="small" />
+                  </IconButton>
+                }
+              />
             )}
 
             {loggedInUser && (
               <Alert
                 severity="success"
                 open={open}
+                onClose={() => setOpen(false)}
               >
                 Zalogowany jako: {loggedInUser}
               </Alert>
