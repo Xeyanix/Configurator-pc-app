@@ -5,7 +5,6 @@ import ResponsiveAppBar from './components/ResponsiveAppBar/ResponsiveAppBar';
 import ProductList from './components/ProductList/ProductList';
 import DownMenu from './components/DownMenu/DownMenu';
 import Cart from './components/Cart/Cart';
-import Motherboards from './common/consts/motherboard';
 import LastViewed from './components/LastViewed/LastViewed';
 import Contact from './components/Contact/Contact';
 import { Navigate } from 'react-router-dom';
@@ -14,9 +13,9 @@ import Header from "./components/Header/Header";
 
 function App() {
   const [cart, setCart] = useState([]);
-  const [selectedMotherboard, setSelectedMotherboard] = useState(Motherboards);
-  const [MotherboardsToDisplay, setMotherboardsToDisplay] = useState(selectedMotherboard);
-  const [listViewed, setListViewed] = useState([]); // Użyj osobnego stanu dla listy ostatnio oglądanych
+  const [selectedMotherboard, setSelectedMotherboard] = useState(null);
+  const [MotherboardsToDisplay, setMotherboardsToDisplay] = useState([]);
+  const [listViewed, setListViewed] = useState([]);
   const [scrollPosition, setScrollPosition] = useState(0);
   const { login, loggedInUser } = useAuth();
 
@@ -26,47 +25,40 @@ function App() {
     });
     if (loggedInUser) {
       login(loggedInUser);
-    } else {
-
     }
   }, [scrollPosition, loggedInUser, login]);
 
+  useEffect(() => {
+    fetch('http://localhost:8000/products/motherboards')
+      .then(response => response.json())
+      .then(data => {
+        setSelectedMotherboard(data);
+        setMotherboardsToDisplay(data);
+      })
+      .catch(error => console.error('Error fetching Motherboards:', error));
+  }, []);
 
   const addToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
-    setSelectedMotherboard((prev) => [...prev, product]);
     setListViewed((prev) => [...prev, product]);
   };
 
   const removeItem = (productId) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
-    const productIndex = cart.findIndex((item) => item.id === productId);      // Find the index of the product in the cart
-    // If the product is in the cart, remove one instance
-    if (productIndex !== -1) {
-      const updatedCart = [...cart];
-      updatedCart.splice(productIndex, 1);
-      setCart(updatedCart);
-    }
   };
 
   const removeAllItems = () => {
     setCart([]);
   };
 
-
-
   return (
     <AuthProvider>
       <div>
-
         <div className={styles.appWrapper}>
-          <ResponsiveAppBar
-            loggedInUser={loggedInUser}
-
-          />
+          <ResponsiveAppBar loggedInUser={loggedInUser} />
           <Header />
           <Filters
-            Motherboards={Motherboards}
+            Motherboards={MotherboardsToDisplay}
             sendfilteredProductsToAppComponent={setMotherboardsToDisplay}
           />
           <div className={styles.columnsWrapper}>
@@ -85,20 +77,13 @@ function App() {
             <LastViewed cart={listViewed} />
             <Contact id="kontakt" />
           </div>
-
-        </div >
-
+        </div>
         <footer>
           <DownMenu />
         </footer>
-      </div >
+      </div>
     </AuthProvider>
   );
 }
 
 export default App;
-
-
-//contact section - bigger and prettierxd 
-//section filters to changed
-//appbar on welcome page maybe better or more usual for random people

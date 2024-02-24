@@ -1,15 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../../common/styles/Columns.module.scss';
-import CPUs from '../../common/consts/cpu';
-import RAMs from '../../common/consts/ram';
 
-function ProductList (props) {
+function ProductList(props) {
   const [selectedMotherboard, setSelectedMotherboard] = useState(null);
   const [koszyk, setKoszyk] = useState([]);
   const [showMotherboardList, setShowMotherboardList] = useState(true);
   const [showCpuList, setShowCpuList] = useState(false);
   const [selectedCpu, setSelectedCpu] = useState(null);
   const [showRamList, setShowRamList] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [CPUs, setCPUs] = useState([]);
+  const [RAMs, setRAMs] = useState([]);
+  const [motherboards, setMotherboards] = useState([]);
+
+  useEffect(() => {
+    // Pobieranie listy płyt głównych z API
+    fetch('http://localhost:8000/products/motherboards')
+      .then(response => response.json())
+      .then(data => {
+        setMotherboards(data);
+        setLoading(false);
+      })
+      .catch(error => console.error('Error fetching Motherboards:', error));
+
+    // Pobieranie listy procesorów z API
+    fetch('http://localhost:8000/products/cpu')
+      .then(response => response.json())
+      .then(data => {
+        setCPUs(data);
+        setLoading(false);
+      })
+      .catch(error => console.error('Error fetching CPUs:', error));
+
+    // Pobieranie listy RAMów z API
+    fetch('http://localhost:8000/products/ram')
+      .then(response => response.json())
+      .then(data => {
+        setRAMs(data);
+        setLoading(false);
+      })
+      .catch(error => console.error('Error fetching RAMs:', error));
+  }, []);
 
   const handlePlytaClick = (motherboard) => {
     setSelectedMotherboard(motherboard);
@@ -28,7 +59,7 @@ function ProductList (props) {
 
   const handleShowCpuList = () => {
     setSelectedCpu(null);
-    setShowRamList(false); 
+    setShowRamList(false);
   };
 
   const handleDodajDoKoszyka = (item) => {
@@ -38,7 +69,6 @@ function ProductList (props) {
       setSelectedCpu(item);
       setShowRamList(true);
       setShowCpuList(false);
-
     }
   };
 
@@ -46,7 +76,7 @@ function ProductList (props) {
     <div>
       <h2>Wybierz płytę główną:</h2>
       <div className={styles.productsListNames}>
-        {props.Motherboards.map((motherboard) => (
+        {motherboards.map((motherboard) => (
           <div key={motherboard.id} onClick={() => handlePlytaClick(motherboard)}>
             {motherboard.name}, {motherboard.chipset} <br />
             <button className={styles.myButton} onClick={() => handleDodajDoKoszyka(motherboard)}>
@@ -110,7 +140,6 @@ function ProductList (props) {
               )}
 
               {selectedMotherboard && !selectedCpu && <RenderCPUsOptions />}
-
 
               {selectedCpu && (
                 <>
