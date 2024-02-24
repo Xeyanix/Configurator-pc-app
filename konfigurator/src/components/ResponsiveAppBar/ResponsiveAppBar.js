@@ -26,7 +26,6 @@ function ResponsiveAppBar() {
     if (!loggedInUser) {
       setOpen(true);
     } 
-    
   };
 
   useEffect(() => {
