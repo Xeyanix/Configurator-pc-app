@@ -11,7 +11,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import { AuthProvider } from './context/Context';
 import Welcome from './components/Welcome/Welcome';
-import ShowPage from './components/showPage/showPage';
+import ShowPage from './components/ShowPage/ShowPage';
 
 const router = createBrowserRouter([
   {
