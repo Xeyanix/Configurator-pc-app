@@ -23,4 +23,4 @@ const productsRoutes = require('./routes/products');
 
 app.use('/products', productsRoutes)
 
-app.listen(9000);
+app.listen(8000);

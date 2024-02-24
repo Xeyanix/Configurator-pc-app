@@ -101,4 +101,4 @@ const CPUs = [
   },
 ];
 
-export default CPUs;
+module.exports = CPUs;

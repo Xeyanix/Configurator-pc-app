@@ -10,7 +10,7 @@ import LastViewed from './components/LastViewed/LastViewed';
 import Contact from './components/Contact/Contact';
 import { Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/Context';
-
+import Header from "./components/Header/Header";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -64,6 +64,7 @@ function App() {
             loggedInUser={loggedInUser}
 
           />
+          <Header />
           <Filters
             Motherboards={Motherboards}
             sendfilteredProductsToAppComponent={setMotherboardsToDisplay}

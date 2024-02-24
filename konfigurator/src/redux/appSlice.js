@@ -7,24 +7,24 @@ export const appSlice = createSlice({
         filteredProducts: [],
         cart: [],
         searchFilter: "",
-        // loadingStatus: "initial",
+        loadingStatus: "initial",
     },
     reducers: {
-        loadProducts: (state, value) => {
-            state.productsList = value.payload;
+        loadProducts: (state, action) => {
+            state.productsList = action.payload;
         },
-        loadCartList: (state, value) => {
-            state.cart = value.payload;
+        loadCartList: (state, action) => {
+            state.cart = action.payload;
         },
-        removeItem: (state, value) => {
-            const productId = value.payload;
-            state.cart = state.cart.filter((item) => item.id !== productId);
-        },
-        filterProducts: (state, value) => {
-            state.searchFilter = value.payload;
+       
+        filterProducts: (state, action) => {
+            state.searchFilter = action.payload;
             state.filteredProducts = state.productsList.filter((product) =>
                 product.name.startsWith(state.searchFilter)
             );
+        },
+        setProductsLoadingState: (state, action) => {
+            state.loadingStatus = action.payload;
         },
     },
 });
@@ -32,8 +32,8 @@ export const appSlice = createSlice({
 export const {
     loadProducts,
     loadCartList,
-    removeItem,
     filterProducts,
+    setProductsLoadingState,
 } = appSlice.actions;
 
 export default appSlice.reducer;
