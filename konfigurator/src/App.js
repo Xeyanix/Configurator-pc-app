@@ -7,7 +7,6 @@ import DownMenu from './components/DownMenu/DownMenu';
 import Cart from './components/Cart/Cart';
 import LastViewed from './components/LastViewed/LastViewed';
 import Contact from './components/Contact/Contact';
-import { Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/Context';
 import Header from "./components/Header/Header";
 
@@ -29,14 +28,25 @@ function App() {
   }, [scrollPosition, loggedInUser, login]);
 
   useEffect(() => {
+    fetchMotherboards(); // Wywołanie funkcji pobierającej po załadowaniu strony
+  }, []); // Pusta zależność sprawia, że useEffect wywoła się tylko raz, po zamontowaniu komponentu
+
+  const fetchMotherboards = () => {
     fetch('http://localhost:8000/products/motherboards')
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
       .then(data => {
-        setSelectedMotherboard(data);
         setMotherboardsToDisplay(data);
       })
-      .catch(error => console.error('Error fetching Motherboards:', error));
-  }, []);
+      .catch(error => {
+        console.error('Error fetching Motherboards:', error);
+        // Możesz dodać kod obsługi błędów, np. ustawienie stanu na pustą tablicę lub wyświetlenie komunikatu dla użytkownika
+      });
+  };
 
   const addToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
@@ -63,7 +73,7 @@ function App() {
           />
           <div className={styles.columnsWrapper}>
             <ProductList
-              Motherboards={MotherboardsToDisplay}
+              products={MotherboardsToDisplay}
               dodawanie={addToCart}
             />
             <Cart
