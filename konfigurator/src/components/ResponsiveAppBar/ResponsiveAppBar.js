@@ -25,9 +25,8 @@ function ResponsiveAppBar() {
     event.preventDefault();
     if (!loggedInUser) {
       setOpen(true);
-    } else {
-      navigate("/UserPage");
-    }
+    } 
+    
   };
 
   useEffect(() => {
@@ -109,7 +108,7 @@ function ResponsiveAppBar() {
             {!loggedInUser && (
               <Snackbar
                 open={open}
-                autoHideDuration={5000}
+                autoHideDuration={3000}
                 onClose={() => setOpen(false)}
                 message={`Zaloguj się ! `}
                 action={
