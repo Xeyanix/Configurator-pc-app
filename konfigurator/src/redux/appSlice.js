@@ -7,32 +7,27 @@ export const appSlice = createSlice({
         filteredProducts: [],
         cart: [],
         searchFilter: "",
+        foodOnly: false,
         loadingStatus: "initial",
     },
     reducers: {
-        loadProducts: (state, action) => {
-            state.productsList = action.payload;
+        loadProducts: (state, value) => {
+            state.productsList = value.payload;
         },
-        loadCartList: (state, action) => {
-            state.cart = action.payload;
+        loadCartList: (state, value) => {
+            state.cart = value.payload;
         },
        
-        filterProducts: (state, action) => {
-            state.searchFilter = action.payload;
-            state.filteredProducts = state.productsList.filter((product) =>
-                product.name.startsWith(state.searchFilter)
-            );
+        setProductsLoadingState: (state, value) => {
+            state.loadingStatus = value.payload;
         },
-        setProductsLoadingState: (state, action) => {
-            state.loadingStatus = action.payload;
-        },
+       
     },
 });
 
 export const {
     loadProducts,
     loadCartList,
-    filterProducts,
     setProductsLoadingState,
 } = appSlice.actions;
 
