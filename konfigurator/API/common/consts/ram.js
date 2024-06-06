@@ -71,4 +71,4 @@ const RAMs = [
   },
 ];
 
-export default RAMs;
+module.exports = RAMs;

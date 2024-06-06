@@ -6,34 +6,47 @@ export const appSlice = createSlice({
         productsList: [],
         filteredProducts: [],
         cart: [],
-        searchFilter: "",
-        // loadingStatus: "initial",
+        lastViewed: [],
+        currentPrice: [],
     },
     reducers: {
-        loadProducts: (state, value) => {
-            state.productsList = value.payload;
+        loadProducts: (state, action) => {
+            state.productsList = action.payload;
         },
-        loadCartList: (state, value) => {
-            state.cart = value.payload;
+        loadCartList: (state, action) => {
+            state.cart = action.payload;
+
         },
-        removeItem: (state, value) => {
-            const productId = value.payload;
-            state.cart = state.cart.filter((item) => item.id !== productId);
+        setProductsLoadingState: (state, action) => {
+            state.loadingStatus = action.payload;
         },
-        filterProducts: (state, value) => {
-            state.searchFilter = value.payload;
-            state.filteredProducts = state.productsList.filter((product) =>
-                product.name.startsWith(state.searchFilter)
+        clearCart: (state) => {
+            state.cart = [];
+        },
+        filterProducts: (state, action) => {
+            const searchTerm = action.payload.toLowerCase();
+            state.filteredProducts = state.productsList.filter(product =>
+                product.name.toLowerCase().includes(searchTerm)
             );
         },
+        setCurrentPrice: (state, action) => {
+            state.currentPrice = action.payload;
+        },
+        addToLastViewed: (state, action) => {
+            state.lastViewed = action.payload;
+        }
+
     },
 });
 
 export const {
     loadProducts,
     loadCartList,
-    removeItem,
+    setProductsLoadingState,
+    clearCart,
     filterProducts,
+    setCurrentPrice,
+    addToLastViewed,
 } = appSlice.actions;
 
 export default appSlice.reducer;

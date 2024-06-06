@@ -1,4 +1,4 @@
-const Motherboards = [
+const motherboards = [
   {
     id: 1,
     name: 'ASUS ROG Maximus XIII Hero',
@@ -92,6 +92,4 @@ const Motherboards = [
 ];
 
 
-
-
-export default Motherboards;
+module.exports = motherboards;
