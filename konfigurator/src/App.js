@@ -4,8 +4,12 @@ import styles from './App.module.scss';
 import ResponsiveAppBar from './components/ResponsiveAppBar';
 import Footer from './components/Footer';
 import { AuthProvider, useAuth } from './context/Context';
+<<<<<<< HEAD
 import Header from "./components/Header";
 import Dashboard from './components/Dashboard';
+=======
+import Header from "./components/Header/Header";
+>>>>>>> 0d66f129524f83a39e3186ca792031d25e2a7865
 
 function App() {
   // const [selectedMotherboard] = useState(Motherboards);
@@ -20,7 +24,11 @@ function App() {
             loggedInUser={loggedInUser}
           />
           <Header />
+<<<<<<< HEAD
           {/* <Filters
+=======
+          <Filters
+>>>>>>> 0d66f129524f83a39e3186ca792031d25e2a7865
             Motherboards={Motherboards}
             sendfilteredProductsToAppComponent={setMotherboardsToDisplay}
           /> */}

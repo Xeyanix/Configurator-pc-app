@@ -7,8 +7,11 @@ import Button from "@mui/material/Button";
 import { useAuth } from "../context/Context";
 import Alert from '@mui/material/Alert';
 import CheckIcon from '@mui/icons-material/Check';
+<<<<<<< HEAD:konfigurator/src/components/LoginPage.js
 import Footer from "./Footer";
 import ResponsiveAppBar from "./ResponsiveAppBar";
+=======
+>>>>>>> 0d66f129524f83a39e3186ca792031d25e2a7865:konfigurator/src/components/LoginPage/LoginPage.js
 
 function LoginPage() {
   let navigate = useNavigate();
@@ -24,16 +27,29 @@ function LoginPage() {
     login(fullName);
     console.log(`Zalogowany jako: ${userfirstName} ${userLastName}`);
 
+<<<<<<< HEAD:konfigurator/src/components/LoginPage.js
     setUserFirstName(""); 
     setUserLastName(""); // Czyszczenie stanu
 
+=======
+    
+  setUserFirstName(""); // Czyszczenie stanu
+  setUserLastName(""); // Czyszczenie stanu
+  
+>>>>>>> 0d66f129524f83a39e3186ca792031d25e2a7865:konfigurator/src/components/LoginPage/LoginPage.js
     setTimeout(() => {
       setShowLoginMessage(true);
       setTimeout(() => {
         setShowLoginMessage(false);
+<<<<<<< HEAD:konfigurator/src/components/LoginPage.js
         navigate(`/UserPage?user=${fullName}`);
       }, 1000); 
     }, 100); 
+=======
+        navigate(`/configurator?user=${fullName}`);
+      }, 1000); // 1000 milliseconds (1 second)
+    }, 100); // 100 milliseconds (0.1 second)
+>>>>>>> 0d66f129524f83a39e3186ca792031d25e2a7865:konfigurator/src/components/LoginPage/LoginPage.js
   };
 
   return (
@@ -74,7 +90,11 @@ function LoginPage() {
           <Button variant="contained">Strona Główna</Button>
         </Link>
         <Link to="/configurator">
+<<<<<<< HEAD:konfigurator/src/components/LoginPage.js
           <Button variant="contained">Konfigurator</Button>
+=======
+          <Button variant="contained">powrót</Button>
+>>>>>>> 0d66f129524f83a39e3186ca792031d25e2a7865:konfigurator/src/components/LoginPage/LoginPage.js
         </Link>
       </form>
 
@@ -85,8 +105,11 @@ function LoginPage() {
           </Alert>
         </div>
       )}
+<<<<<<< HEAD:konfigurator/src/components/LoginPage.js
 
       <Footer />
+=======
+>>>>>>> 0d66f129524f83a39e3186ca792031d25e2a7865:konfigurator/src/components/LoginPage/LoginPage.js
     </div>
   );
 }
