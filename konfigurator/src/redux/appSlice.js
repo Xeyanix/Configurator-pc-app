@@ -6,14 +6,11 @@ export const appSlice = createSlice({
         productsList: [],
         filteredProducts: [],
         cart: [],
-<<<<<<< HEAD
         lastViewed: [],
         currentPrice: [],
-=======
         searchFilter: "",
         foodOnly: false,
         loadingStatus: "initial",
->>>>>>> 0d66f129524f83a39e3186ca792031d25e2a7865
     },
     reducers: {
         loadProducts: (state, action) => {
@@ -23,7 +20,6 @@ export const appSlice = createSlice({
             state.cart = action.payload;
 
         },
-<<<<<<< HEAD
         setProductsLoadingState: (state, action) => {
             state.loadingStatus = action.payload;
         },
@@ -42,14 +38,7 @@ export const appSlice = createSlice({
         addToLastViewed: (state, action) => {
             state.lastViewed = action.payload;
         }
-
-=======
-       
-        setProductsLoadingState: (state, value) => {
-            state.loadingStatus = value.payload;
-        },
-       
->>>>>>> 0d66f129524f83a39e3186ca792031d25e2a7865
+    
     },
 });
 
@@ -57,13 +46,10 @@ export const {
     loadProducts,
     loadCartList,
     setProductsLoadingState,
-<<<<<<< HEAD
     clearCart,
     filterProducts,
     setCurrentPrice,
     addToLastViewed,
-=======
->>>>>>> 0d66f129524f83a39e3186ca792031d25e2a7865
 } = appSlice.actions;
 
 export default appSlice.reducer;

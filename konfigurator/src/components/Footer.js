@@ -73,13 +73,13 @@ function Footer() {
                     <p className={styles.footerListTitle}>Usługi</p>
                     <ul className={styles.footerListItems}>
                         <li>
-                            <Link to={"/legal"} onClick={scrollToTop}>Strony internetowe</Link>
+                            <Link to={"/"} onClick={scrollToTop}>Strony internetowe</Link>
                         </li>
                         <li>
-                            <Link to={"/legal"} onClick={scrollToTop}>Składanie Komputera</Link>
+                            <Link to={"/ConfigurePage"} onClick={scrollToTop}>Składanie Komputera</Link>
                         </li>
                         <li>
-                            <Link to="/configurator" onClick={scrollToTop}>Konfigurator PC</Link>
+                            <Link to={"/configurator"} onClick={scrollToTop}>Konfigurator PC</Link>
                         </li>
                         <li>
                             <Link to={"/legal"}>Polityka Prywatności</Link>
