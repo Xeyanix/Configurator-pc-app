@@ -73,13 +73,13 @@ function Footer() {
                     <p className={styles.footerListTitle}>Usługi</p>
                     <ul className={styles.footerListItems}>
                         <li>
-                            <Link to={"/"} onClick={scrollToTop}>Strony internetowe</Link>
+                            <Link to={"/legal"} onClick={scrollToTop}>Strony internetowe</Link>
                         </li>
                         <li>
-                            <Link to={"/ConfigurePage"} onClick={scrollToTop}>Składanie Komputera</Link>
+                            <Link to={"/legal"} onClick={scrollToTop}>Składanie Komputera</Link>
                         </li>
                         <li>
-                            <Link to={"/configurator"} onClick={scrollToTop}>Konfigurator PC</Link>
+                            <Link to="/configurator" onClick={scrollToTop}>Konfigurator PC</Link>
                         </li>
                         <li>
                             <Link to={"/legal"}>Polityka Prywatności</Link>
@@ -109,7 +109,7 @@ function Footer() {
 
             <div className={styles.contactSection}>
                 <p className={styles.copyrightText}>
-                    <Link to="/configurator" onClick={scrollToTop} className={styles.copyrightText}>
+                    <Link to="/MainPage" onClick={scrollToTop} className={styles.copyrightText}>
                         Configurator
                     </Link>
                     {' '}&copy; {new Date().getFullYear()} |

@@ -203,7 +203,7 @@ function Contact() {
                                             </p>
                                             <p className={styles.contact__info_card_caption}>
                                                 <a href="mailto:biuro@digidraft.pl" className={styles.contact__info_card_phone} title="Link z adresem e-mail do naszej firmy.">
-                                                    <span>biuro@webtune.pl</span>
+                                                    <span>biuro@digidraft.pl</span>
                                                 </a>
                                             </p>
                                         </div>
@@ -215,7 +215,7 @@ function Contact() {
                                         <FontAwesomeIcon icon={faClock} size="2x" />
                                         <div className={styles.contact__info_card_text}>
                                             <h4 className={styles.contact__info_card_title}>Godziny otwarcia</h4>
-                                            <p className={styles.contact__info_card_caption}>9<sup>00</sup> - 17<sup>00</sup></p>
+                                            <p className={styles.contact__info_card_caption}>9<sup>00</sup> - 18<sup>00</sup></p>
                                         </div>
                                     </div>
                                 </div>
@@ -240,9 +240,9 @@ function Contact() {
                                         <div className={styles.contact__info_card_text}>
                                             <h4 className={styles.contact__info_card_title}>Dane rozliczeniowe</h4>
                                             <p className={styles.contact__info_card_caption}>
-                                                Wirtualne Biuro  <br />
-                                                ul. asdasda 100/3<br />
-                                                15-123 Białystok<br />
+                                                cos  jakastam <br />
+                                                ul. asdasda 4/43<br />
+                                                02-654 Białystok<br />
                                                 NIP: 123456789<br />
                                             </p>
                                         </div>

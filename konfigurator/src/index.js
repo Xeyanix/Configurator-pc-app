@@ -15,7 +15,6 @@ import ShowPage from './components/ShowPage';
 import Contact from './components/Contact';
 import About from './components/About';
 import Offer from './components/Offer';
-import PrivacyPolicy from './components/PrivacyPolicy';
 
 const router = createBrowserRouter([
   {
@@ -54,10 +53,6 @@ const router = createBrowserRouter([
   {
     path: "/Offer",
     element: <Offer />,
-  },
-  {
-    path: "/legal",
-    element: <PrivacyPolicy />,
   },
 ]);
 

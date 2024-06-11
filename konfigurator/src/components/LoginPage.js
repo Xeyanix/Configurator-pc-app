@@ -1,30 +1,30 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
+import styles from "../common/styles/LoginPage.module.scss";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Alert from "@mui/material/Alert";
-import CheckIcon from "@mui/icons-material/Check";
-import styles from "../common/styles/LoginPage.module.scss";
 import { useAuth } from "../context/Context";
+import Alert from '@mui/material/Alert';
+import CheckIcon from '@mui/icons-material/Check';
 import Footer from "./Footer";
 import ResponsiveAppBar from "./ResponsiveAppBar";
 
 function LoginPage() {
   let navigate = useNavigate();
-  const [userFirstName, setUserFirstName] = useState("");
+  const [userfirstName, setUserFirstName] = useState("");
   const [userLastName, setUserLastName] = useState("");
   const [showLoginMessage, setShowLoginMessage] = useState(false);
   const { login } = useAuth();
 
   const signInUser = (e) => {
     e.preventDefault();
-    const fullName = `${userFirstName} ${userLastName}`;
+    const fullName = `${userfirstName} ${userLastName}`;
 
     login(fullName);
-    console.log(`Zalogowany jako: ${userFirstName} ${userLastName}`);
+    console.log(`Zalogowany jako: ${userfirstName} ${userLastName}`);
 
-    setUserFirstName("");
+    setUserFirstName(""); 
     setUserLastName(""); // Czyszczenie stanu
 
     setTimeout(() => {
@@ -32,8 +32,8 @@ function LoginPage() {
       setTimeout(() => {
         setShowLoginMessage(false);
         navigate(`/UserPage?user=${fullName}`);
-      }, 1000);
-    }, 100);
+      }, 1000); 
+    }, 100); 
   };
 
   return (
@@ -46,7 +46,7 @@ function LoginPage() {
             id="outlined-basic"
             label="First name"
             variant="outlined"
-            value={userFirstName}
+            value={userfirstName}
             onChange={(event) => setUserFirstName(event.target.value)}
           />
         </Box>
@@ -62,7 +62,7 @@ function LoginPage() {
         </Box>
         <Box sx={{ m: 2 }}>
           <Button
-            disabled={!userFirstName || !userLastName}
+            disabled={!userfirstName || !userLastName}
             variant="contained"
             type="submit"
             color="success"
@@ -75,9 +75,6 @@ function LoginPage() {
         </Link>
         <Link to="/configurator">
           <Button variant="contained">Konfigurator</Button>
-        </Link>
-        <Link to="/">
-          <Button variant="contained">Powrót</Button>
         </Link>
       </form>
 

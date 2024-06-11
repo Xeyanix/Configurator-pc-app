@@ -8,9 +8,6 @@ export const appSlice = createSlice({
         cart: [],
         lastViewed: [],
         currentPrice: [],
-        searchFilter: "",
-        foodOnly: false,
-        loadingStatus: "initial",
     },
     reducers: {
         loadProducts: (state, action) => {
@@ -38,7 +35,7 @@ export const appSlice = createSlice({
         addToLastViewed: (state, action) => {
             state.lastViewed = action.payload;
         }
-    
+
     },
 });
 
