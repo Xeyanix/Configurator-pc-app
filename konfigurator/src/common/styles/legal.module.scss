@@ -1,0 +1,82 @@
+/* Legal page styles */
+$primary-color: #007bff; // Primary color for the page
+
+.Box {
+    font-family: Arial, sans-serif;
+    margin-top: 65px;
+}
+
+.mainContainer {
+    height: 100%;
+    min-height: 100vh;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 50px;
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+        transition: color 0.3s;
+
+        &:hover {
+            color: #0056b3; 
+        }
+    }
+
+    p {
+        font-size: 16px;
+        color: #000000;
+        margin-bottom: 10px;
+    }
+
+    ul {
+        margin-bottom: 10px;
+
+        li {
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.about {
+    margin-bottom: 40px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: $primary-color;
+}
+
+h2 {
+    color: $primary-color;
+    margin-top: 20px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+a {
+    color: $primary-color;
+}
+
+a:hover {
+    text-decoration: none;
+}
+

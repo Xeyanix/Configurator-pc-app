@@ -15,6 +15,7 @@ import ShowPage from './components/ShowPage';
 import Contact from './components/Contact';
 import About from './components/About';
 import Offer from './components/Offer';
+import Legal from './components/Legal';
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
   {
     path: "/Offer",
     element: <Offer />,
+  },
+  {
+    path: "/Legal",
+    element: <Legal />,
   },
 ]);
 
