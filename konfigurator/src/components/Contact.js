@@ -5,6 +5,7 @@ import Footer from './Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faClock, faMapMarkerAlt, faBriefcase } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from "react";
+import emailjs from 'emailjs-com';
 
 function Contact() {
     const [formData, setFormData] = useState({
@@ -37,8 +38,33 @@ function Contact() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData); // Tutaj możesz przekazać dane formularza do funkcji obsługującej wysłanie
+        console.log(formData);
+
+        emailjs.send(
+            'ConfiguratorPC', // Zastąp swoim SERVICE_ID
+            'ConfiguratorTemplate', // Zastąp swoim TEMPLATE_ID
+            formData,
+            'GNgp4yEoh1Lloz9_7' // Zastąp swoim USER_ID
+        )
+            .then((response) => {
+                console.log('SUCCESS!', response.status, response.text);
+            })
+            .catch((err) => {
+                console.error('FAILED...', err);
+            });
+
+
+        setFormData({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            subject: "",
+            message: "",
+            consent: false,
+        });
     };
+
 
     return (
         <div>
@@ -185,7 +211,7 @@ function Contact() {
                                             </label>
                                         </div>
                                     </div>
-                                    <button type="submit" className={styles.contact__form_submitButton}>
+                                    <button type="submit" onSubmit={handleSubmit} className={styles.contact__form_submitButton}>
                                         Wyślij
                                     </button>
                                 </form>
