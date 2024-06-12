@@ -88,7 +88,9 @@ function Footer() {
                 </div>
 
                 <div>
-                    <p className={styles.footerListTitle}>Kontakt</p>
+                    <p >
+                        <Link to="/Contact" onClick={scrollToTop} className={styles.footerListTitle}>Kontakt</Link>
+                    </p>
                     <ul className={styles.footerListItems}>
                         <li>
                             <a href="mailto:support@healthplus.com">biuro@webtune.pl</a>

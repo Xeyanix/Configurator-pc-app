@@ -41,10 +41,10 @@ function Contact() {
         console.log(formData);
 
         emailjs.send(
-            'ConfiguratorPC', // Zastąp swoim SERVICE_ID
-            'ConfiguratorTemplate', // Zastąp swoim TEMPLATE_ID
+            'ConfiguratorPC', 
+            'ConfiguratorTemplate',
             formData,
-            'GNgp4yEoh1Lloz9_7' // Zastąp swoim USER_ID
+            'GNgp4yEoh1Lloz9_7' 
         )
             .then((response) => {
                 console.log('SUCCESS!', response.status, response.text);
