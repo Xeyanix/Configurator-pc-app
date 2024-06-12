@@ -7,6 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { useAuth } from "../context/Context";
 import Alert from '@mui/material/Alert';
 import CloseIcon from '@mui/icons-material/Close';
+import HomeIcon from '@mui/icons-material/Home';
 import CheckIcon from '@mui/icons-material/Check';
 
 function ResponsiveAppBar() {
@@ -39,7 +40,7 @@ function ResponsiveAppBar() {
     setOpenSnackbar(false);
   }, [navigate]);
 
- 
+
 
   const scrollToContactSection = () => {
     const contactSection = document.getElementById("contactSection");
@@ -160,8 +161,31 @@ function ResponsiveAppBar() {
         </Toolbar>
 
       </AppBar>
-      <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
+
+
+      <Drawer
+        anchor="left"
+        open={drawerOpen}
+        onClose={toggleDrawer(false)}
+        PaperProps={{
+          sx: {
+            backgroundColor: "darkgray",
+            color: "black",
+          }
+        }}
+      >
         <List>
+          <ListItem
+            button
+            component={Link}
+            to="/"
+            onClick={toggleDrawer(false)}
+          >
+
+            <HomeIcon />
+
+            <ListItemText />
+          </ListItem>
           {menuItems.map((item, index) => (
             <ListItem
               button
@@ -177,7 +201,8 @@ function ResponsiveAppBar() {
         </List>
       </Drawer>
 
-    </div>
+
+    </div >
   );
 }
 

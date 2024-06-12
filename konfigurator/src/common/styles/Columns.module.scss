@@ -13,8 +13,8 @@
   height: 50px;
   align-items: center;
   // justify-content: center;
-  color: black;
-  background-color: lightblue;
+  color: white;
+  background-color: rgb(9, 67, 100);
   cursor: pointer;
 }
 
@@ -171,4 +171,6 @@
   &:hover::before {
     opacity: 1;
   }
+
+
 }
