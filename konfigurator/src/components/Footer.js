@@ -88,8 +88,10 @@ function Footer() {
                 </div>
 
                 <div>
-                    <p >
-                        <Link to="/Contact" onClick={scrollToTop} className={styles.footerListTitle}>Kontakt</Link>
+                    <p className={styles.footerListTitle}>
+                        <Link to="/Contact" onClick={scrollToTop} className={styles.footerListTitleContact}>
+                        Kontakt
+                        </Link>
                     </p>
                     <ul className={styles.footerListItems}>
                         <li>
