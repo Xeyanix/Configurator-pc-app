@@ -146,10 +146,11 @@ function ResponsiveAppBar() {
 
             {loggedInUser && (
               <Alert
+                variant="outlined"
                 icon={<CheckIcon fontSize="inherit" />}
                 severity="success"
                 open={openSnackbar}
-                className={styles.alert}
+                sx={{ color: 'white' }}
               // onClose={() => setOpenSnackbar(false)}
               >
                 Zalogowany: {loggedInUser}
