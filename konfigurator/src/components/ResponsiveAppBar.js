@@ -152,7 +152,7 @@ function ResponsiveAppBar() {
         onClose={toggleDrawer(false)}
         PaperProps={{
           sx: {
-            backgroundColor: "darkgray",
+            backgroundColor: "rgba(9, 67, 100);",
             color: "black",
           }
         }}
