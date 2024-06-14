@@ -10,7 +10,6 @@
 
 .middleButton {
     margin: 20px 0;
-
 }
 
 .bottomButton {
@@ -21,12 +20,25 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
 
-    img {
-        max-width: 100%;
-        height: auto;
-        margin: 0 5px;
-     
+.images img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 5px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        height: auto; /* Ustawienie wysokości na auto dla mniejszych ekranów */
     }
 
+    .images {
+        flex-wrap: wrap; /* Zawijanie elementów w wierszu dla mniejszych ekranów */
+    }
+
+    .images img {
+        width: 100%; /* Zmiana szerokości obrazków na 100% szerokości kontenera */
+        margin: 5px 0; /* Zmniejszenie marginesu między obrazkami */
+    }
 }

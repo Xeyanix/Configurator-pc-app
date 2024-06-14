@@ -1,5 +1,5 @@
-/* Legal page styles */
-$primary-color: #c31818; 
+// Legal page styles
+$primary-color: #c31818;
 
 .Box {
     font-family: Arial, sans-serif;
@@ -10,12 +10,11 @@ $primary-color: #c31818;
     height: 100%;
     min-height: 100vh;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 50px auto 0 auto;
     padding: 20px;
     background-color: #f8f8f8;
     border: 1px solid #ddd;
     border-radius: 5px;
-    margin-top: 50px;
 
     a {
         color: #007bff;
@@ -23,62 +22,52 @@ $primary-color: #c31818;
         transition: color 0.3s;
 
         &:hover {
-            color: #0056b3; 
+            color: #0056b3;
         }
     }
 
-
     p {
         font-size: 16px;
-        color: #000000;
+        color: #000;
         margin-bottom: 10px;
+        line-height: 1.6;
     }
 
     ul {
         margin-bottom: 10px;
+        padding-left: 20px;
 
         li {
             margin-bottom: 5px;
         }
     }
 
+    .about {
+        margin-bottom: 40px;
+    }
 
-.about {
-    margin-bottom: 40px;
-}
+    .header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
-.header {
-    text-align: center;
-    margin-bottom: 20px;
-}
+    h1, h2 {
+        color: $primary-color;
+    }
 
-h1 {
-    color: $primary-color;
-}
+    h2 {
+        margin-top: 20px;
+    }
 
-h2 {
-    color: $primary-color;
-    margin-top: 20px;
-}
+    strong {
+        font-weight: bold;
+    }
 
-p {
-    line-height: 1.6;
-}
+    a {
+        color: $primary-color;
 
-ul {
-    padding-left: 20px;
-}
-
-strong {
-    font-weight: bold;
-}
-
-a {
-    color: $primary-color;
-}
-
-a:hover {
-    text-decoration: none;
-}
-
+        &:hover {
+            text-decoration: none;
+        }
+    }
 }

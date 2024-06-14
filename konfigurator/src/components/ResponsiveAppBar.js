@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from '../common/styles/Columns.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
-import { AppBar, Toolbar, IconButton, Snackbar, Drawer, List, ListItem, ListItemText } from "@mui/material";
+import { AppBar, Toolbar, IconButton, Snackbar, Drawer, List, ListItem, ListItemText, useMediaQuery } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useAuth } from "../context/Context";
@@ -40,8 +40,6 @@ function ResponsiveAppBar() {
     setOpenSnackbar(false);
   }, [navigate]);
 
-
-
   const scrollToContactSection = () => {
     const contactSection = document.getElementById("contactSection");
     if (contactSection) {
@@ -56,13 +54,14 @@ function ResponsiveAppBar() {
   const scrollToProjectSection = () => {
     const projectSection = document.getElementById("projectSection");
     if (projectSection) {
-      const projecttSectionPosition = projectSection.offsetTop;
+      const projectSectionPosition = projectSection.offsetTop;
       window.scrollTo({
-        top: projecttSectionPosition,
+        top: projectSectionPosition,
         behavior: "smooth",
       });
     }
   };
+
   const BarItems = [
     { label: "Strona Główna", path: "/" },
     { label: "O nas", path: "/About" },
@@ -74,29 +73,17 @@ function ResponsiveAppBar() {
     { label: "Kontakt", path: "/Contact", onClick: scrollToContactSection },
   ];
 
-  const menuItems = [
-    { label: "Strona Główna", path: "/" },
-    { label: "O nas", path: "/About" },
-    { label: "Oferta", path: "/Offer", onClick: scrollToProjectSection },
-    { label: "Realizacje", path: "" },
-    { label: "Konfiguruj !", path: "/ConfigurePage" },
-    { label: "Zaloguj", path: "/LoginPage" },
-    { label: "Konto", path: "/UserPage", onClick: handleKontoClick },
-    { label: "Kontakt", path: "/Contact", onClick: scrollToContactSection },
-  ];
-
-
-
   return (
     <div>
-      <AppBar position="fixed" >
+      <AppBar position="fixed">
         <Toolbar className={styles.wrapper}>
+       
           <h3 className={styles.logo}>
             <Link to="/">
               <span>Web</span><span className={styles.tune}>Tune</span>
             </Link>
           </h3>
-          <div className={styles.otherPageButtons}>
+          <div className={styles.menuButton}>
             <IconButton
               edge="start"
               color="inherit"
@@ -104,26 +91,25 @@ function ResponsiveAppBar() {
               onClick={toggleDrawer(true)}
             >
               <MenuIcon />
-
             </IconButton>
-
-            {BarItems.map((item, index) => (
-              item.label && (
-
-                <MenuItem
-                  button
-                  key={index}
-                  component={item.path ? Link : "button"}
-                  to={item.path}
-                  onClick={item.onClick}
-                  className={styles.buttons}
-                >
-                  <ListItemText primary={item.label} />
-
-                </MenuItem>
-
-              )
-            ))}
+          </div>
+          <div className={styles.otherPageButtons}>
+             { BarItems.map((item, index) => (
+                item.label && (
+                  <MenuItem
+                    button
+                    key={index}
+                    component={item.path ? Link : "button"}
+                    to={item.path}
+                    onClick={item.onClick}
+                    className={styles.buttons}
+                  >
+                    <ListItemText primary={item.label} />
+                  </MenuItem>
+                )
+              ))
+         
+            }
 
             {!loggedInUser && (
               <Snackbar
@@ -151,18 +137,14 @@ function ResponsiveAppBar() {
                 severity="success"
                 open={openSnackbar}
                 sx={{ color: 'white' }}
-              // onClose={() => setOpenSnackbar(false)}
               >
                 Zalogowany: {loggedInUser}
               </Alert>
             )}
 
           </div>
-
         </Toolbar>
-
       </AppBar>
-
 
       <Drawer
         anchor="left"
@@ -182,12 +164,10 @@ function ResponsiveAppBar() {
             to="/"
             onClick={toggleDrawer(false)}
           >
-
             <HomeIcon />
-
             <ListItemText />
           </ListItem>
-          {menuItems.map((item, index) => (
+          {BarItems.map((item, index) => (
             <ListItem
               button
               key={index}
@@ -198,12 +178,9 @@ function ResponsiveAppBar() {
               <ListItemText primary={item.label} />
             </ListItem>
           ))}
-
         </List>
       </Drawer>
-
-
-    </div >
+    </div>
   );
 }
 

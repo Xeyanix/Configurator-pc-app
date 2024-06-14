@@ -1,22 +1,28 @@
 .loginPageWrapper {
   display: flex;
-  flex-direction: column; 
-  justify-content: center; 
-  align-items: center; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 50px;
-  min-height: calc(100vh - 50px); 
-  padding: 20px; 
+  min-height: calc(100vh - 50px);
+  padding: 20px;
 }
 
 .loginMessage {
-  margin-top: 20px; 
+  margin-top: 20px;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
 }
 
 @media (max-width: 800px) {
   .loginPageWrapper {
     margin-top: 20px;
     min-height: calc(100vh - 20px);
+    padding: 10px;
+  }
+
+  .loginMessage {
+    margin-top: 10px;
+    font-size: 14px; 
   }
 }

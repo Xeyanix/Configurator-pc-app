@@ -314,3 +314,43 @@
     padding: 0 2.4rem;
     opacity: 0;
 }
+
+@media (max-width: 768px) {
+    .banner__containerwrapper {
+        width: 80%;
+    }
+
+    .contact__container {
+        flex-direction: column;
+        padding: 2.4rem;
+    }
+
+    .contact__content__right {
+        width: 100%;
+    }
+
+    .contact__form_item {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .banner__containerwrapper {
+        width: 90%;
+        padding: 2.4rem;
+    }
+
+    .contact__title {
+        font-size: 1.5rem;
+    }
+
+    .contact__form_selectField {
+        width: 100%;
+    }
+
+    .contact__form_areaField {
+        width: 100%;
+    }
+}

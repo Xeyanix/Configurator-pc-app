@@ -1,3 +1,4 @@
+/* Podstawowy styl */
 .Box {
   margin-top: 65px;
 }
@@ -12,4 +13,28 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   margin-top: 50px;
+}
+
+@media (max-width: 600px) {
+  .Box {
+    margin-top: 20px; 
+  }
+
+  .mainContainer {
+    padding: 10px; 
+    max-width: 100%; 
+    margin-top: 20px; 
+  }
+}
+
+@media (max-width: 400px) {
+  .Box {
+    margin-top: 10px; 
+  }
+
+  .mainContainer {
+    padding: 5px; 
+    max-width: 100%; 
+    margin-top: 10px; 
+  }
 }

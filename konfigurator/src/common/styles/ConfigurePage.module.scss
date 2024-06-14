@@ -66,5 +66,66 @@
     margin: 0;
   }
 
+  @media (max-width: 600px) {
+    .Box {
+      margin-top: 20px;
+    }
 
+    .MainContainer {
+      padding: 10px;
+      max-width: 100%;
+      margin-top: 20px;
+    }
+
+    .MainContainer .mainHeading {
+      font-size: 22px;
+    }
+
+    .MainContainer .mainParagraph {
+      font-size: 14px;
+    }
+
+    .MainContainer .sectionHeading {
+      font-size: 18px;
+    }
+
+    .MainContainer .sectionParagraph {
+      font-size: 14px;
+    }
+  }
+
+
+  @media (max-width: 400px) {
+    .Box {
+      margin-top: 10px;
+    }
+
+    .MainContainer {
+      padding: 5px;
+      max-width: 100%;
+
+      margin-top: 10px;
+   
+    }
+
+    .MainContainer .mainHeading {
+      font-size: 20px;
+     
+    }
+
+    .MainContainer .mainParagraph {
+      font-size: 12px;
+    
+    }
+
+    .MainContainer .sectionHeading {
+      font-size: 16px;
+  
+    }
+
+    .MainContainer .sectionParagraph {
+      font-size: 12px;
+      
+    }
+  }
 }

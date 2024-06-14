@@ -40,6 +40,50 @@
             border-radius: 5px;
         }
     }
+}
+
+@media (max-width: 768px) {
+    .LastViewed {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .font {
+        font-size: 12px;
+        padding: 10px;
+
+        .lastViewedProducts {
+            padding: 8px;
+        }
+
+        .productList {
+            margin: 5px;
+            padding: 8px;
+        }
+    }
+}
 
 
+@media (max-width: 480px) {
+    .LastViewed {
+        padding: 10px;
+    }
+
+    .font {
+        font-size: 10px;
+        padding: 8px;
+
+        h1 {
+            font-size: 18px;
+        }
+
+        .lastViewedProducts {
+            padding: 6px;
+        }
+
+        .productList {
+            margin: 4px;
+            padding: 6px;
+        }
+    }
 }

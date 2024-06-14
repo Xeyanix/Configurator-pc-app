@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
-import styles from "../common/styles/WelcomePage.module.scss";
+import styles from "../common/styles/MainPage.module.scss";
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from './Footer';
 import ResponsiveAppBar from "./ResponsiveAppBar";
