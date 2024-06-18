@@ -23,6 +23,7 @@ function Contact() {
             behavior: 'smooth',
         });
     }, []);
+    
     const handleScrollToContact = () => {
         const contactSection = document.getElementById('contactSection');
         if (contactSection) {
@@ -41,10 +42,10 @@ function Contact() {
         console.log(formData);
 
         emailjs.send(
-            'ConfiguratorPC', 
+            'ConfiguratorPC',
             'ConfiguratorTemplate',
             formData,
-            'GNgp4yEoh1Lloz9_7' 
+            'GNgp4yEoh1Lloz9_7'
         )
             .then((response) => {
                 console.log('SUCCESS!', response.status, response.text);
