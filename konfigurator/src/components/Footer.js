@@ -113,8 +113,8 @@ function Footer() {
 
             <div className={styles.contactSection}>
                 <p className={styles.copyrightText}>
-                    <Link to="/MainPage" onClick={scrollToTop} className={styles.copyrightText}>
-                        Configurator
+                    <Link to="/" onClick={scrollToTop} className={styles.copyrightText}>
+                        WebTune
                     </Link>
                     {' '}&copy; {new Date().getFullYear()} |
                     Wszystkie prawa zastrzeżone.

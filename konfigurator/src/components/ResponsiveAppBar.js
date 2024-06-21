@@ -77,11 +77,9 @@ function ResponsiveAppBar() {
     <div>
       <AppBar position="fixed">
         <Toolbar className={styles.wrapper}>
-
           <Link to="/" className={styles.logo}>
             <img src="/logo1.svg" alt="WebTune Logo" className={styles.logoImage} />
           </Link>
-
           <div className={styles.menuButton}>
             <IconButton
               edge="start"
@@ -107,9 +105,7 @@ function ResponsiveAppBar() {
                 </MenuItem>
               )
             ))
-
             }
-
             {!loggedInUser && (
               <Snackbar
                 open={openSnackbar}
@@ -144,7 +140,6 @@ function ResponsiveAppBar() {
           </div>
         </Toolbar>
       </AppBar>
-
       <Drawer
         anchor="left"
         open={drawerOpen}
@@ -163,7 +158,8 @@ function ResponsiveAppBar() {
             to="/"
             onClick={toggleDrawer(false)}
           >
-            <HomeIcon />
+            <img src="/logo1.svg" alt="WebTune Logo" className={styles.logoImage} />
+            {/* <HomeIcon /> */}
             <ListItemText />
           </ListItem>
           {BarItems.map((item, index) => (
