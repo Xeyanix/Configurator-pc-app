@@ -77,12 +77,11 @@ function ResponsiveAppBar() {
     <div>
       <AppBar position="fixed">
         <Toolbar className={styles.wrapper}>
-       
-          <h3 className={styles.logo}>
-            <Link to="/">
-              <span>Web</span><span className={styles.tune}>Tune</span>
-            </Link>
-          </h3>
+
+          <Link to="/" className={styles.logo}>
+            <img src="/logo1.svg" alt="WebTune Logo" className={styles.logoImage} />
+          </Link>
+
           <div className={styles.menuButton}>
             <IconButton
               edge="start"
@@ -94,21 +93,21 @@ function ResponsiveAppBar() {
             </IconButton>
           </div>
           <div className={styles.otherPageButtons}>
-             { BarItems.map((item, index) => (
-                item.label && (
-                  <MenuItem
-                    button
-                    key={index}
-                    component={item.path ? Link : "button"}
-                    to={item.path}
-                    onClick={item.onClick}
-                    className={styles.buttons}
-                  >
-                    <ListItemText primary={item.label} />
-                  </MenuItem>
-                )
-              ))
-         
+            {BarItems.map((item, index) => (
+              item.label && (
+                <MenuItem
+                  button
+                  key={index}
+                  component={item.path ? Link : "button"}
+                  to={item.path}
+                  onClick={item.onClick}
+                  className={styles.buttons}
+                >
+                  <ListItemText primary={item.label} />
+                </MenuItem>
+              )
+            ))
+
             }
 
             {!loggedInUser && (

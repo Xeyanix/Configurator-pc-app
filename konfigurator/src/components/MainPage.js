@@ -50,6 +50,9 @@ function MainPage() {
             <ResponsiveAppBar />
 
             <main>
+
+
+                
                 <div className={styles.MainContainer}>
                     <section id="aboutSection" className={styles.about}>
                         <div class="container" className={styles.header}>

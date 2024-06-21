@@ -1,3 +1,25 @@
+.logo {
+  display: inline-block;
+  transition: transform 0.2s ease-out;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+  color: black;
+}
+
+.logoImage {
+  display: block;
+  height: 60px;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.logoImage:hover {
+  filter: none;
+}
+
+
 .App {
   display: fixed;
   width: 100%;
@@ -12,10 +34,10 @@
 
 .wrapper {
   display: flex;
-  height: 95px;
+  height: 120px;
   align-items: center;
   color: white;
-  background-color: rgba(9, 67, 100, 0.581);
+  background-color: hsl(250, 46%, 25%);
   cursor: pointer;
 
 }
@@ -73,34 +95,12 @@
 
 
 
-.logo {
-  color: #000000;
-  font-size: 24px;
-  font-weight: bold;
-  font-family: 'Poppins', sans-serif;
-  margin-right: auto;
-  padding-left: 20px;
-}
-
-.logo a {
-  text-decoration: none;
-  color: #000000;
-  font-size: 24px;
-  font-weight: bold;
-  font-family: 'Poppins', sans-serif;
-  margin-right: auto;
-  padding-left: 20px;
-}
-
-.logo a:hover .tune {
-  color: #fff200;
-}
 
 .loggedInMessage {
   display: flex;
   justify-content: center;
   margin-bottom: 3px;
-  // flex-direction: column;
+
   align-items: center;
   text-decoration: underline;
 }
