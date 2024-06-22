@@ -48,40 +48,46 @@ function MainPage() {
     return (
         <div>
             <ResponsiveAppBar />
+
             <main>
                 <div className={styles.MainContainer}>
                     <section id="aboutSection" className={styles.about}>
-                        <div class="container" className={styles.header}>
-                            <h2>O nas</h2>
-                            <p>Web Tune to firma zajmująca się tworzeniem profesjonalnych stron internetowych oraz budowaniem komputerów na zamówienie od lat. Nasz zespół ekspertów składa się z doświadczonych programistów, grafików i specjalistów od sprzętu komputerowego.</p>
-                            <p>Jesteśmy dumni z naszego podejścia do projektowania, które skupia się na precyzji, kreatywności i zadowoleniu klienta. Bez względu na to, czy potrzebujesz nowoczesnej strony internetowej dla swojej firmy czy też wydajnego komputera do pracy, jesteśmy tutaj, aby Ci pomóc.</p>
-                            <p>Sprawdź naszą ofertę</p>
-                            
-                            <button
-                                href="#projectSection"
-                                onClick={handleScrollToOffer}
-                                className={styles.banner__btn}
-                                title="Link kierujący do kolejnej sekcji 'Kontakt' zawierającej formularz kontaktowy."
-                            >
-                                <svg
-                                    width="22px"
-                                    height="22px"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className={styles.banner__btn_icon}
-                                >
-                                    <path
-                                        d="M6 15L11.2929 9.70711C11.6834 9.31658 12.3166 9.31658 12.7071 9.70711L18 15"
-                                        stroke="#f9f9ff"
-                                        strokeWidth="2.6"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    ></path>
-                                </svg>
-                            </button>
+                        <div className={styles.header_container} >
+                            <div className={`${styles.header} ${styles.header_left}`}>
+                                <img src="icon-yellow.png" alt="Opis obrazka">
+                                </img>
+                            </div>
+                            <div className={`${styles.header} ${styles.header_right}`}>
+                                <h2>O nas</h2>
+                                <p>Web Tune to firma zajmująca się tworzeniem profesjonalnych stron internetowych oraz budowaniem komputerów na zamówienie od lat. Nasz zespół ekspertów składa się z doświadczonych programistów, grafików i specjalistów od sprzętu komputerowego.</p>
+                                <p>Jesteśmy dumni z naszego podejścia do projektowania, które skupia się na precyzji, kreatywności i zadowoleniu klienta. Bez względu na to, czy potrzebujesz nowoczesnej strony internetowej dla swojej firmy czy też wydajnego komputera do pracy, jesteśmy tutaj, aby Ci pomóc.</p>
+                                <p>Sprawdź naszą ofertę</p>
+                            </div>
                         </div>
 
+                        <button
+                            href="#projectSection"
+                            onClick={handleScrollToOffer}
+                            className={styles.banner__btn}
+                            title="Link kierujący do kolejnej sekcji 'Kontakt' zawierającej formularz kontaktowy."
+                        >
+                            <svg
+                                width="22px"
+                                height="22px"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                className={styles.banner__btn_icon}
+                            >
+                                <path
+                                    d="M6 15L11.2929 9.70711C11.6834 9.31658 12.3166 9.31658 12.7071 9.70711L18 15"
+                                    stroke="#f9f9ff"
+                                    strokeWidth="2.6"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                ></path>
+                            </svg>
+                        </button>
                     </section>
 
                     <section className={styles.offer}>
