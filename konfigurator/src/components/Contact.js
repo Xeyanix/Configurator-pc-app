@@ -181,6 +181,9 @@ function Contact() {
                                                 <option value="Oferta">Oferta</option>
                                                 <option value="Współpraca">Współpraca</option>
                                                 <option value="Błąd">Błąd na stronie</option>
+                                                <option value="Inny">Zamówienie</option>
+                                                <option value="Inny">ZamówieniePC</option>
+                                                <option value="Inny">Zamówienie Strony</option>
                                                 <option value="Inny">Inny</option>
                                             </select>
                                         </div>

@@ -4,6 +4,10 @@ import styles from "../common/styles/MainPage.module.scss";
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from './Footer';
 import ResponsiveAppBar from "./ResponsiveAppBar";
+import WebIcon from '@mui/icons-material/Web';
+import BuildIcon from '@mui/icons-material/Build';
+import ComputerIcon from '@mui/icons-material/Computer';
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 
 function MainPage() {
     const [openSnackbar, setOpenSnackbar] = useState(true);
@@ -21,11 +25,11 @@ function MainPage() {
     };
 
     const redirectToOrderWebsite = () => {
-        window.location.href = "/OrderWebsite";
+        window.location.href = "/Contact";
     }
 
     const redirectToOrderPC = () => {
-        window.location.href = "/OrderPC";
+        window.location.href = "/Contact";
     }
 
     const redirectToCV = () => {
@@ -36,14 +40,12 @@ function MainPage() {
         window.location.href = "/ConfigurePage";
     }
 
-
     const projectsData = [
-        { title: "Tworzenie stron", description: "Zamów swoją strone internetową", buttonText: "Zamów swoją stronę" },
-        { title: "Konfigurator PC", description: "Zbuduj swój komputer", buttonText: "Konfigurator" },
-        { title: "Składanie Komputerów", description: "Komputer na zamówienie", buttonText: "Zamów swój komputer" },
-        { title: "CV", description: "Znajdź wszystkie informacje o mnie.", buttonText: "CV Page" },
+        { title: "Tworzenie stron", description: "Zamów swoją strone internetową", buttonText: "Zamów swoją stronę", Icon: WebIcon },
+        { title: "Konfigurator PC", description: "Zbuduj swój komputer", buttonText: "Konfigurator", Icon: BuildIcon },
+        { title: "Składanie Komputerów", description: "Komputer na zamówienie", buttonText: "Zamów swój komputer", Icon: ComputerIcon },
+        { title: "CV", description: "Znajdź wszystkie informacje o mnie.", buttonText: "CV Page", Icon: AssignmentIndIcon },
     ];
-
 
     return (
         <div>
@@ -92,36 +94,47 @@ function MainPage() {
 
                     <section className={styles.offer}>
                         <div id="projectSection" className={styles.headerOffer}>
-
                             <p>Oferta</p>
-                            <h2 class="section__title section__title--no-margin">
+                            <h2 className="section__title section__title--no-margin">
                                 Sukces w zasięgu ręki – zapoznaj się z naszymi usługami.
                             </h2>
                         </div>
                         <div className={styles.projects}>
-                            {projectsData.map((project, index) => (
-                                <div
-                                    key={index}
-                                    className={styles.option}
-                                    onClick={index === 0 ? redirectToOrderWebsite : index === 2 ? redirectToOrderPC : index === 3 ? redirectToCV : () => redirectToConfigurator(index)}>
-
-                                    <h2>{project.title}</h2>
-
-                                    <p>{project.description}</p>
-                                    <Link to={index === 0 ? "/OrderWebsite" : index === 2 ? "/OrderPC" : index === 3 ? "/ShowPage" : "/ConfigurePage"}>
-                                        <Button variant="contained">
-                                            {project.buttonText}
-                                        </Button>
-                                    </Link>
-                                </div>
-                            ))}
+                            {projectsData.map((project, index) => {
+                                const IconComponent = project.Icon;
+                                return (
+                                    <div
+                                        key={index}
+                                        className={styles.option}
+                                        onClick={
+                                            index === 0 ? redirectToOrderWebsite :
+                                                index === 2 ? redirectToOrderPC :
+                                                    index === 3 ? redirectToCV : redirectToConfigurator
+                                        }
+                                    >
+                                        <h1>{project.title}</h1>
+                                        <h3>{project.description}</h3>
+                                        <IconComponent style={{ fontSize: 150 }} />
+                                        <br />
+                                        <br />
+                                      
+                                        <Link to={
+                                            index === 0 ? "/Contact" :
+                                                index === 2 ? "/Contact" :
+                                                    index === 3 ? "/ShowPage" : "/ConfigurePage"
+                                        }>
+                                            <Button variant="contained">
+                                                {project.buttonText}
+                                            </Button>
+                                        </Link>
+                                    </div>
+                                );
+                            })}
                         </div>
-                        <div className={styles.aboutButton} >
+                        <div className={styles.aboutButton}>
                             <Link to="/Offer">
                                 <Button variant="contained">
-
                                     Zobacz wszystkie nasze usługi
-
                                 </Button>
                             </Link>
                         </div>
@@ -132,8 +145,8 @@ function MainPage() {
                         <Footer />
                     </div>
                 </div>
-            </main >
-        </div >
+            </main>
+        </div>
     );
 }
 

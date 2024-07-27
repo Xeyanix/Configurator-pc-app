@@ -2,13 +2,14 @@
   background-color: #0000009f;
   max-width: 100%;
   margin-top: 90px;
+  min-height: calc(100vh - 740px);
 
   .about {
-    background-color: rgb(69, 129, 44);
-    height: 1000px;
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 2rem 0;
+    background-color: rgb(69, 129, 44);
 
     .header_container {
       display: flex;
@@ -78,9 +79,11 @@
 
   .offer {
     padding: 30px;
+
     // background-color: blue;
 
-    .header h2 {
+
+    .header h1 {
       text-align: center;
     }
 
@@ -114,6 +117,11 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease-in-out;
         cursor: pointer;
+
+        h1 {
+          font-size: 38px;
+          color: yellow;
+        }
 
         &:hover {
           transform: scale(1.05);
