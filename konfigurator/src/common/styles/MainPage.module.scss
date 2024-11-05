@@ -1,15 +1,17 @@
 .MainContainer {
-  background-color: #0000009f;
-  max-width: 100%;
-  margin-top: 90px;
   min-height: calc(100vh - 740px);
+  text-align: center;
+  background-color: #e1f4fe;
 
   .about {
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 2rem 0;
-    background-color: rgb(69, 129, 44);
+    background-color: #e1f4fe;
+    
+    border-radius: 10px; /* Zaokrąglone rogi */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla głębi */
 
     .header_container {
       display: flex;
@@ -24,7 +26,7 @@
         display: flex;
         flex-direction: column;
         padding: 2.4rem 0;
-        color: #fff;
+        color: #000000;
         text-align: center;
         font-size: 1.3rem;
 
@@ -73,61 +75,121 @@
       }
     }
 
-
   }
 
 
   .offer {
-    padding: 30px;
-
-    // background-color: blue;
-
-
-    .header h1 {
-      text-align: center;
-    }
+    background-color: #e1f4fe;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
 
     .headerOffer {
-      color: #fff;
-      text-align: center;
-      padding: 2rem;
-      font-size: 1.3rem;
+      width: 70%;
+      font-size: 1.2rem;
+      max-width: 900px;
+      padding: 3rem;
+      color: #000000;
+
+      h1 {
+        font-size: 2.5rem;
+        color: #ff7a0d;
+        margin-bottom: 0.5rem;
+      }
     }
 
-    .aboutButton {
-      text-align: center;
-    }
 
     .projects {
       display: grid;
-      grid-template-rows: auto auto;
-      grid-template-columns: auto auto;
-      height: calc(100vh - 100px);
+      width: 95%;
       overflow-x: auto;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 1rem;
+      background-color: #e1f4fe;
 
       .option {
-        display: auto;
         color: black;
         text-align: center;
-        justify-content: center;
-        padding: 2rem;
-        margin: 5%;
-        background-color: rgb(75, 199, 199);
+        padding: 1.5rem;
+        background-color: #fff;
         border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
         transition: transform 0.3s ease-in-out;
         cursor: pointer;
 
         h1 {
-          font-size: 38px;
-          color: yellow;
+          font-size: 1.8rem;
+          color: #333;
+        }
+
+        h3 {
+          font-size: 1rem;
+          color: #333;
+          margin-top: 0.5rem;
         }
 
         &:hover {
           transform: scale(1.05);
         }
 
+        svg {
+          font-size: 4rem;
+          color: #ff7a0d;
+          margin-bottom: 1rem;
+        }
+
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        Button {
+          font-size: 1rem;
+          color: #fff;
+          background-color: #000000;
+          transition: background-color 0.3s;
+        }
+
+        Button:hover {
+          background-color: #cc6500;
+        }
       }
     }
+
+
+  }
+}
+
+
+@media (max-width: 768px) {
+  .mainContainer {
+    padding: 10px;
+  }
+
+  .headerOffer {
+    width: 90%;
+    padding: 2rem;
+  }
+
+  .headerOffer h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerOffer h1 {
+    font-size: 1.6rem;
+  }
+
+  .option h1 {
+    font-size: 1.4rem;
+  }
+
+  .option svg {
+    font-size: 3rem;
   }
 }

@@ -71,7 +71,7 @@ function MainPage() {
                             href="#projectSection"
                             onClick={handleScrollToOffer}
                             className={styles.banner__btn}
-                            title="Link kierujący do kolejnej sekcji 'Kontakt' zawierającej formularz kontaktowy."
+                            title="Link kierujący do kolejnej sekcji 'Oferta' zawierającej oferte ."
                         >
                             <svg
                                 width="22px"
@@ -92,9 +92,9 @@ function MainPage() {
                         </button>
                     </section>
 
-                    <section className={styles.offer}>
+                    <div className={styles.offer}>
                         <div id="projectSection" className={styles.headerOffer}>
-                            <p>Oferta</p>
+                            <h1>Oferta</h1>
                             <h2 className="section__title section__title--no-margin">
                                 Sukces w zasięgu ręki – zapoznaj się z naszymi usługami.
                             </h2>
@@ -117,7 +117,7 @@ function MainPage() {
                                         <IconComponent style={{ fontSize: 150 }} />
                                         <br />
                                         <br />
-                                      
+
                                         <Link to={
                                             index === 0 ? "/Contact" :
                                                 index === 2 ? "/Contact" :
@@ -131,14 +131,33 @@ function MainPage() {
                                 );
                             })}
                         </div>
-                        <div className={styles.aboutButton}>
-                            <Link to="/Offer">
-                                <Button variant="contained">
-                                    Zobacz wszystkie nasze usługi
-                                </Button>
-                            </Link>
-                        </div>
-                    </section>
+
+                        <Link to="/Offer">
+                            <Button
+                                variant="contained"
+                                style={{
+                                    backgroundColor: "black",
+                                    color: "white"
+                                }}
+                                sx={{
+                                    padding: "20px",
+                                    borderRadius: "25px",
+                                    outline: "none",
+                                    boxShadow: "none",
+                                    backgroundColor: "black",
+                                    transition: "background-color 0.3s ease",
+                                    "&:hover": {
+                                        backgroundColor: "orange !important"
+                                    },
+
+                                }}
+
+                            >
+                                Zobacz wszystkie nasze usługi
+                            </Button>
+                        </Link>
+
+                    </div>
                 </div>
                 <div>
                     <div id="contactSection">
