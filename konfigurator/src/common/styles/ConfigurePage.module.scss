@@ -1,131 +1,126 @@
 .Box {
   margin-top: 120px;
+  background-color: #e1f4fe;
 }
 
+
+$primary-color: #007bff;
+$secondary-color: #28a745;
+$hover-color: #0056b3;
+$footer-bg: #f1f1f1;
+$text-color: orange;
+
 .MainContainer {
-  // height: 100%;
-  min-height: 100vh;
-  max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  padding: 40px;
+  max-width: 800px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.8s ease-out;
+}
 
-  .mainPageWrapper {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
+.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fadeIn {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.mainHeading {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  color: $text-color;
+  margin-bottom: 20px;
+}
+
+.mainParagraph {
+  font-size: 16px;
+  color: $text-color;
+  margin-bottom: 20px;
+}
+
+.sectionHeading {
+  font-size: 24px;
+  font-weight: 600;
+  color: $text-color;
+  margin-top: 40px;
+}
+
+.componentOptions {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.componentButton {
+  background-color: $primary-color;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  font-weight: 500;
+  
+  &:hover {
+    background-color: $hover-color;
   }
+}
 
-  .maintext {
-    color: black;
-    border-color: black;
+.checkoutButton {
+  margin-top: 30px;
+  padding: 14px 32px;
+  background-color: $secondary-color;
+  color: white;
+  border-radius: 4px;
+  font-weight: 600;
+  
+  &:hover {
+    background-color: darken($secondary-color, 10%);
+  }
+}
+
+.footer {
+  background-color: $footer-bg;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .MainContainer {
+    padding: 20px;
   }
 
   .mainHeading {
-    color: #333;
-    font-size: 26px;
-    text-align: center;
-    margin-bottom: 10px;
+    font-size: 28px;
   }
 
   .mainParagraph {
-    color: #555;
-    font-size: 16px;
-    line-height: 1.5;
-  }
-
-  .additionalText {
-    margin-top: 15px;
-    color: #666;
-  }
-
-  .section {
-    margin-top: 30px;
+    font-size: 14px;
   }
 
   .sectionHeading {
-    color: lightslategray;
     font-size: 20px;
+  }
+
+  .componentOptions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .componentButton {
     margin-bottom: 10px;
+    width: 100%;
   }
 
-  .sectionParagraph {
-    color: #555;
-    font-size: 16px;
-    line-height: 1.5;
-  }
-
-  .contactSection {
-    margin-top: 30px;
-  }
-
-
-  .copyrightText {
-    margin: 0;
-  }
-
-  @media (max-width: 600px) {
-    .Box {
-      margin-top: 20px;
-    }
-
-    .MainContainer {
-      padding: 10px;
-      max-width: 100%;
-      margin-top: 20px;
-    }
-
-    .MainContainer .mainHeading {
-      font-size: 22px;
-    }
-
-    .MainContainer .mainParagraph {
-      font-size: 14px;
-    }
-
-    .MainContainer .sectionHeading {
-      font-size: 18px;
-    }
-
-    .MainContainer .sectionParagraph {
-      font-size: 14px;
-    }
-  }
-
-
-  @media (max-width: 400px) {
-    .Box {
-      margin-top: 10px;
-    }
-
-    .MainContainer {
-      padding: 5px;
-      max-width: 100%;
-
-      margin-top: 10px;
-   
-    }
-
-    .MainContainer .mainHeading {
-      font-size: 20px;
-     
-    }
-
-    .MainContainer .mainParagraph {
-      font-size: 12px;
-    
-    }
-
-    .MainContainer .sectionHeading {
-      font-size: 16px;
-  
-    }
-
-    .MainContainer .sectionParagraph {
-      font-size: 12px;
-      
-    }
+  .checkoutButton {
+    width: 100%;
   }
 }

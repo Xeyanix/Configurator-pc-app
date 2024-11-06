@@ -4,7 +4,7 @@ import ResponsiveAppBar from './ResponsiveAppBar';
 import Footer from './Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faClock, faMapMarkerAlt, faBriefcase } from '@fortawesome/free-solid-svg-icons';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import emailjs from 'emailjs-com';
 
 function Contact() {
@@ -17,13 +17,15 @@ function Contact() {
         message: "",
         consent: false,
     });
+    const aboutSectionRef = useRef(null);
+
     useEffect(() => {
         window.scrollTo({
             // top: 0,
             behavior: 'smooth',
         });
     }, []);
-    
+
     const handleScrollToContact = () => {
         const contactSection = document.getElementById('contactSection');
         if (contactSection) {
@@ -66,12 +68,27 @@ function Contact() {
         });
     };
 
+    useEffect(() => {
+        if (aboutSectionRef.current) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(styles.fadeIn); // Dodaj klasę animacji
+                        observer.unobserve(entry.target); // Jednorazowy efekt dla elementu
+                    }
+                });
+            });
+
+            observer.observe(aboutSectionRef.current); // Obserwuj aboutSectionRef
+            return () => observer.disconnect();
+        }
+    }, []);
 
     return (
         <div>
             <ResponsiveAppBar />
             <main>
-                <div className={styles.MainContainer}>
+                <div className={`${styles.MainContainer} ${styles.hidden}`} ref={aboutSectionRef}>
                     <div className={styles.banner}>
                         <div className={styles.banner__containerwrapper}>
                             <div>

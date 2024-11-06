@@ -1,3 +1,27 @@
+.hidden {
+  opacity: 0;
+  transform: translateY(20px); // Opcjonalnie: przesunięcie w dół przed animacją
+}
+
+// Styl animacji fade-in
+.fadeIn {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeIn 0.8s ease-out forwards;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px); // Start z przesunięciem
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0); // Docelowa pozycja
+    }
+  }
+}
+
 .MainContainer {
   min-height: calc(100vh - 740px);
   text-align: center;
@@ -9,9 +33,11 @@
     text-align: center;
     padding: 2rem 0;
     background-color: #e1f4fe;
-    
-    border-radius: 10px; /* Zaokrąglone rogi */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla głębi */
+
+    border-radius: 10px;
+    /* Zaokrąglone rogi */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Cień dla głębi */
 
     .header_container {
       display: flex;

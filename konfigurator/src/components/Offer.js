@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from 'react';
 import styles from "../common/styles/Offer.module.scss";
 import { useLocation } from "react-router-dom";
 import ResponsiveAppBar from "./ResponsiveAppBar";
@@ -13,7 +13,7 @@ import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 function Offer() {
     const { state } = useLocation();
     const loggedInUser = state?.loggedInUser;
-    const [setScrollPosition] = useState(0);
+    const aboutSectionRef = useRef(null);
 
     const handleScrollToOffer = () => {
         const projectSection = document.getElementById('projectSection');
@@ -21,13 +21,24 @@ function Offer() {
             projectSection.scrollIntoView({ behavior: 'smooth' });
         }
     };
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-        setScrollPosition(0);
-    };
+
+    useEffect(() => {
+        if (aboutSectionRef.current) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(styles.fadeIn); // Dodaj klasę animacji
+                        observer.unobserve(entry.target); // Jednorazowy efekt dla elementu
+                    }
+                });
+            });
+
+            observer.observe(aboutSectionRef.current); // Obserwuj aboutSectionRef
+            return () => observer.disconnect();
+        }
+    }, []);
+
+    
     const redirectToOrderWebsite = () => {
         window.location.href = "/Contact";
     }
@@ -54,7 +65,8 @@ function Offer() {
     return (
         <div className={styles.Box}>
             <ResponsiveAppBar />
-            <div className={styles.mainContainer}>
+           
+            <div className={`${styles.mainContainer} ${styles.hidden}`} ref={aboutSectionRef}> 
                 <div className={styles.offer}>
                     <div className={styles.headerOffer}>
                         <div>

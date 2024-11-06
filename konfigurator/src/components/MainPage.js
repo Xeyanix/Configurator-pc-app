@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from 'react';
 import Button from "@mui/material/Button";
 import styles from "../common/styles/MainPage.module.scss";
 import { Link, useNavigate } from 'react-router-dom';
@@ -12,10 +12,27 @@ import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 function MainPage() {
     const [openSnackbar, setOpenSnackbar] = useState(true);
     const navigate = useNavigate();
+    const aboutSectionRef = useRef(null);
 
     useEffect(() => {
         setOpenSnackbar(false);
     }, [navigate]);
+
+    useEffect(() => {
+        if (aboutSectionRef.current) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(styles.fadeIn); // Dodaj klasę animacji
+                        observer.unobserve(entry.target); // Jednorazowy efekt dla elementu
+                    }
+                });
+            });
+
+            observer.observe(aboutSectionRef.current); // Obserwuj aboutSectionRef
+            return () => observer.disconnect();
+        }
+    }, []);
 
     const handleScrollToOffer = () => {
         const projectSection = document.getElementById('projectSection');
@@ -53,7 +70,8 @@ function MainPage() {
 
             <main>
                 <div className={styles.MainContainer}>
-                    <section id="aboutSection" className={styles.about}>
+                    <section id="aboutSection" ref={aboutSectionRef}
+                        className={`${styles.about} ${styles.hidden}`}>
                         <div className={styles.header_container} >
                             <div className={`${styles.header} ${styles.header_left}`}>
                                 <img src="icon-yellow.png" alt="Opis obrazka">

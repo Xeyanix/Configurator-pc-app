@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Button from "@mui/material/Button";
 import { Link } from 'react-router-dom';
 import Box from "@mui/material/Box";
@@ -10,22 +10,32 @@ import Footer from './Footer';
 function ConfigurePage() {
   const { state } = useLocation();
   const loggedInUser = state?.loggedInUser;
-  const [setScrollPosition] = useState(0);
+  const aboutSectionRef = useRef(null);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-    setScrollPosition(0);
-  };
+  
 
+  useEffect(() => {
+    if (aboutSectionRef.current) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.fadeIn); // Dodaj klasę animacji
+            observer.unobserve(entry.target); // Jednorazowy efekt dla elementu
+          }
+        });
+      });
+
+      observer.observe(aboutSectionRef.current); // Obserwuj aboutSectionRef
+      return () => observer.disconnect();
+    }
+  }, []);
 
   return (
     <div className={styles.Box}>
       <ResponsiveAppBar />
       <main >
-        <div className={styles.MainContainer}>
+        <div className={`${styles.MainContainer} ${styles.hidden}`} ref={aboutSectionRef}>
+
           <div className={styles.maintext}>
             <h1 className={styles.mainHeading}>Witaj w Konfiguratorze Swojego komputera - PC</h1>
             <p className={styles.sectionParagraph}>
