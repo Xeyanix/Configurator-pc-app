@@ -1,35 +1,26 @@
 .footerContainer {
-  padding: 40px;
+  padding: 25px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
   gap: 12px;
   color: black;
-  border-bottom: 2px solid #293241;
-  border-radius: 2px;
-  background-color: #e1f4fe;
-}
-
-.contactSection {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background-color: #e1f4fe;
+  background-color:  rgba(255, 255, 0, 0.72);
 }
 
 .footerTitle {
-  color: Yellow;
+  color: rgb(0, 0, 0);
   font-family: 'Poppins', sans-serif;
   font-size: 40px;
   font-weight: bold;
-  letter-spacing: .8px;
-  margin-bottom: 16px;
+  letter-spacing: .4px;
+  margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .footerSign {
-  color: #1ECAB0;
+  color: #000000;
   font-family: Cambria, sans-serif;
   font-size: 40px;
   font-weight: bold;
@@ -38,35 +29,44 @@
 .footerDescription {
   width: 100%;
   max-width: 420px;
-  margin-bottom: 40px;
-  color: #68676c;
+  color: #000000;
   font-weight: bold;
   font-family: 'Rubik', sans-serif;
-  font-size: 20px;
+  font-size: 10px;
   letter-spacing: .8px;
-  line-height: 1.7rem;
 }
 
 .footerListTitle {
   margin: 16px 0;
   font-family: 'Rubik', sans-serif;
-  font-size: 24px;
+  font-size: 14px;
+  color: #000000;
   font-weight: bold;
-  letter-spacing: .8px;
+  letter-spacing: .3px;
   border-bottom: 1px solid #000000;
-  padding-bottom: 8px;
+  padding-bottom: 10px;
 }
 
 .footerListTitleContact {
+  color: #000000;
   text-decoration: none;
+}
+
+.contactSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 30px;
+  background-color: #000000;
 }
 
 .copyrightText {
   text-decoration: none;
   font-weight: 500;
   list-style-type: none;
-  color: #68676c;
-  
+  font-size: small;
+  color: rgb(255, 255, 255);
+
 
   .copyrightText:hover {
     color: yellow;
@@ -85,26 +85,27 @@
 }
 
 .footerListItems {
+  font-size: 15px;
   list-style-type: none;
   padding: 0;
 }
 
 .footerListItems li {
+  font-size: 12px;
   margin: 12px 0;
   font-family: 'Rubik', sans-serif;
-  font-size: 16px;
   font-weight: bold;
-  letter-spacing: .8px;
+  letter-spacing: .3px;
 }
 
 .footerListItems li a {
   text-decoration: none;
- color: #68676c;
+  color: #68676c;
   transition: color 0.3s;
 }
 
 .footerListItems li a:hover {
-  color: yellow;
+  color: rgb(255, 255, 255);
 }
 
 .socialMediaLinks {
@@ -112,26 +113,26 @@
   justify-content: center;
   list-style-type: none;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
+  gap: 10px;
+  padding-right: 25px;
 }
 
 .socialMediaLinks li a {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid #000000;
+  border: 2px solid #ffffff;
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .socialMediaLinks li a svg {
-  width: 24px;
-  height: 24px;
-  fill: #000000;
+  width: 18px;
+  height: 18px;
+  fill: #ffffff;
 }
 
 .socialMediaLinks li a:hover,
@@ -139,8 +140,6 @@
   fill: yellow;
   border-color: yellow;
 }
-
-
 
 .scroll_up {
   width: 45px;
@@ -152,13 +151,19 @@
   color: white;
   border: 3px solid white;
   border-radius: 50%;
-  background-color: rgba(31, 60, 31, 0.681);
+  background-color: rgb(0, 0, 0);
   position: fixed;
   bottom: 80px;
-  right: 50px;
+  right: 15px;
   font-size: 24px;
   z-index: 20;
   cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.scroll_up:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffeb3b;
 }
 
 .showScroll {

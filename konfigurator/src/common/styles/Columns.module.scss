@@ -1,3 +1,12 @@
+.wrapper {
+  display: flex;
+  height: 70px;
+  align-items: center;
+  color: white;
+  background-color: hsl(250, 46%, 25%);
+  cursor: pointer;
+}
+
 .logo {
   display: inline-block;
   transition: transform 0.2s ease-out;
@@ -10,13 +19,22 @@
 
 .logoImage {
   display: block;
-  height: 60px;
+  height: 40px;
   filter: grayscale(100%);
   transition: filter 0.3s ease;
 }
 
 .logoImage:hover {
   filter: none;
+}
+
+.whiteText {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.whiteText:hover {
+  color: rgba(255, 255, 0, 0.871);
 }
 
 
@@ -32,20 +50,12 @@
   font-size: calc(10px + 2vmin);
 }
 
-.wrapper {
-  display: flex;
-  height: 120px;
-  align-items: center;
-  color: white;
-  background-color: hsl(250, 46%, 25%);
-  cursor: pointer;
 
-}
 
 .menuButton {
   margin-left: 50px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1122px) {
     display: flex;
     margin-left: auto;
     color: white;
@@ -77,9 +87,14 @@
       transition: width 0.3s ease, left 0.3s ease, right 0.3s ease;
     }
 
+    &:hover {
+      color: yellow;
+    }
+
     &:hover::after {
       width: 100%;
       left: 0;
+
     }
 
     &:not(:hover)::after {
@@ -88,7 +103,7 @@
     }
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1122px) {
     display: none;
   }
 }

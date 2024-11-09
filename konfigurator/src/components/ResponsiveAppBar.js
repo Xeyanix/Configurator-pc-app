@@ -147,7 +147,6 @@ function ResponsiveAppBar() {
         PaperProps={{
           sx: {
             backgroundColor: "rgba(9, 67, 100);",
-            color: "black",
           }
         }}
       >
@@ -169,8 +168,14 @@ function ResponsiveAppBar() {
               component={item.path ? Link : "button"}
               to={item.path}
               onClick={item.onClick}
+              sx={{
+                transition: "transform 0.3s ease",
+                "&:hover": {
+                  transform: "translateX(10px)", 
+                }
+              }}
             >
-              <ListItemText primary={item.label} />
+              <ListItemText primary={item.label} className={styles.whiteText} />
             </ListItem>
           ))}
         </List>
