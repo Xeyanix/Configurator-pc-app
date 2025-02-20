@@ -61,7 +61,7 @@ function Footer() {
                             <Link to="/Offer" href="#projectSection" onClick={scrollToTop}>Oferta</Link>
                         </li>
                         <li>
-                            <a href="" onClick={scrollToTop}>Realizacje</a>
+                            <a href="xd" onClick={scrollToTop}>Realizacje</a>
                         </li>
                         <li>
                             <Link to="/Contact" onClick={scrollToTop}> Kontakt</Link>

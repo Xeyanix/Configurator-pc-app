@@ -1,8 +1,6 @@
 const express = require('express');
-const res = require('express/lib/response');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
 
 const app = express();
 
@@ -20,7 +18,21 @@ app.set('view engine', 'ejs');
 app.use(logger);
 
 const productsRoutes = require('./routes/products');
-
 app.use('/products', productsRoutes);
 
-app.listen(9000);
+const PORT = process.env.PORT || 9000;
+
+// Sprawdź, czy port jest zajęty, jeśli tak, użyj innego
+const server = app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
+
+// Obsługa błędu EADDRINUSE
+server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+        console.error(`Port ${PORT} is already in use. Trying another port...`);
+        server.listen(0); // Używa losowego wolnego portu
+    } else {
+        console.error('Server error:', err);
+    }
+});
