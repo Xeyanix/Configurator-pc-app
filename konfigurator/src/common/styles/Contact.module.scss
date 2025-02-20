@@ -1,31 +1,31 @@
-
 .hidden {
     opacity: 0;
     transform: translateY(20px); // Opcjonalnie: przesunięcie w dół przed animacją
-  }
-  
-  // Styl animacji fade-in
-  .fadeIn {
+}
+
+// Styl animacji fade-in
+.fadeIn {
     opacity: 1;
     transform: translateY(0);
     animation: fadeIn 0.8s ease-out forwards;
-  
+
     @keyframes fadeIn {
         0% {
             opacity: 0;
             transform: translateY(20px); // Start z przesunięciem
         }
+
         100% {
             opacity: 1;
             transform: translateY(0); // Docelowa pozycja
         }
     }
-  }
+}
 
 .MainContainer {
     height: 100%;
     max-width: 100%;
-    margin-top: 120px;
+    margin-top: 70px;
     // min-height: 100vh;
     min-height: calc(100vh - 740px);
     background-color: #e1f4fe;

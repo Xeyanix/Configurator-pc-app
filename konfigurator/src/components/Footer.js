@@ -33,10 +33,10 @@ function Footer() {
                 <div>
                     <div>
                         <p className={styles.footerTitle}>
-                            WebTune <span className={styles.footerSign}>+</span>
+                            PCTuned <span className={styles.footerSign}>+</span>
                         </p>
                         <p className={styles.footerDescription}>
-                            Tworzymy strony internetowe.
+                            Budujemy strony internetowe.
                             Nasze projekty nie są jedynie statycznymi obrazami w sieci, to dynamiczne narzędzia, które skutecznie przyciągną klienta.
                             <p>  </p>
                             Jesteśmy ekspertami w budowaniu komputerów dostosowanych do Twoich potrzeb.
@@ -95,7 +95,7 @@ function Footer() {
                     </p>
                     <ul className={styles.footerListItems}>
                         <li>
-                            <a href="mailto:support@healthplus.com">biuro@webtune.pl</a>
+                            <a href="mailto:support@healthplus.com">biuro@pctuned.pl</a>
                         </li>
                         <li>
                             <a href="tel:+022 5454 5252">+48 123 456 789 </a>
@@ -114,7 +114,7 @@ function Footer() {
             <div className={styles.contactSection}>
                 <p className={styles.copyrightText}>
                     <Link to="/" onClick={scrollToTop} className={styles.copyrightText}>
-                        WebTune
+                        PCTuned
                     </Link>
                     {' '}&copy; {new Date().getFullYear()} |
                     Wszystkie prawa zastrzeżone.
@@ -125,7 +125,7 @@ function Footer() {
                             <a
                                 rel="noopener noreferrer"
                                 target="_blank"
-                                title="LinkedIn WebTune"
+                                title="LinkedIn PCTuned"
                                 href="https://www.linkedin.com/in/jan-goralewski/"
                             >
                                 <svg
@@ -142,7 +142,7 @@ function Footer() {
                             <a
                                 rel="noopener noreferrer"
                                 target="_blank"
-                                title="Facebook WebTune"
+                                title="Facebook PCTuned"
                                 href="https://www.facebook.com/jan.goralewski2"
                             >
                                 <svg
@@ -160,7 +160,7 @@ function Footer() {
                             <a
                                 rel="noopener noreferrer"
                                 target="_blank"
-                                title="Instagram WebTune"
+                                title="Instagram PCTuned"
                                 href="https://www.instagram.com/bboyjohnny/"
                             >
                                 <svg

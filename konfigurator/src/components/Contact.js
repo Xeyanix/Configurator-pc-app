@@ -250,7 +250,7 @@ function Contact() {
                                             </p>
                                             <p className={styles.contact__info_card_caption}>
                                                 <a href="mailto:biuro@digidraft.pl" className={styles.contact__info_card_phone} title="Link z adresem e-mail do naszej firmy.">
-                                                    <span>biuro@digidraft.pl</span>
+                                                    <span>biuro@pctuned.pl</span>
                                                 </a>
                                             </p>
                                         </div>
@@ -273,7 +273,7 @@ function Contact() {
                                         <div className={styles.contact__info_card_text}>
                                             <h4 className={styles.contact__info_card_title}>Wirtualne biuro</h4>
                                             <p className={styles.contact__info_card_caption}>
-                                                WebTune - Strony Internetowe <br />
+                                                PCTuned - Komputery Customowe <br />
                                                 ul. Pogodna 27<br />
                                                 15-694 Fasty<br />
                                             </p>

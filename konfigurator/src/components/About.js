@@ -41,7 +41,7 @@ function About() {
                     <div className={styles.header}>
                         <h1>O nas</h1>
                         <p>
-                            Web Tune to firma zajmująca się tworzeniem profesjonalnych stron internetowych oraz budowaniem komputerów na zamówienie od wielu lat.
+                           PCTuned to firma zajmująca się tworzeniem profesjonalnych stron internetowych oraz budowaniem komputerów na zamówienie od wielu lat.
                             Nasz zespół składa się z ekspertów z zakresu programowania, grafiki komputerowej oraz technologii sprzętowej, co pozwala nam kompleksowo
                             podejść do realizacji każdego projektu.
                         </p>
