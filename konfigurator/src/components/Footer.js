@@ -143,7 +143,7 @@ function Footer() {
                                 rel="noopener noreferrer"
                                 target="_blank"
                                 title="Facebook PCTuned"
-                                href="https://www.facebook.com/jan.goralewski2"
+                                href="https://www.facebook.com/profile.php?id=61575464734121"
                             >
                                 <svg
                                     fill="#000000"
@@ -161,7 +161,7 @@ function Footer() {
                                 rel="noopener noreferrer"
                                 target="_blank"
                                 title="Instagram PCTuned"
-                                href="https://www.instagram.com/bboyjohnny/"
+                                href="https://www.instagram.com/pc.tuned/"
                             >
                                 <svg
                                     fill="#000000"
