@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
   <meta name="description" content="Web site created using create-react-app" />
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/icon-yellow.png" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  <title>WebTune </title>
+  <title>PCTuned </title>
 
   <script>
     let intervalId;
@@ -17,11 +17,11 @@
     function changeTitle() {
       if (document.hidden) {
         intervalId = setInterval(() => {
-          document.title = (document.title === "WebTune") ? "*Tworzenie stron i komputerów na zamówienie" : "WebTune";
+          document.title = (document.title === "PCTuned") ? "*Tworzenie stron i komputerów na zamówienie" : "PCTuned";
         }, 5000);
       } else {
         clearInterval(intervalId);
-        document.title = "WebTune";
+        document.title = "PCTuned";
       }
     }
     document.addEventListener("visibilitychange", changeTitle);

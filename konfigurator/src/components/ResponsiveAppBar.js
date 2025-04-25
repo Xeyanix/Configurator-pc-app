@@ -78,7 +78,7 @@ function ResponsiveAppBar() {
       <AppBar position="fixed">
         <Toolbar className={styles.wrapper}>
           <Link to="/" className={styles.logo}>
-            <img src="/logo1.svg" alt="WebTune Logo" className={styles.logoImage} />
+            <img src="/konfigurator/logo1.svg" alt="WebTune Logo" className={styles.logoImage} />
           </Link>
           <div className={styles.menuButton}>
             <IconButton
@@ -157,7 +157,9 @@ function ResponsiveAppBar() {
             to="/"
             onClick={toggleDrawer(false)}
           >
-            <img src="/logo1.svg" alt="WebTune Logo" className={styles.logoImage} />
+          
+
+            <img src="/konfigurator/logo1.svg" alt="WebTune  Logo" className={styles.logoImage} />
             {/* <HomeIcon /> */}
             <ListItemText />
           </ListItem>
