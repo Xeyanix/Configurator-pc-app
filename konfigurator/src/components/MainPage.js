@@ -79,7 +79,7 @@ function MainPage() {
                                 </img>
                             </div>
                             <div className={`${styles.header} ${styles.header_right}`}>
-                                <h2>O nas xXDDD</h2>
+                                <h2>O nas </h2>
                                 <p>Web Tune to firma zajmująca się tworzeniem profesjonalnych stron internetowych oraz budowaniem komputerów na zamówienie od lat. Nasz zespół ekspertów składa się z doświadczonych programistów, grafików i specjalistów od sprzętu komputerowego.</p>
                                 <p>Jesteśmy dumni z naszego podejścia do projektowania, które skupia się na precyzji, kreatywności i zadowoleniu klienta. Bez względu na to, czy potrzebujesz nowoczesnej strony internetowej dla swojej firmy czy też wydajnego komputera do pracy, jesteśmy tutaj, aby Ci pomóc.</p>
                                 <p>Sprawdź naszą ofertę</p>
